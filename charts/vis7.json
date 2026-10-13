@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "title": {
+    "text": "How Much Does Recording Activity Vary Through the Year?",
+   "subtitle": "Boxplots summarise monthly variation; dots show individual months",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666"
+  },
+
+  "width": 700,
+  "height": 360,
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_month_family_summary.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month": "number",
+        "records": "number",
+        "uniqueSpecies": "number"
+      }
+    }
+  },
+
+  "layer": [
+    {
+      "mark": {
+        "type": "boxplot",
+        "extent": "min-max",
+        "size": 55
+      },
+
+      "encoding": {
+        "x": {
+          "field": "family",
+          "type": "nominal",
+          "title": "Bee family",
+          "axis": {
+            "labelAngle": 0
+          }
+        },
+
+        "y": {
+          "field": "records",
+          "type": "quantitative",
+          "title": "Monthly occurrence records"
+        },
+
+        "color": {
+          "field": "family",
+          "type": "nominal",
+          "legend": null
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 45,
+        "opacity": 0.6
+      },
+
+      "encoding": {
+        "x": {
+          "field": "family",
+          "type": "nominal"
+        },
+
+        "y": {
+          "field": "records",
+          "type": "quantitative"
+        },
+
+        "color": {
+          "field": "family",
+          "type": "nominal",
+          "legend": null
+        },
+
+        "tooltip": [
+          {
+            "field": "family",
+            "type": "nominal",
+            "title": "Bee family"
+          },
+          {
+            "field": "monthName",
+            "type": "ordinal",
+            "title": "Month"
+          },
+          {
+            "field": "records",
+            "type": "quantitative",
+            "title": "Occurrence records",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    }
+  }
+}
