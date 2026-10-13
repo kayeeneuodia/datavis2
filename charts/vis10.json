@@ -1,0 +1,419 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+
+  "width": 760,
+  "height": 520,
+  "padding": {
+    "left": 130,
+    "right": 130,
+    "top": 70,
+    "bottom": 30
+  },
+
+  "title": {
+    "text": "How Are Bee Records Distributed Across States and Families?",
+    "subtitle": "Thicker flows represent more ALA bee occurrence records",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666"
+  },
+
+  "data": [
+    {
+      "name": "raw",
+      "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_family_summary.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "records": "number",
+          "uniqueSpecies": "number"
+        }
+      }
+    },
+
+    {
+      "name": "states",
+      "source": "raw",
+
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["stateProvince"],
+          "fields": ["records"],
+          "ops": ["sum"],
+          "as": ["total"]
+        },
+
+        {
+          "type": "collect",
+          "sort": {
+            "field": "total",
+            "order": "descending"
+          }
+        },
+
+        {
+          "type": "window",
+          "ops": ["row_number"],
+          "as": ["index"]
+        },
+
+        {
+          "type": "formula",
+          "expr": "60 + (datum.index - 1) * 48",
+          "as": "y"
+        }
+      ]
+    },
+
+    {
+      "name": "families",
+      "source": "raw",
+
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["family"],
+          "fields": ["records"],
+          "ops": ["sum"],
+          "as": ["total"]
+        },
+
+        {
+          "type": "collect",
+          "sort": {
+            "field": "total",
+            "order": "descending"
+          }
+        },
+
+        {
+          "type": "window",
+          "ops": ["row_number"],
+          "as": ["index"]
+        },
+
+        {
+          "type": "formula",
+          "expr": "110 + (datum.index - 1) * 65",
+          "as": "y"
+        }
+      ]
+    },
+
+    {
+      "name": "links",
+      "source": "raw",
+
+      "transform": [
+        {
+          "type": "lookup",
+          "from": "states",
+          "key": "stateProvince",
+          "fields": ["stateProvince"],
+          "values": ["y"],
+          "as": ["sourceY"]
+        },
+
+        {
+          "type": "lookup",
+          "from": "families",
+          "key": "family",
+          "fields": ["family"],
+          "values": ["y"],
+          "as": ["targetY"]
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "linkWidth",
+      "type": "sqrt",
+      "domain": {
+        "data": "links",
+        "field": "records"
+      },
+      "range": [1, 18]
+    },
+
+    {
+      "name": "familyColor",
+      "type": "ordinal",
+      "domain": [
+        "Apidae",
+        "Colletidae",
+        "Halictidae",
+        "Megachilidae",
+        "Stenotritidae"
+      ],
+      "range": [
+        "#4E79A7",
+        "#F28E2B",
+        "#E15759",
+        "#76B7B2",
+        "#59A14F"
+      ]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rule",
+      "from": {
+        "data": "links"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 130
+          },
+
+          "x2": {
+            "signal": "width - 130"
+          },
+
+          "y": {
+            "field": "sourceY"
+          },
+
+          "y2": {
+            "field": "targetY"
+          },
+
+          "stroke": {
+            "scale": "familyColor",
+            "field": "family"
+          },
+
+          "strokeWidth": {
+            "scale": "linkWidth",
+            "field": "records"
+          },
+
+          "strokeOpacity": {
+            "value": 0.35
+          },
+
+          "tooltip": {
+            "signal": "{'State / Territory': datum.stateProvince, 'Bee family': datum.family, 'Occurrence records': format(datum.records, ','), 'Unique recorded taxa': format(datum.uniqueSpecies, ',')}"
+          }
+        },
+
+        "hover": {
+          "strokeOpacity": {
+            "value": 0.85
+          }
+        }
+      }
+    },
+
+    {
+      "type": "symbol",
+      "from": {
+        "data": "states"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 130
+          },
+
+          "y": {
+            "field": "y"
+          },
+
+          "shape": {
+            "value": "square"
+          },
+
+          "size": {
+            "value": 220
+          },
+
+          "fill": {
+            "value": "#555555"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+      "from": {
+        "data": "states"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 115
+          },
+
+          "y": {
+            "field": "y"
+          },
+
+          "text": {
+            "field": "stateProvince"
+          },
+
+          "align": {
+            "value": "right"
+          },
+
+          "baseline": {
+            "value": "middle"
+          },
+
+          "fontSize": {
+            "value": 12
+          },
+
+          "fontWeight": {
+            "value": "bold"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "symbol",
+      "from": {
+        "data": "families"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "width - 130"
+          },
+
+          "y": {
+            "field": "y"
+          },
+
+          "shape": {
+            "value": "square"
+          },
+
+          "size": {
+            "value": 220
+          },
+
+          "fill": {
+            "scale": "familyColor",
+            "field": "family"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+      "from": {
+        "data": "families"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "width - 115"
+          },
+
+          "y": {
+            "field": "y"
+          },
+
+          "text": {
+            "field": "family"
+          },
+
+          "align": {
+            "value": "left"
+          },
+
+          "baseline": {
+            "value": "middle"
+          },
+
+          "fontSize": {
+            "value": 12
+          },
+
+          "fontWeight": {
+            "value": "bold"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 130
+          },
+
+          "y": {
+            "value": 20
+          },
+
+          "text": {
+            "value": "STATE / TERRITORY"
+          },
+
+          "align": {
+            "value": "center"
+          },
+
+          "fontSize": {
+            "value": 12
+          },
+
+          "fontWeight": {
+            "value": "bold"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "width - 130"
+          },
+
+          "y": {
+            "value": 20
+          },
+
+          "text": {
+            "value": "BEE FAMILY"
+          },
+
+          "align": {
+            "value": "center"
+          },
+
+          "fontSize": {
+            "value": 12
+          },
+
+          "fontWeight": {
+            "value": "bold"
+          }
+        }
+      }
+    }
+  ]
+}
