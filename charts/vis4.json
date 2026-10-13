@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "title": {
+    "text": "When Are Different Bee Families Most Commonly Recorded?",
+    "subtitle": "Darker cells indicate more recorded bee occurrences",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666"
+  },
+
+  "width": 700,
+  "height": 260,
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_month_family_summary.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month": "number",
+        "records": "number",
+        "uniqueSpecies": "number"
+      }
+    }
+  },
+
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+
+  "encoding": {
+    "x": {
+      "field": "monthName",
+      "type": "ordinal",
+      "title": "Month",
+      "sort": [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      ]
+    },
+
+    "y": {
+      "field": "family",
+      "type": "nominal",
+      "title": "Bee family"
+    },
+
+    "color": {
+      "field": "records",
+      "type": "quantitative",
+      "title": "Occurrence records",
+      "scale": {
+        "scheme": "orangered"
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "family",
+        "type": "nominal",
+        "title": "Bee family"
+      },
+      {
+        "field": "monthName",
+        "type": "ordinal",
+        "title": "Month"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "Occurrence records",
+        "format": ","
+      },
+      {
+        "field": "uniqueSpecies",
+        "type": "quantitative",
+        "title": "Unique recorded taxa",
+        "format": ","
+      }
+    ]
+  },
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    }
+  }
+}
