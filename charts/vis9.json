@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "title": {
+    "text": "How Does the Mix of Bee Families Change Through the Year?",
+    "subtitle": "Band thickness shows each family's monthly share of recorded occurrences",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666"
+  },
+
+  "width": 700,
+  "height": 380,
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_month_family_summary.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month": "number",
+        "records": "number",
+        "uniqueSpecies": "number"
+      }
+    }
+  },
+
+  "mark": {
+    "type": "area",
+    "interpolate": "monotone",
+    "opacity": 0.85
+  },
+
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "title": "Month",
+      "sort": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+
+      "axis": {
+        "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value - 1]",
+        "labelAngle": 0
+      }
+    },
+
+    "y": {
+      "field": "records",
+      "type": "quantitative",
+      "aggregate": "sum",
+      "stack": "center",
+      "axis": null
+    },
+
+    "color": {
+      "field": "family",
+      "type": "nominal",
+      "title": "Bee family"
+    },
+
+    "tooltip": [
+      {
+        "field": "family",
+        "type": "nominal",
+        "title": "Bee family"
+      },
+      {
+        "field": "monthName",
+        "type": "ordinal",
+        "title": "Month"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "Occurrence records",
+        "format": ","
+      },
+      {
+        "field": "uniqueSpecies",
+        "type": "quantitative",
+        "title": "Unique recorded taxa",
+        "format": ","
+      }
+    ]
+  },
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "right"
+    }
+  }
+}
