@@ -1,0 +1,214 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "title": {
+    "text": "Bee Diversity Does Not Always Match Managed Hive Activity",
+    "subtitle": "State rankings based on recorded bee taxa and managed hives",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666"
+  },
+
+  "width": 620,
+  "height": 360,
+
+  "data": {
+    "values": [
+      {"state": "Queensland", "measure": "Recorded bee diversity", "rank": 1},
+      {"state": "Queensland", "measure": "Managed hives", "rank": 3},
+
+      {"state": "Western Australia", "measure": "Recorded bee diversity", "rank": 2},
+      {"state": "Western Australia", "measure": "Managed hives", "rank": 5},
+
+      {"state": "New South Wales", "measure": "Recorded bee diversity", "rank": 3},
+      {"state": "New South Wales", "measure": "Managed hives", "rank": 1},
+
+      {"state": "Victoria", "measure": "Recorded bee diversity", "rank": 4},
+      {"state": "Victoria", "measure": "Managed hives", "rank": 2},
+
+      {"state": "South Australia", "measure": "Recorded bee diversity", "rank": 5},
+      {"state": "South Australia", "measure": "Managed hives", "rank": 4},
+
+      {"state": "Tasmania", "measure": "Recorded bee diversity", "rank": 6},
+      {"state": "Tasmania", "measure": "Managed hives", "rank": 6}
+    ]
+  },
+
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3
+      },
+
+      "encoding": {
+        "x": {
+          "field": "measure",
+          "type": "nominal",
+          "sort": [
+            "Recorded bee diversity",
+            "Managed hives"
+          ],
+          "title": null,
+          "axis": {
+            "labelAngle": 0,
+            "labelFontSize": 13,
+            "labelFontWeight": "bold"
+          }
+        },
+
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank",
+          "scale": {
+            "domain": [6.5, 0.5]
+          },
+          "axis": {
+            "values": [1, 2, 3, 4, 5, 6],
+            "grid": true
+          }
+        },
+
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "title": "State",
+          "scale": {
+            "domain": [
+              "Queensland",
+              "Western Australia",
+              "New South Wales",
+              "Victoria",
+              "South Australia",
+              "Tasmania"
+            ],
+            "range": [
+              "#F28E2B",
+              "#EDC948",
+              "#4E79A7",
+              "#59A14F",
+              "#E15759",
+              "#76B7B2"
+            ]
+          },
+          "legend": {
+            "orient": "right",
+            "title": "State",
+            "labelFontSize": 12,
+            "titleFontSize": 12
+          }
+        },
+
+        "detail": {
+          "field": "state"
+        },
+
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Measure"
+          },
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank"
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 120
+      },
+
+      "encoding": {
+        "x": {
+          "field": "measure",
+          "type": "nominal",
+          "sort": [
+            "Recorded bee diversity",
+            "Managed hives"
+          ]
+        },
+
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "domain": [6.5, 0.5]
+          }
+        },
+
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Queensland",
+              "Western Australia",
+              "New South Wales",
+              "Victoria",
+              "South Australia",
+              "Tasmania"
+            ],
+            "range": [
+              "#F28E2B",
+              "#EDC948",
+              "#4E79A7",
+              "#59A14F",
+              "#E15759",
+              "#76B7B2"
+            ]
+          },
+          "legend": null
+        },
+
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "measure",
+            "type": "nominal",
+            "title": "Measure"
+          },
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank"
+          }
+        ]
+      }
+    }
+  ],
+
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    }
+  }
+}
