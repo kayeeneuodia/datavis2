@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pollinators in Australia</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="hero">
+    <h1>Pollinators in Australia</h1>
+    <p>
+      Exploring the geography, seasonality and diversity of Australia's recorded bees,
+      alongside the managed beekeeping industry.
+    </p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Where is recorded bee diversity highest?</h2>
+      <p>
+        Recorded bee diversity varies substantially across Australian states and territories.
+        The map below shows the number of unique bee taxa represented in Atlas of Living Australia records.
+      </p>
+
+      <div id="vis1" class="visualisation"></div>
+
+      <p class="note">
+        Occurrence records reflect observation and collection effort and should not be interpreted
+        as estimates of bee population abundance.
+      </p>
+    </section>
+
+
+    <section>
+      <h2>Where have bees been recorded?</h2>
+      <p>
+        Individual occurrence records reveal where bee observations are geographically concentrated
+        and how records from different bee families are distributed.
+      </p>
+
+      <div id="vis2" class="visualisation"></div>
+    </section>
+
+
+    <section>
+      <h2>Where are the major recording hotspots?</h2>
+      <p>
+        Aggregating observations into geographic grid cells makes major concentrations of bee records easier to identify.
+      </p>
+
+      <div id="vis3" class="visualisation"></div>
+    </section>
+
+
+    <section>
+      <h2>How does recording activity change through the year?</h2>
+      <p>
+        Monthly records show strong seasonal differences among bee families.
+      </p>
+
+      <div id="vis4" class="visualisation"></div>
+    </section>
+
+
+    <section>
+      <h2>Which bee families dominate the records?</h2>
+      <p>
+        The family composition of the ALA data is uneven. Some bee families account for far more
+        recorded occurrences than others.
+      </p>
+
+      <div id="vis5" class="visualisation"></div>
+    </section>
+
+
+    <section>
+      <h2>Does recorded diversity align with managed beekeeping?</h2>
+      <p>
+        Comparing recorded bee diversity with managed hive activity shows that states ranking highly
+        in one measure do not necessarily rank highly in the other.
+      </p>
+
+      <div id="vis6" class="visualisation"></div>
+    </section>
+
+
+    <section>
+      <h2>Which families show the strongest seasonal variation?</h2>
+      <p>
+        Monthly distributions reveal that some bee families vary much more throughout the year than others.
+      </p>
+
+      <div id="vis7" class="visualisation"></div>
+    </section>
+
+
+    <section>
+      <h2>Does greater diversity mean more managed hives?</h2>
+      <p>
+        The relationship between recorded taxonomic diversity, managed hives and beekeeper numbers
+        differs substantially between states.
+      </p>
+
+      <div id="vis8" class="visualisation"></div>
+    </section>
+
+
+    <section>
+      <h2>How does the family mix change seasonally?</h2>
+      <p>
+        The overall composition of recorded bee families shifts through the year,
+        with particularly strong changes during spring.
+      </p>
+
+      <div id="vis9" class="visualisation"></div>
+    </section>
+
+
+    <section>
+      <h2>How are state records distributed across bee families?</h2>
+      <p>
+        The final flow diagram links each state and territory with the bee families represented in its occurrence records.
+      </p>
+
+      <div id="vis10" class="visualisation"></div>
+
+      <p class="note">
+        Hover over the flows to inspect the state, bee family and occurrence count.
+      </p>
+    </section>
+
+
+    <section class="conclusion">
+      <h2>What does the data tell us?</h2>
+
+      <p>
+        Australia's recorded bee diversity is geographically and seasonally uneven.
+        Queensland and Western Australia show high recorded taxonomic diversity, while
+        New South Wales has the largest managed hive population among the comparable DAFF regions.
+        The contrast highlights the difference between wild bee biodiversity records and managed beekeeping activity.
+      </p>
+    </section>
+
+
+    <section class="sources">
+      <h2>Data Sources</h2>
+
+      <p>
+        Atlas of Living Australia (ALA) — bee occurrence records.
+      </p>
+
+      <p>
+        Australian Government Department of Agriculture, Fisheries and Forestry / ABARES —
+        beekeeper and managed hive statistics.
+      </p>
+
+      <p>
+        Australian Bureau of Statistics — State and Territory geographic boundaries.
+      </p>
+    </section>
+
+  </main>
+
+
+  <script>
+    const options = {
+      actions: false
+    };
+
+    vegaEmbed("#vis1", "charts/vis1.json", options);
+    vegaEmbed("#vis2", "charts/vis2.json", options);
+    vegaEmbed("#vis3", "charts/vis3.json", options);
+    vegaEmbed("#vis4", "charts/vis4.json", options);
+    vegaEmbed("#vis5", "charts/vis5.json", options);
+    vegaEmbed("#vis6", "charts/vis6.json", options);
+    vegaEmbed("#vis7", "charts/vis7.json", options);
+    vegaEmbed("#vis8", "charts/vis8.json", options);
+    vegaEmbed("#vis9", "charts/vis9.json", options);
+    vegaEmbed("#vis10", "charts/vis10.json", options);
+  </script>
+
+</body>
+
+</html>
