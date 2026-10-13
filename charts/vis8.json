@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "title": {
+    "text": "Does Greater Bee Diversity Mean More Managed Hives?",
+    "subtitle": "Bubble size represents total registered beekeepers in each state",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666"
+  },
+
+  "width": 650,
+  "height": 400,
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_comparison_ALA_DAFF.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "alaUniqueTaxa": "number",
+        "totalBeekeepers": "number",
+        "hives": "number",
+        "hivesPerBeekeeper": "number"
+      }
+    }
+  },
+
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "white",
+    "strokeWidth": 1.5
+  },
+
+  "encoding": {
+    "x": {
+      "field": "alaUniqueTaxa",
+      "type": "quantitative",
+      "title": "Unique recorded bee taxa (ALA)",
+      "scale": {
+        "zero": false
+      }
+    },
+
+    "y": {
+  "field": "hives",
+  "type": "quantitative",
+  "title": "Managed hives (DAFF)",
+  "axis": {
+  "values": [0, 50000, 100000, 150000, 200000, 250000, 300000],
+  "labelExpr": "format(datum.value, ',')",
+  "grid": true
+  }
+
+
+    },
+
+    "size": {
+      "field": "totalBeekeepers",
+      "type": "quantitative",
+      "title": "Total beekeepers",
+      "scale": {
+        "range": [200, 1800]
+      }
+    },
+
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State"
+    },
+
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "alaUniqueTaxa",
+        "type": "quantitative",
+        "title": "Unique recorded bee taxa",
+        "format": ","
+      },
+      {
+        "field": "hives",
+        "type": "quantitative",
+        "title": "Managed hives",
+        "format": ","
+      },
+      {
+        "field": "totalBeekeepers",
+        "type": "quantitative",
+        "title": "Total beekeepers",
+        "format": ","
+      },
+      {
+        "field": "hivesPerBeekeeper",
+        "type": "quantitative",
+        "title": "Hives per beekeeper",
+        "format": ".1f"
+      }
+    ]
+  },
+
+  "config": {
+    "view": {
+      "stroke": null
+    },
+
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "orient": "right"
+    }
+  }
+}
