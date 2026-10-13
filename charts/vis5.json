@@ -1,0 +1,193 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+
+  "width": 700,
+  "height": 420,
+  "padding": 5,
+
+  "title": {
+    "text": "Which Bee Families Dominate the Records?",
+    "subtitle": "Rectangle area represents the number of ALA occurrence records",
+    "anchor": "start",
+    "fontSize": 20,
+    "subtitleFontSize": 13,
+    "subtitleColor": "#666"
+  },
+
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        {"id": "root", "parent": null},
+
+        {
+          "id": "Apidae",
+          "parent": "root",
+          "records": 43780,
+          "uniqueSpecies": 171,
+          "uniqueGenera": 13
+        },
+
+        {
+          "id": "Colletidae",
+          "parent": "root",
+          "records": 38413,
+          "uniqueSpecies": 676,
+          "uniqueGenera": 31
+        },
+
+        {
+          "id": "Halictidae",
+          "parent": "root",
+          "records": 33235,
+          "uniqueSpecies": 266,
+          "uniqueGenera": 9
+        },
+
+        {
+          "id": "Megachilidae",
+          "parent": "root",
+          "records": 7768,
+          "uniqueSpecies": 148,
+          "uniqueGenera": 7
+        },
+
+        {
+          "id": "Stenotritidae",
+          "parent": "root",
+          "records": 90,
+          "uniqueSpecies": 13,
+          "uniqueGenera": 2
+        }
+      ],
+
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+
+        {
+          "type": "treemap",
+          "field": "records",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "round": true,
+          "method": "squarify",
+          "ratio": 1.6,
+          "paddingInner": 3,
+          "size": [
+            {"signal": "width"},
+            {"signal": "height"}
+          ]
+        }
+      ]
+    },
+
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth === 1"
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {
+        "data": "leaves",
+        "field": "id"
+      },
+      "range": {
+        "scheme": "tableau10"
+      }
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"},
+
+          "fill": {
+            "scale": "color",
+            "field": "id"
+          },
+
+          "stroke": {
+            "value": "white"
+          },
+
+          "strokeWidth": {
+            "value": 2
+          },
+
+          "tooltip": {
+            "signal": "{'Bee family': datum.id, 'Occurrence records': format(datum.records, ','), 'Unique recorded taxa': format(datum.uniqueSpecies, ','), 'Unique genera': format(datum.uniqueGenera, ',')}"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+  "from": {
+    "data": "leaves"
+  },
+
+  "encode": {
+    "enter": {
+      "x": {
+        "signal": "(datum.x0 + datum.x1) / 2"
+      },
+
+      "y": {
+        "signal": "(datum.y0 + datum.y1) / 2"
+      },
+
+      "text": {
+        "signal": "(datum.x1 - datum.x0 > 110 && datum.y1 - datum.y0 > 28) ? datum.id : ''"
+      },
+
+      "align": {
+        "value": "center"
+      },
+
+      "baseline": {
+        "value": "middle"
+      },
+
+      "fontSize": {
+        "signal": "(datum.x1 - datum.x0 > 180) ? 15 : 11"
+      },
+
+      "fontWeight": {
+        "value": "bold"
+      },
+
+      "fill": {
+        "value": "white"
+      }
+        }
+      }
+    }
+  ]
+}
