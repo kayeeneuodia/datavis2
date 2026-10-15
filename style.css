@@ -93,7 +93,7 @@ main {
 }
 
 
-/* CHART TITLES FOR SIDE-BY-SIDE VISUALS */
+/* CHART TITLES */
 
 .chart-title {
   margin: 0 0 3px;
@@ -109,7 +109,7 @@ main {
 }
 
 
-/* SIDE BY SIDE GRID */
+/* SIDE-BY-SIDE GRID */
 
 .chart-grid {
   display: grid;
@@ -131,7 +131,7 @@ main {
 }
 
 
-/* VEGA VISUALISATION */
+/* VISUALISATIONS */
 
 .visualisation {
   display: flex;
@@ -148,13 +148,30 @@ main {
   justify-content: center;
 }
 
-
-/* MAKE SVG / CANVAS FIT THE CONTAINER */
-
 .visualisation svg,
 .visualisation canvas {
   max-width: 100%;
   height: auto;
+}
+
+
+/* INSIGHT BOX */
+
+.insight-box {
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: #faf6e8;
+  border-left: 4px solid #d4a017;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.insight-box strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
 }
 
 
@@ -270,6 +287,11 @@ main {
   .chart-subtitle {
     font-size: 12px;
     margin-bottom: 14px;
+  }
+
+  .insight-box {
+    padding: 14px 15px;
+    font-size: 13px;
   }
 
   .conclusion,
