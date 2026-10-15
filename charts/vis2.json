@@ -5,27 +5,30 @@
     "text": "Where Have Bees Been Recorded in Australia?",
     "subtitle": "A sample of Atlas of Living Australia bee occurrence records",
     "anchor": "start",
-    "fontSize": 20,
-    "subtitleFontSize": 13,
+    "fontSize": 17,
+    "subtitleFontSize": 11,
     "subtitleColor": "#666"
   },
 
   "width": 470,
-  "height": 360,
+  "height": 330,
 
   "projection": {
-  "type": "equalEarth"
-},
-  
+    "type": "equalEarth",
+    "center": [134, -28],
+    "scale": 470,
+    "translate": [235, 165]
+  },
+
   "layer": [
     {
-       "data": {
-    "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
-    "format": {
-      "type": "json",
-      "property": "features"
-    }
-  },
+      "data": {
+        "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
 
       "mark": {
         "type": "geoshape",
@@ -49,9 +52,9 @@
       },
 
       "mark": {
-      "type": "circle",
-      "size": 14,
-      "opacity": 0.45
+        "type": "circle",
+        "size": 14,
+        "opacity": 0.5
       },
 
       "encoding": {
@@ -68,7 +71,28 @@
         "color": {
           "field": "family",
           "type": "nominal",
-          "title": "Bee family"
+          "title": "Bee family",
+          "scale": {
+            "domain": [
+              "Apidae",
+              "Colletidae",
+              "Halictidae",
+              "Megachilidae",
+              "Stenotritidae"
+            ],
+            "range": [
+              "#4E79A7",
+              "#F28E2B",
+              "#E15759",
+              "#76B7B2",
+              "#59A14F"
+            ]
+          },
+          "legend": {
+            "orient": "right",
+            "labelFontSize": 10,
+            "titleFontSize": 11
+          }
         },
 
         "tooltip": [
@@ -98,19 +122,9 @@
     }
   ],
 
-  "resolve": {
-    "scale": {
-      "color": "independent"
-    }
-  },
-
   "config": {
     "view": {
       "stroke": null
-    },
-    "legend": {
-      "labelFontSize": 12,
-      "titleFontSize": 12
     }
   }
 }
