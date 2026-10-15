@@ -43,7 +43,8 @@
           "axis": {
             "labelFontSize": 11,
             "titleFontSize": 12,
-            "format": ","
+            "format": ",",
+            "labelExpr": "format(datum.value, ',')"
           }
         },
 
