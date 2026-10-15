@@ -16,7 +16,7 @@
   "projection": {
     "type": "equalEarth",
     "center": [134, -28],
-    "scale": 470,
+    "scale": 560,
     "translate": [235, 165]
   },
 
