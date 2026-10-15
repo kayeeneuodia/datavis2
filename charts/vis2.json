@@ -14,8 +14,7 @@
   "height": 360,
 
   "projection": {
-  "type": "equalEarth",
-  "scale": 850
+  "type": "equalEarth"
 },
   
   "layer": [
