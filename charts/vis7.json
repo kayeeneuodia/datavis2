@@ -1,17 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
 
-  "title": {
-    "text": "How Much Does Recording Activity Vary Through the Year?",
-    "subtitle": "Boxplots summarise monthly variation; dots show individual months",
-    "anchor": "start",
-    "fontSize": 17,
-    "subtitleFontSize": 11,
-    "subtitleColor": "#666"
-  },
-
-  "width": 430,
-  "height": 260,
+  "width": 400,
+  "height": 255,
 
   "data": {
     "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_month_family_summary.csv",
@@ -30,8 +21,9 @@
       "mark": {
         "type": "boxplot",
         "extent": "min-max",
-        "size": 40
+        "size": 42
       },
+
       "encoding": {
         "x": {
           "field": "family",
@@ -40,47 +32,86 @@
           "axis": {
             "labelAngle": 0,
             "labelFontSize": 10,
-            "titleFontSize": 11
+            "titleFontSize": 12
           }
         },
+
         "y": {
           "field": "records",
           "type": "quantitative",
           "title": "Monthly occurrence records",
           "axis": {
-            "labelFontSize": 10,
-            "titleFontSize": 11,
+            "labelFontSize": 11,
+            "titleFontSize": 12,
             "format": ","
           }
         },
+
         "color": {
           "field": "family",
           "type": "nominal",
-          "legend": null
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Apidae",
+              "Colletidae",
+              "Halictidae",
+              "Megachilidae",
+              "Stenotritidae"
+            ],
+            "range": [
+              "#4E79A7",
+              "#F28E2B",
+              "#E15759",
+              "#76B7B2",
+              "#59A14F"
+            ]
+          }
         }
       }
     },
+
     {
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 35,
-        "opacity": 0.6
+        "size": 38,
+        "opacity": 0.65
       },
+
       "encoding": {
         "x": {
           "field": "family",
           "type": "nominal"
         },
+
         "y": {
           "field": "records",
           "type": "quantitative"
         },
+
         "color": {
           "field": "family",
           "type": "nominal",
-          "legend": null
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Apidae",
+              "Colletidae",
+              "Halictidae",
+              "Megachilidae",
+              "Stenotritidae"
+            ],
+            "range": [
+              "#4E79A7",
+              "#F28E2B",
+              "#E15759",
+              "#76B7B2",
+              "#59A14F"
+            ]
+          }
         },
+
         "tooltip": [
           {
             "field": "family",
