@@ -1,17 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
 
-  "title": {
-    "text": "When Are Different Bee Families Most Commonly Recorded?",
-    "subtitle": "Darker cells indicate more recorded bee occurrences",
-    "anchor": "start",
-    "fontSize": 17,
-    "subtitleFontSize": 11,
-    "subtitleColor": "#666"
-  },
-
-  "width": 430,
-  "height": 260,
+  "width": 400,
+  "height": 255,
 
   "data": {
     "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_month_family_summary.csv",
@@ -41,9 +32,9 @@
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
       ],
       "axis": {
-        "labelFontSize": 10,
-        "titleFontSize": 11,
-        "labelAngle": 0
+        "labelAngle": 0,
+        "labelFontSize": 11,
+        "titleFontSize": 12
       }
     },
 
@@ -52,8 +43,8 @@
       "type": "nominal",
       "title": "Bee family",
       "axis": {
-        "labelFontSize": 10,
-        "titleFontSize": 11
+        "labelFontSize": 11,
+        "titleFontSize": 12
       }
     },
 
@@ -65,8 +56,11 @@
         "scheme": "orangered"
       },
       "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "gradientLength": 220,
         "labelFontSize": 10,
-        "titleFontSize": 10
+        "titleFontSize": 11
       }
     },
 
