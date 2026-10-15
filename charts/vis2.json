@@ -10,13 +10,14 @@
     "subtitleColor": "#666"
   },
 
-  "width": 700,
-  "height": 500,
+  "width": 470,
+  "height": 360,
 
   "projection": {
-  "type": "equalEarth"
+  "type": "equalEarth",
+  "scale": 850
 },
-
+  
   "layer": [
     {
        "data": {
