@@ -3,14 +3,15 @@
 
   "title": {
     "text": "How Much Does Recording Activity Vary Through the Year?",
-   "subtitle": "Boxplots summarise monthly variation; dots show individual months",
-    "fontSize": 20,
-    "subtitleFontSize": 13,
+    "subtitle": "Boxplots summarise monthly variation; dots show individual months",
+    "anchor": "start",
+    "fontSize": 17,
+    "subtitleFontSize": 11,
     "subtitleColor": "#666"
   },
 
-  "width": 700,
-  "height": 360,
+  "width": 430,
+  "height": 260,
 
   "data": {
     "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_month_family_summary.csv",
@@ -29,25 +30,29 @@
       "mark": {
         "type": "boxplot",
         "extent": "min-max",
-        "size": 55
+        "size": 40
       },
-
       "encoding": {
         "x": {
           "field": "family",
           "type": "nominal",
           "title": "Bee family",
           "axis": {
-            "labelAngle": 0
+            "labelAngle": 0,
+            "labelFontSize": 10,
+            "titleFontSize": 11
           }
         },
-
         "y": {
           "field": "records",
           "type": "quantitative",
-          "title": "Monthly occurrence records"
+          "title": "Monthly occurrence records",
+          "axis": {
+            "labelFontSize": 10,
+            "titleFontSize": 11,
+            "format": ","
+          }
         },
-
         "color": {
           "field": "family",
           "type": "nominal",
@@ -55,32 +60,27 @@
         }
       }
     },
-
     {
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 45,
+        "size": 35,
         "opacity": 0.6
       },
-
       "encoding": {
         "x": {
           "field": "family",
           "type": "nominal"
         },
-
         "y": {
           "field": "records",
           "type": "quantitative"
         },
-
         "color": {
           "field": "family",
           "type": "nominal",
           "legend": null
         },
-
         "tooltip": [
           {
             "field": "family",
@@ -106,11 +106,6 @@
   "config": {
     "view": {
       "stroke": null
-    },
-
-    "axis": {
-      "labelFontSize": 12,
-      "titleFontSize": 12
     }
   }
 }
