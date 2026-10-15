@@ -93,6 +93,22 @@ main {
 }
 
 
+/* CHART TITLES FOR SIDE-BY-SIDE VISUALS */
+
+.chart-title {
+  margin: 0 0 3px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.chart-subtitle {
+  margin: 0 0 18px;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
 /* SIDE BY SIDE GRID */
 
 .chart-grid {
@@ -115,7 +131,7 @@ main {
 }
 
 
-/* VEGA VIS */
+/* VEGA VISUALISATION */
 
 .visualisation {
   display: flex;
@@ -127,10 +143,13 @@ main {
 
 .visualisation .vega-embed {
   max-width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 
-/* MAKE SVG/CANVAS FIT CONTAINER */
+/* MAKE SVG / CANVAS FIT THE CONTAINER */
 
 .visualisation svg,
 .visualisation canvas {
@@ -242,6 +261,15 @@ main {
 
   .chart-block {
     padding: 24px 0;
+  }
+
+  .chart-title {
+    font-size: 18px;
+  }
+
+  .chart-subtitle {
+    font-size: 12px;
+    margin-bottom: 14px;
   }
 
   .conclusion,
