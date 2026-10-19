@@ -2,16 +2,13 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
 
   "title": {
-    "text": "How Does the Mix of Bee Families Change Through the Year?",
-    "subtitle": "Band thickness shows each family's monthly share of recorded occurrences",
+    "text": "How Does Each Bee Family Change Through the Year?",
+    "subtitle": "Each panel shows monthly records; labels mark each family's peak",
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
-
-  "width": 700,
-  "height": 380,
 
   "data": {
     "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_month_family_summary.csv",
@@ -25,63 +22,232 @@
     }
   },
 
-  "mark": {
-    "type": "area",
-    "interpolate": "monotone",
-    "opacity": 0.85
-  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "peakRank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "records",
+          "order": "descending"
+        }
+      ],
+      "groupby": [
+        "family"
+      ]
+    }
+  ],
 
-  "encoding": {
-    "x": {
-      "field": "month",
-      "type": "ordinal",
-      "title": "Month",
-      "sort": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-
-      "axis": {
-        "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value - 1]",
-        "labelAngle": 0
-      }
-    },
-
-    "y": {
-      "field": "records",
-      "type": "quantitative",
-      "aggregate": "sum",
-      "stack": "center",
-      "axis": null
-    },
-
-    "color": {
+  "facet": {
+    "row": {
       "field": "family",
       "type": "nominal",
-      "title": "Bee family"
-    },
+      "sort": [
+        "Apidae",
+        "Colletidae",
+        "Halictidae",
+        "Megachilidae",
+        "Stenotritidae"
+      ],
+      "header": {
+        "title": null,
+        "labelFontSize": 13,
+        "labelFontWeight": "bold",
+        "labelAngle": 0,
+        "labelPadding": 10
+      }
+    }
+  },
 
-    "tooltip": [
+  "spec": {
+    "width": 700,
+    "height": 85,
+
+    "layer": [
       {
-        "field": "family",
-        "type": "nominal",
-        "title": "Bee family"
+        "mark": {
+          "type": "line",
+          "interpolate": "monotone",
+          "strokeWidth": 2.5,
+          "point": {
+            "filled": true,
+            "size": 45
+          }
+        },
+
+        "encoding": {
+          "x": {
+            "field": "month",
+            "type": "ordinal",
+            "title": "Month",
+            "sort": [
+              1, 2, 3, 4, 5, 6,
+              7, 8, 9, 10, 11, 12
+            ],
+            "axis": {
+              "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value - 1]",
+              "labelAngle": 0,
+              "labelFontSize": 11,
+              "titleFontSize": 12
+            }
+          },
+
+          "y": {
+            "field": "records",
+            "type": "quantitative",
+            "title": "Records",
+            "axis": {
+              "labelFontSize": 10,
+              "titleFontSize": 11,
+              "tickCount": 3,
+              "format": "~s",
+              "grid": true
+            }
+          },
+
+          "color": {
+            "field": "family",
+            "type": "nominal",
+            "legend": null,
+            "scale": {
+              "domain": [
+                "Apidae",
+                "Colletidae",
+                "Halictidae",
+                "Megachilidae",
+                "Stenotritidae"
+              ],
+              "range": [
+                "#4E79A7",
+                "#F28E2B",
+                "#E15759",
+                "#76B7B2",
+                "#59A14F"
+              ]
+            }
+          },
+
+          "tooltip": [
+            {
+              "field": "family",
+              "type": "nominal",
+              "title": "Bee family"
+            },
+            {
+              "field": "monthName",
+              "type": "ordinal",
+              "title": "Month"
+            },
+            {
+              "field": "records",
+              "type": "quantitative",
+              "title": "Occurrence records",
+              "format": ","
+            },
+            {
+              "field": "uniqueSpecies",
+              "type": "quantitative",
+              "title": "Unique recorded taxa",
+              "format": ","
+            }
+          ]
+        }
       },
+
       {
-        "field": "monthName",
-        "type": "ordinal",
-        "title": "Month"
+        "transform": [
+          {
+            "filter": "datum.peakRank == 1"
+          }
+        ],
+
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "size": 100,
+          "stroke": "white",
+          "strokeWidth": 1
+        },
+
+        "encoding": {
+          "x": {
+            "field": "month",
+            "type": "ordinal"
+          },
+
+          "y": {
+            "field": "records",
+            "type": "quantitative"
+          },
+
+          "color": {
+            "field": "family",
+            "type": "nominal",
+            "legend": null,
+            "scale": {
+              "domain": [
+                "Apidae",
+                "Colletidae",
+                "Halictidae",
+                "Megachilidae",
+                "Stenotritidae"
+              ],
+              "range": [
+                "#4E79A7",
+                "#F28E2B",
+                "#E15759",
+                "#76B7B2",
+                "#59A14F"
+              ]
+            }
+          }
+        }
       },
+
       {
-        "field": "records",
-        "type": "quantitative",
-        "title": "Occurrence records",
-        "format": ","
-      },
-      {
-        "field": "uniqueSpecies",
-        "type": "quantitative",
-        "title": "Unique recorded taxa",
-        "format": ","
+        "transform": [
+          {
+            "filter": "datum.peakRank == 1"
+          }
+        ],
+
+        "mark": {
+          "type": "text",
+          "dy": -12,
+          "fontSize": 11,
+          "fontWeight": "bold",
+          "color": "#333"
+        },
+
+        "encoding": {
+          "x": {
+            "field": "month",
+            "type": "ordinal"
+          },
+
+          "y": {
+            "field": "records",
+            "type": "quantitative"
+          },
+
+          "text": {
+            "field": "records",
+            "type": "quantitative",
+            "format": ","
+          }
+        }
       }
     ]
+  },
+
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
   },
 
   "config": {
@@ -89,15 +255,8 @@
       "stroke": null
     },
 
-    "axis": {
-      "labelFontSize": 12,
-      "titleFontSize": 12
-    },
-
-    "legend": {
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "orient": "right"
+    "facet": {
+      "spacing": 12
     }
   }
 }
