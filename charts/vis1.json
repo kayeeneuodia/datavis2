@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
 
   "title": {
-    "text": "Recorded Bee Diversity Across Australia",
-    "subtitle": "Unique bee taxa recorded in each state and territory",
+    "text": "Recorded Bee Diversity Relative to Recording Effort",
+    "subtitle": "Unique recorded bee taxa per 1,000 ALA occurrence records",
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 13,
@@ -27,18 +27,62 @@
       "from": {
         "data": {
           "values": [
-            {"state": "New South Wales", "uniqueTaxa": 452},
-            {"state": "Victoria", "uniqueTaxa": 452},
-            {"state": "Queensland", "uniqueTaxa": 651},
-            {"state": "South Australia", "uniqueTaxa": 281},
-            {"state": "Western Australia", "uniqueTaxa": 466},
-            {"state": "Tasmania", "uniqueTaxa": 145},
-            {"state": "Northern Territory", "uniqueTaxa": 276},
-            {"state": "Australian Capital Territory", "uniqueTaxa": 193}
+            {
+              "state": "New South Wales",
+              "uniqueTaxa": 452,
+              "records": 18567,
+              "taxaPer1000": 24.3
+            },
+            {
+              "state": "Victoria",
+              "uniqueTaxa": 452,
+              "records": 26261,
+              "taxaPer1000": 17.2
+            },
+            {
+              "state": "Queensland",
+              "uniqueTaxa": 651,
+              "records": 27777,
+              "taxaPer1000": 23.4
+            },
+            {
+              "state": "South Australia",
+              "uniqueTaxa": 281,
+              "records": 14092,
+              "taxaPer1000": 19.9
+            },
+            {
+              "state": "Western Australia",
+              "uniqueTaxa": 466,
+              "records": 13893,
+              "taxaPer1000": 33.5
+            },
+            {
+              "state": "Tasmania",
+              "uniqueTaxa": 145,
+              "records": 4895,
+              "taxaPer1000": 29.6
+            },
+            {
+              "state": "Northern Territory",
+              "uniqueTaxa": 276,
+              "records": 12951,
+              "taxaPer1000": 21.3
+            },
+            {
+              "state": "Australian Capital Territory",
+              "uniqueTaxa": 193,
+              "records": 4844,
+              "taxaPer1000": 39.8
+            }
           ]
         },
         "key": "state",
-        "fields": ["uniqueTaxa"]
+        "fields": [
+          "uniqueTaxa",
+          "records",
+          "taxaPer1000"
+        ]
       }
     }
   ],
@@ -51,11 +95,17 @@
 
   "encoding": {
     "color": {
-      "field": "uniqueTaxa",
+      "field": "taxaPer1000",
       "type": "quantitative",
-      "title": "Unique recorded bee taxa",
+      "title": [
+        "Unique bee taxa",
+        "per 1,000 records"
+      ],
       "scale": {
         "scheme": "yellowgreenblue"
+      },
+      "legend": {
+        "format": ".0f"
       }
     },
 
@@ -66,9 +116,21 @@
         "title": "State / Territory"
       },
       {
+        "field": "taxaPer1000",
+        "type": "quantitative",
+        "title": "Taxa per 1,000 records",
+        "format": ".1f"
+      },
+      {
         "field": "uniqueTaxa",
         "type": "quantitative",
-        "title": "Unique bee taxa",
+        "title": "Unique recorded bee taxa",
+        "format": ","
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "ALA occurrence records",
         "format": ","
       }
     ]
@@ -82,6 +144,7 @@
     "view": {
       "stroke": null
     },
+
     "legend": {
       "labelFontSize": 12,
       "titleFontSize": 12
