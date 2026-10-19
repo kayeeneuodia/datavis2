@@ -3,107 +3,224 @@
 
   "title": {
     "text": "Who Are Australia's Registered Beekeepers?",
-    "subtitle": "About 94% are recreational and 6% are commercial",
+    "subtitle": "100 squares show the national beekeeper mix; squares are rounded",
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "width": 500,
-  "height": 300,
+  "spacing": 30,
 
-  "data": {
-    "sequence": {
-      "start": 1,
-      "stop": 101,
-      "step": 1
-    }
-  },
+  "hconcat": [
+    {
+      "width": 430,
+      "height": 300,
 
-  "transform": [
-    {
-      "calculate": "(datum.data - 1) % 10",
-      "as": "column"
+      "data": {
+        "sequence": {
+          "start": 1,
+          "stop": 101,
+          "step": 1
+        }
+      },
+
+      "transform": [
+        {
+          "calculate": "(datum.data - 1) % 10",
+          "as": "column"
+        },
+        {
+          "calculate": "floor((datum.data - 1) / 10)",
+          "as": "row"
+        },
+        {
+          "calculate": "datum.data <= 6 ? 'Commercial' : 'Recreational'",
+          "as": "beekeeperType"
+        },
+        {
+          "calculate": "datum.beekeeperType == 'Commercial' ? 1868 : 27822",
+          "as": "beekeeperCount"
+        },
+        {
+          "calculate": "datum.beekeeperType == 'Commercial' ? 6.3 : 93.7",
+          "as": "percentage"
+        }
+      ],
+
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 4,
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+        "x": {
+          "field": "column",
+          "type": "ordinal",
+          "axis": null
+        },
+
+        "y": {
+          "field": "row",
+          "type": "ordinal",
+          "axis": null,
+          "sort": "descending"
+        },
+
+        "color": {
+          "field": "beekeeperType",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Commercial",
+              "Recreational"
+            ],
+            "range": [
+              "#E15759",
+              "#F2C94C"
+            ]
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "beekeeperType",
+            "type": "nominal",
+            "title": "Beekeeper type"
+          },
+          {
+            "field": "beekeeperCount",
+            "type": "quantitative",
+            "title": "Registered beekeepers",
+            "format": ","
+          },
+          {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Share (%)",
+            "format": ".1f"
+          }
+        ]
+      }
     },
+
     {
-      "calculate": "floor((datum.data - 1) / 10)",
-      "as": "row"
-    },
-    {
-      "calculate": "datum.data <= 6 ? 'Commercial' : 'Recreational'",
-      "as": "beekeeperType"
-    },
-    {
-      "calculate": "datum.beekeeperType == 'Commercial' ? 1868 : 27822",
-      "as": "beekeeperCount"
-    },
-    {
-      "calculate": "datum.beekeeperType == 'Commercial' ? 6.3 : 93.7",
-      "as": "percentage"
+      "width": 190,
+      "height": 300,
+
+      "data": {
+        "values": [
+          {
+            "type": "Recreational",
+            "percentage": "93.7%",
+            "count": "27,822 beekeepers",
+            "order": 1
+          },
+          {
+            "type": "Commercial",
+            "percentage": "6.3%",
+            "count": "1,868 beekeepers",
+            "order": 2
+          }
+        ]
+      },
+
+      "encoding": {
+        "y": {
+          "field": "order",
+          "type": "ordinal",
+          "axis": null,
+          "sort": "ascending"
+        }
+      },
+
+      "layer": [
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "dy": -22
+          },
+
+          "encoding": {
+            "x": {
+              "value": 5
+            },
+            "text": {
+              "field": "percentage"
+            },
+            "color": {
+              "field": "type",
+              "type": "nominal",
+              "legend": null,
+              "scale": {
+                "domain": [
+                  "Commercial",
+                  "Recreational"
+                ],
+                "range": [
+                  "#E15759",
+                  "#C79B00"
+                ]
+              }
+            }
+          }
+        },
+
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "dy": 8,
+            "color": "#333"
+          },
+
+          "encoding": {
+            "x": {
+              "value": 5
+            },
+            "text": {
+              "field": "type"
+            }
+          }
+        },
+
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": 12,
+            "dy": 30,
+            "color": "#666"
+          },
+
+          "encoding": {
+            "x": {
+              "value": 5
+            },
+            "text": {
+              "field": "count"
+            }
+          }
+        }
+      ]
     }
   ],
 
-  "mark": {
-    "type": "square",
-    "filled": true,
-    "size": 700
-  },
-
-  "encoding": {
-    "x": {
-      "field": "column",
-      "type": "ordinal",
-      "axis": null
-    },
-
-    "y": {
-      "field": "row",
-      "type": "ordinal",
-      "axis": null,
-      "sort": "descending"
-    },
-
-    "color": {
-      "field": "beekeeperType",
-      "type": "nominal",
-      "title": "Beekeeper type",
-      "scale": {
-        "domain": [
-          "Commercial",
-          "Recreational"
-        ],
-        "range": [
-          "#E15759",
-          "#F2C94C"
-        ]
-      },
-      "legend": {
-        "orient": "right",
-        "labelFontSize": 12,
-        "titleFontSize": 12
-      }
-    },
-
-    "tooltip": [
-      {
-        "field": "beekeeperType",
-        "type": "nominal",
-        "title": "Beekeeper type"
-      },
-      {
-        "field": "beekeeperCount",
-        "type": "quantitative",
-        "title": "Registered beekeepers",
-        "format": ","
-      },
-      {
-        "field": "percentage",
-        "type": "quantitative",
-        "title": "Share (%)",
-        "format": ".1f"
-      }
-    ]
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
   },
 
   "config": {
