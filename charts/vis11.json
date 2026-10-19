@@ -3,36 +3,35 @@
 
   "title": {
     "text": "Who Are Australia's Registered Beekeepers?",
-    "subtitle": "Each square represents approximately 1% of registered beekeepers",
+    "subtitle": "About 94% are recreational and 6% are commercial",
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "width": 520,
-  "height": 340,
+  "width": 500,
+  "height": 300,
 
   "data": {
     "sequence": {
-      "start": 0,
-      "stop": 100,
-      "step": 1,
-      "as": "id"
+      "start": 1,
+      "stop": 101,
+      "step": 1
     }
   },
 
   "transform": [
     {
-      "calculate": "datum.id % 10",
+      "calculate": "(datum.data - 1) % 10",
       "as": "column"
     },
     {
-      "calculate": "floor(datum.id / 10)",
+      "calculate": "floor((datum.data - 1) / 10)",
       "as": "row"
     },
     {
-      "calculate": "datum.id < 6 ? 'Commercial' : 'Recreational'",
+      "calculate": "datum.data <= 6 ? 'Commercial' : 'Recreational'",
       "as": "beekeeperType"
     },
     {
@@ -46,10 +45,9 @@
   ],
 
   "mark": {
-    "type": "rect",
-    "cornerRadius": 3,
-    "stroke": "white",
-    "strokeWidth": 2
+    "type": "square",
+    "filled": true,
+    "size": 700
   },
 
   "encoding": {
@@ -102,7 +100,7 @@
       {
         "field": "percentage",
         "type": "quantitative",
-        "title": "Share",
+        "title": "Share (%)",
         "format": ".1f"
       }
     ]
