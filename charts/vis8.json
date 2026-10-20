@@ -11,7 +11,7 @@
   },
 
   "width": 800,
-"height": 430,
+  "height": 430,
 
   "data": {
     "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_comparison_ALA_DAFF.csv",
@@ -43,6 +43,12 @@
           "scale": {
             "zero": false,
             "domain": [100, 700]
+          },
+          "axis": {
+            "values": [100, 200, 300, 400, 500, 600, 700],
+            "grid": true,
+            "labelFontSize": 12,
+            "titleFontSize": 12
           }
         },
 
@@ -64,7 +70,9 @@
               300000
             ],
             "labelExpr": "format(datum.value, ',')",
-            "grid": true
+            "grid": true,
+            "labelFontSize": 12,
+            "titleFontSize": 12
           }
         },
 
@@ -160,8 +168,7 @@
 
       "mark": {
         "type": "text",
-        "dx": 0,
-        "dy": -28,
+        "dy": -30,
         "fontSize": 12,
         "fontWeight": "bold",
         "color": "#5A4526"
@@ -199,8 +206,7 @@
 
       "mark": {
         "type": "text",
-        "dx": 0,
-        "dy": -13,
+        "dy": -14,
         "fontSize": 11,
         "color": "#5A4526"
       },
