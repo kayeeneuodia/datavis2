@@ -26,83 +26,208 @@
     }
   },
 
-  "mark": {
-    "type": "circle",
-    "opacity": 0.8,
-    "stroke": "white",
-    "strokeWidth": 1.5
-  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
 
-  "encoding": {
-    "x": {
-      "field": "alaUniqueTaxa",
-      "type": "quantitative",
-      "title": "Unique recorded bee taxa (ALA)",
-      "scale": {
-        "zero": false
+      "encoding": {
+        "x": {
+          "field": "alaUniqueTaxa",
+          "type": "quantitative",
+          "title": "Unique recorded bee taxa (ALA)",
+          "scale": {
+            "zero": false,
+            "domain": [100, 700]
+          }
+        },
+
+        "y": {
+          "field": "hives",
+          "type": "quantitative",
+          "title": "Managed hives (DAFF)",
+          "scale": {
+            "domain": [0, 325000]
+          },
+          "axis": {
+            "values": [
+              0,
+              50000,
+              100000,
+              150000,
+              200000,
+              250000,
+              300000
+            ],
+            "labelExpr": "format(datum.value, ',')",
+            "grid": true
+          }
+        },
+
+        "size": {
+          "field": "totalBeekeepers",
+          "type": "quantitative",
+          "title": "Total beekeepers",
+          "scale": {
+            "range": [200, 1800]
+          }
+        },
+
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "title": "State"
+        },
+
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "alaUniqueTaxa",
+            "type": "quantitative",
+            "title": "Unique recorded bee taxa",
+            "format": ","
+          },
+          {
+            "field": "hives",
+            "type": "quantitative",
+            "title": "Managed hives",
+            "format": ","
+          },
+          {
+            "field": "totalBeekeepers",
+            "type": "quantitative",
+            "title": "Total beekeepers",
+            "format": ","
+          },
+          {
+            "field": "hivesPerBeekeeper",
+            "type": "quantitative",
+            "title": "Hives per beekeeper",
+            "format": ".1f"
+          }
+        ]
       }
     },
 
-    "y": {
-  "field": "hives",
-  "type": "quantitative",
-  "title": "Managed hives (DAFF)",
-  "axis": {
-  "values": [0, 50000, 100000, 150000, 200000, 250000, 300000],
-  "labelExpr": "format(datum.value, ',')",
-  "grid": true
-  }
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'New South Wales'"
+        }
+      ],
 
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "size": 2300,
+        "stroke": "#D6A51E",
+        "strokeWidth": 3
+      },
 
-    },
+      "encoding": {
+        "x": {
+          "field": "alaUniqueTaxa",
+          "type": "quantitative",
+          "scale": {
+            "domain": [100, 700]
+          }
+        },
 
-    "size": {
-      "field": "totalBeekeepers",
-      "type": "quantitative",
-      "title": "Total beekeepers",
-      "scale": {
-        "range": [200, 1800]
+        "y": {
+          "field": "hives",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 325000]
+          }
+        }
       }
     },
 
-    "color": {
-      "field": "state",
-      "type": "nominal",
-      "title": "State"
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'New South Wales'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "dx": 0,
+        "dy": -28,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#5A4526"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "alaUniqueTaxa",
+          "type": "quantitative",
+          "scale": {
+            "domain": [100, 700]
+          }
+        },
+
+        "y": {
+          "field": "hives",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 325000]
+          }
+        },
+
+        "text": {
+          "value": "Most managed hives"
+        }
+      }
     },
 
-    "tooltip": [
-      {
-        "field": "state",
-        "type": "nominal",
-        "title": "State"
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'New South Wales'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "dx": 0,
+        "dy": -13,
+        "fontSize": 11,
+        "color": "#5A4526"
       },
-      {
-        "field": "alaUniqueTaxa",
-        "type": "quantitative",
-        "title": "Unique recorded bee taxa",
-        "format": ","
-      },
-      {
-        "field": "hives",
-        "type": "quantitative",
-        "title": "Managed hives",
-        "format": ","
-      },
-      {
-        "field": "totalBeekeepers",
-        "type": "quantitative",
-        "title": "Total beekeepers",
-        "format": ","
-      },
-      {
-        "field": "hivesPerBeekeeper",
-        "type": "quantitative",
-        "title": "Hives per beekeeper",
-        "format": ".1f"
+
+      "encoding": {
+        "x": {
+          "field": "alaUniqueTaxa",
+          "type": "quantitative",
+          "scale": {
+            "domain": [100, 700]
+          }
+        },
+
+        "y": {
+          "field": "hives",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 325000]
+          }
+        },
+
+        "text": {
+          "value": "297,362 hives"
+        }
       }
-    ]
-  },
+    }
+  ],
 
   "config": {
     "view": {
