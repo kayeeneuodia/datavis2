@@ -276,12 +276,12 @@
           },
 
           "stroke": {
-            "value": "#2B2923"
-          },
+  "value": "#F2C94C"
+},
 
-          "strokeWidth": {
-            "value": 3
-          }
+"strokeWidth": {
+  "value": 3
+}
         }
       }
     },
