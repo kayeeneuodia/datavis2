@@ -5,12 +5,12 @@
     "text": "Where Are Bee Records Concentrated?",
     "subtitle": "Larger and darker circles represent areas with more recorded bee occurrences",
     "anchor": "start",
-    "fontSize": 20,
+    "fontSize": 22,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "width": 700,
+  "width": 760,
   "height": 500,
 
   "projection": {
@@ -26,42 +26,42 @@
           "property": "features"
         }
       },
-
       "mark": {
         "type": "geoshape",
         "fill": "#d9d9d9",
-        "stroke": "#ffffff",
-        "strokeWidth": 0.8
+        "stroke": "white",
+        "strokeWidth": 1
       }
     },
 
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_grid_summary.csv",
+        "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_hotspot_grid.csv",
         "format": {
           "type": "csv",
           "parse": {
-            "longitudeCenter": "number",
-            "latitudeCenter": "number",
-            "records": "number",
-            "uniqueSpecies": "number"
+            "longitude": "number",
+            "latitude": "number",
+            "records": "number"
           }
         }
       },
 
       "mark": {
         "type": "circle",
-        "opacity": 0.65
+        "opacity": 0.65,
+        "stroke": "white",
+        "strokeWidth": 0.25
       },
 
       "encoding": {
         "longitude": {
-          "field": "longitudeCenter",
+          "field": "longitude",
           "type": "quantitative"
         },
 
         "latitude": {
-          "field": "latitudeCenter",
+          "field": "latitude",
           "type": "quantitative"
         },
 
@@ -70,7 +70,13 @@
           "type": "quantitative",
           "title": "Occurrence records",
           "scale": {
-            "range": [20, 800]
+            "range": [12, 1500]
+          },
+          "legend": {
+            "orient": "right",
+            "labelFontSize": 12,
+            "titleFontSize": 12,
+            "format": ","
           }
         },
 
@@ -80,7 +86,8 @@
           "title": "Occurrence records",
           "scale": {
             "scheme": "orangered"
-          }
+          },
+          "legend": null
         },
 
         "tooltip": [
@@ -91,10 +98,16 @@
             "format": ","
           },
           {
-            "field": "uniqueSpecies",
+            "field": "longitude",
             "type": "quantitative",
-            "title": "Unique recorded taxa",
-            "format": ","
+            "title": "Longitude",
+            "format": ".2f"
+          },
+          {
+            "field": "latitude",
+            "type": "quantitative",
+            "title": "Latitude",
+            "format": ".2f"
           }
         ]
       }
@@ -104,11 +117,6 @@
   "config": {
     "view": {
       "stroke": null
-    },
-
-    "legend": {
-      "labelFontSize": 12,
-      "titleFontSize": 12
     }
   }
 }
