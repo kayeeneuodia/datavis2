@@ -5,19 +5,16 @@
     "text": "Where Have Bees Been Recorded in Australia?",
     "subtitle": "A sample of Atlas of Living Australia bee occurrence records",
     "anchor": "start",
-    "fontSize": 17,
-    "subtitleFontSize": 11,
+    "fontSize": 22,
+    "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "width": 470,
-  "height": 330,
+  "width": 760,
+  "height": 500,
 
   "projection": {
-    "type": "equalEarth",
-    "center": [134, -28],
-    "scale": 560,
-    "translate": [235, 165]
+    "type": "equalEarth"
   },
 
   "layer": [
@@ -34,7 +31,7 @@
         "type": "geoshape",
         "fill": "#eeeeee",
         "stroke": "white",
-        "strokeWidth": 1
+        "strokeWidth": 1.1
       }
     },
 
@@ -53,8 +50,10 @@
 
       "mark": {
         "type": "circle",
-        "size": 14,
-        "opacity": 0.5
+        "size": 34,
+        "opacity": 0.7,
+        "stroke": "white",
+        "strokeWidth": 0.35
       },
 
       "encoding": {
@@ -90,8 +89,8 @@
           },
           "legend": {
             "orient": "right",
-            "labelFontSize": 10,
-            "titleFontSize": 11
+            "labelFontSize": 12,
+            "titleFontSize": 12
           }
         },
 
@@ -122,9 +121,19 @@
     }
   ],
 
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+
   "config": {
     "view": {
       "stroke": null
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
     }
   }
 }
