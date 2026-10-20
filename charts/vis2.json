@@ -5,13 +5,13 @@
     "text": "Where Have Bees Been Recorded in Australia?",
     "subtitle": "A sample of Atlas of Living Australia bee occurrence records",
     "anchor": "start",
-    "fontSize": 22,
+    "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "width": 760,
-  "height": 500,
+  "width": 800,
+  "height": 520,
 
   "projection": {
     "type": "equalEarth"
@@ -21,6 +21,7 @@
     {
       "data": {
         "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
+
         "format": {
           "type": "json",
           "property": "features"
@@ -29,31 +30,40 @@
 
       "mark": {
         "type": "geoshape",
-        "fill": "#eeeeee",
-        "stroke": "white",
-        "strokeWidth": 1.1
+        "fill": "#ECE8DE",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.2
       }
     },
 
     {
       "data": {
         "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_map_points_sample.csv",
+
         "format": {
           "type": "csv",
+
           "parse": {
-            "decimalLongitude": "number",
             "decimalLatitude": "number",
-            "year": "number"
+            "decimalLongitude": "number",
+            "year": "number",
+            "month": "number"
           }
         }
       },
 
+      "transform": [
+        {
+          "filter": "isValid(datum.decimalLatitude) && isValid(datum.decimalLongitude)"
+        }
+      ],
+
       "mark": {
         "type": "circle",
-        "size": 34,
-        "opacity": 0.7,
-        "stroke": "white",
-        "strokeWidth": 0.35
+        "size": 42,
+        "opacity": 0.72,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.45
       },
 
       "encoding": {
@@ -71,6 +81,7 @@
           "field": "family",
           "type": "nominal",
           "title": "Bee family",
+
           "scale": {
             "domain": [
               "Apidae",
@@ -79,18 +90,21 @@
               "Megachilidae",
               "Stenotritidae"
             ],
+
             "range": [
-              "#4E79A7",
-              "#F28E2B",
-              "#E15759",
-              "#76B7B2",
-              "#59A14F"
+              "#32689A",
+              "#E67E22",
+              "#D94F4F",
+              "#49A6A0",
+              "#4F8B45"
             ]
           },
+
           "legend": {
             "orient": "right",
+            "titleFontSize": 13,
             "labelFontSize": 12,
-            "titleFontSize": 12
+            "symbolSize": 100
           }
         },
 
@@ -100,16 +114,25 @@
             "type": "nominal",
             "title": "Scientific name"
           },
+
+          {
+            "field": "vernacularName",
+            "type": "nominal",
+            "title": "Common name"
+          },
+
           {
             "field": "family",
             "type": "nominal",
             "title": "Bee family"
           },
+
           {
             "field": "stateProvince",
             "type": "nominal",
             "title": "State / Territory"
           },
+
           {
             "field": "year",
             "type": "quantitative",
@@ -121,16 +144,11 @@
     }
   ],
 
-  "resolve": {
-    "scale": {
-      "color": "independent"
-    }
-  },
-
   "config": {
     "view": {
       "stroke": null
     },
+
     "legend": {
       "labelFontSize": 12,
       "titleFontSize": 12
