@@ -3,14 +3,14 @@
 
   "title": {
     "text": "Who Are Australia's Registered Beekeepers?",
-    "subtitle": "100 squares show the national beekeeper mix; squares are rounded",
+    "subtitle": "Each square represents approximately 1% of registered beekeepers",
     "anchor": "start",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "spacing": 30,
+  "spacing": 36,
 
   "hconcat": [
     {
@@ -21,30 +21,29 @@
         "sequence": {
           "start": 1,
           "stop": 101,
-          "step": 1
+          "as": "square"
         }
       },
 
       "transform": [
         {
-          "calculate": "(datum.data - 1) % 10",
-          "as": "column"
-        },
-        {
-          "calculate": "floor((datum.data - 1) / 10)",
-          "as": "row"
-        },
-        {
-          "calculate": "datum.data <= 6 ? 'Commercial' : 'Recreational'",
+          "calculate": "datum.square <= 6 ? 'Commercial' : 'Recreational'",
           "as": "beekeeperType"
         },
+
         {
-          "calculate": "datum.beekeeperType == 'Commercial' ? 1868 : 27822",
-          "as": "beekeeperCount"
+          "calculate": "(datum.square - 1) % 10",
+          "as": "column"
         },
+
         {
-          "calculate": "datum.beekeeperType == 'Commercial' ? 6.3 : 93.7",
-          "as": "percentage"
+          "calculate": "floor((datum.square - 1) / 10)",
+          "as": "row"
+        },
+
+        {
+          "calculate": "datum.beekeeperType == 'Commercial' ? 'Approximately 6%' : 'Approximately 94%'",
+          "as": "share"
         }
       ],
 
@@ -52,7 +51,7 @@
         "type": "rect",
         "cornerRadius": 4,
         "stroke": "white",
-        "strokeWidth": 2
+        "strokeWidth": 1.5
       },
 
       "encoding": {
@@ -65,19 +64,21 @@
         "y": {
           "field": "row",
           "type": "ordinal",
-          "axis": null,
-          "sort": "descending"
+          "sort": "descending",
+          "axis": null
         },
 
         "color": {
           "field": "beekeeperType",
           "type": "nominal",
           "legend": null,
+
           "scale": {
             "domain": [
               "Commercial",
               "Recreational"
             ],
+
             "range": [
               "#E15759",
               "#F2C94C"
@@ -91,17 +92,11 @@
             "type": "nominal",
             "title": "Beekeeper type"
           },
+
           {
-            "field": "beekeeperCount",
-            "type": "quantitative",
-            "title": "Registered beekeepers",
-            "format": ","
-          },
-          {
-            "field": "percentage",
-            "type": "quantitative",
-            "title": "Share (%)",
-            "format": ".1f"
+            "field": "share",
+            "type": "nominal",
+            "title": "Squares represent"
           }
         ]
       }
@@ -117,24 +112,16 @@
             "type": "Recreational",
             "percentage": "93.7%",
             "count": "27,822 beekeepers",
-            "order": 1
+            "y": 95
           },
+
           {
             "type": "Commercial",
             "percentage": "6.3%",
             "count": "1,868 beekeepers",
-            "order": 2
+            "y": 215
           }
         ]
-      },
-
-      "encoding": {
-        "y": {
-          "field": "order",
-          "type": "ordinal",
-          "axis": null,
-          "sort": "ascending"
-        }
       },
 
       "layer": [
@@ -143,30 +130,42 @@
             "type": "text",
             "align": "left",
             "baseline": "middle",
-            "fontSize": 30,
-            "fontWeight": "bold",
-            "dy": -22
+            "fontSize": 25,
+            "fontWeight": "bold"
           },
 
           "encoding": {
             "x": {
               "value": 5
             },
+
+            "y": {
+              "field": "y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [300, 0]
+              },
+              "axis": null
+            },
+
             "text": {
               "field": "percentage"
             },
+
             "color": {
               "field": "type",
               "type": "nominal",
               "legend": null,
+
               "scale": {
                 "domain": [
                   "Commercial",
                   "Recreational"
                 ],
+
                 "range": [
                   "#E15759",
-                  "#C79B00"
+                  "#C99A12"
                 ]
               }
             }
@@ -178,9 +177,8 @@
             "type": "text",
             "align": "left",
             "baseline": "middle",
-            "fontSize": 15,
+            "fontSize": 13,
             "fontWeight": "bold",
-            "dy": 8,
             "color": "#333"
           },
 
@@ -188,6 +186,20 @@
             "x": {
               "value": 5
             },
+
+            "y": {
+              "field": "y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [300, 0]
+              },
+              "axis": null
+            },
+
+            "yOffset": {
+              "value": 24
+            },
+
             "text": {
               "field": "type"
             }
@@ -200,7 +212,6 @@
             "align": "left",
             "baseline": "middle",
             "fontSize": 12,
-            "dy": 30,
             "color": "#666"
           },
 
@@ -208,6 +219,20 @@
             "x": {
               "value": 5
             },
+
+            "y": {
+              "field": "y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [300, 0]
+              },
+              "axis": null
+            },
+
+            "yOffset": {
+              "value": 44
+            },
+
             "text": {
               "field": "count"
             }
@@ -216,12 +241,6 @@
       ]
     }
   ],
-
-  "resolve": {
-    "scale": {
-      "color": "independent"
-    }
-  },
 
   "config": {
     "view": {
