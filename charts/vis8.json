@@ -10,8 +10,8 @@
     "subtitleColor": "#666"
   },
 
-  "width": 650,
-  "height": 400,
+  "width": 800,
+"height": 430,
 
   "data": {
     "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_comparison_ALA_DAFF.csv",
