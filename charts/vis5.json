@@ -17,8 +17,12 @@
   "data": [
     {
       "name": "tree",
+
       "values": [
-        {"id": "root", "parent": null},
+        {
+          "id": "root",
+          "parent": null
+        },
 
         {
           "id": "Apidae",
@@ -71,17 +75,25 @@
         {
           "type": "treemap",
           "field": "records",
+
           "sort": {
             "field": "value",
             "order": "descending"
           },
+
           "round": true,
           "method": "squarify",
           "ratio": 1.6,
           "paddingInner": 3,
+
           "size": [
-            {"signal": "width"},
-            {"signal": "height"}
+            {
+              "signal": "width"
+            },
+
+            {
+              "signal": "height"
+            }
           ]
         }
       ]
@@ -89,11 +101,26 @@
 
     {
       "name": "leaves",
+
       "source": "tree",
+
       "transform": [
         {
           "type": "filter",
           "expr": "datum.depth === 1"
+        }
+      ]
+    },
+
+    {
+      "name": "apidae",
+
+      "source": "leaves",
+
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.id === 'Apidae'"
         }
       ]
     }
@@ -102,30 +129,52 @@
   "scales": [
     {
       "name": "color",
+
       "type": "ordinal",
-      "domain": {
-        "data": "leaves",
-        "field": "id"
-      },
-      "range": {
-        "scheme": "tableau10"
-      }
+
+      "domain": [
+        "Apidae",
+        "Colletidae",
+        "Halictidae",
+        "Megachilidae",
+        "Stenotritidae"
+      ],
+
+      "range": [
+        "#32689A",
+        "#E67E22",
+        "#D94F4F",
+        "#49A6A0",
+        "#4F8B45"
+      ]
     }
   ],
 
   "marks": [
     {
       "type": "rect",
+
       "from": {
         "data": "leaves"
       },
 
       "encode": {
         "enter": {
-          "x": {"field": "x0"},
-          "y": {"field": "y0"},
-          "x2": {"field": "x1"},
-          "y2": {"field": "y1"},
+          "x": {
+            "field": "x0"
+          },
+
+          "y": {
+            "field": "y0"
+          },
+
+          "x2": {
+            "field": "x1"
+          },
+
+          "y2": {
+            "field": "y1"
+          },
 
           "fill": {
             "scale": "color",
@@ -143,49 +192,180 @@
           "tooltip": {
             "signal": "{'Bee family': datum.id, 'Occurrence records': format(datum.records, ','), 'Unique recorded taxa': format(datum.uniqueSpecies, ','), 'Unique genera': format(datum.uniqueGenera, ',')}"
           }
+        },
+
+        "hover": {
+          "fillOpacity": {
+            "value": 0.82
+          }
         }
       }
     },
 
     {
       "type": "text",
-  "from": {
-    "data": "leaves"
-  },
 
-  "encode": {
-    "enter": {
-      "x": {
-        "signal": "(datum.x0 + datum.x1) / 2"
+      "from": {
+        "data": "leaves"
       },
 
-      "y": {
-        "signal": "(datum.y0 + datum.y1) / 2"
-      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "(datum.x0 + datum.x1) / 2"
+          },
 
-      "text": {
-        "signal": "(datum.x1 - datum.x0 > 110 && datum.y1 - datum.y0 > 28) ? datum.id : ''"
-      },
+          "y": {
+            "signal": "(datum.y0 + datum.y1) / 2"
+          },
 
-      "align": {
-        "value": "center"
-      },
+          "text": {
+            "signal": "(datum.x1 - datum.x0 > 110 && datum.y1 - datum.y0 > 28) ? datum.id : ''"
+          },
 
-      "baseline": {
-        "value": "middle"
-      },
+          "align": {
+            "value": "center"
+          },
 
-      "fontSize": {
-        "signal": "(datum.x1 - datum.x0 > 180) ? 15 : 11"
-      },
+          "baseline": {
+            "value": "middle"
+          },
 
-      "fontWeight": {
-        "value": "bold"
-      },
+          "fontSize": {
+            "signal": "(datum.x1 - datum.x0 > 180) ? 15 : 11"
+          },
 
-      "fill": {
-        "value": "white"
+          "fontWeight": {
+            "value": "bold"
+          },
+
+          "fill": {
+            "value": "white"
+          }
+        }
       }
+    },
+
+    {
+      "type": "rect",
+
+      "from": {
+        "data": "apidae"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x0"
+          },
+
+          "y": {
+            "field": "y0"
+          },
+
+          "x2": {
+            "field": "x1"
+          },
+
+          "y2": {
+            "field": "y1"
+          },
+
+          "fillOpacity": {
+            "value": 0
+          },
+
+          "stroke": {
+            "value": "#2B2923"
+          },
+
+          "strokeWidth": {
+            "value": 3
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+
+      "from": {
+        "data": "apidae"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "datum.x0 + 14"
+          },
+
+          "y": {
+            "signal": "datum.y0 + 18"
+          },
+
+          "text": {
+            "value": "Largest family"
+          },
+
+          "align": {
+            "value": "left"
+          },
+
+          "baseline": {
+            "value": "top"
+          },
+
+          "fontSize": {
+            "value": 12
+          },
+
+          "fontWeight": {
+            "value": "bold"
+          },
+
+          "fill": {
+            "value": "white"
+          }
+        }
+      }
+    },
+
+    {
+      "type": "text",
+
+      "from": {
+        "data": "apidae"
+      },
+
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "datum.x0 + 14"
+          },
+
+          "y": {
+            "signal": "datum.y0 + 37"
+          },
+
+          "text": {
+            "value": "43,780 records · 35.5%"
+          },
+
+          "align": {
+            "value": "left"
+          },
+
+          "baseline": {
+            "value": "top"
+          },
+
+          "fontSize": {
+            "value": 11
+          },
+
+          "fill": {
+            "value": "white"
+          }
         }
       }
     }
