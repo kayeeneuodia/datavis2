@@ -3,111 +3,182 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Pollinators in Australia</title>
 
+  <!-- Vega -->
   <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
   <header class="hero">
+
     <h1>Pollinators in Australia</h1>
+
     <p>
-      Exploring the geography, seasonality and diversity of Australia's recorded bees,
-      alongside the managed beekeeping industry.
+      Exploring the geography, seasonality and diversity
+      of Australia's recorded bees, alongside managed beekeeping.
     </p>
+
   </header>
+
+
 
   <main>
 
-    <!-- CHAPTER 1 -->
-    <section class="chapter">
 
-      <div class="chapter-heading">
-        <span>01</span>
+    <!-- =========================
+         CHAPTER 1
+    ========================== -->
+
+    <section class="chapter-block">
+
+      <div class="chapter-header">
+
+        <div class="chapter-number">
+          01
+        </div>
 
         <div>
+
           <h2>Where are Australia's bees?</h2>
 
           <p>
-            Bee records are not distributed evenly across Australia. These maps show
-            where recorded diversity is highest, where individual observations occur,
-            and where major recording hotspots emerge.
+            Bee records are not distributed evenly across Australia.
+            These maps show recorded diversity and observations.
+            They also reveal major recording hotspots.
           </p>
+
         </div>
+
       </div>
+
 
 
       <!-- VIS 1 -->
-      <div class="chart-block full">
+      <div class="vis-card">
 
-        <div id="vis1" class="visualisation"></div>
+        <div
+          id="vis1"
+          class="visualisation">
+        </div>
 
         <p class="note">
-          Values are standardised by recording volume, not population size.
-          Occurrence records also reflect observation and collection effort.
+          Values are standardised by recording volume,
+          not population size.
+          Occurrence records also reflect recording effort.
         </p>
 
-       <div class="insight-box">
-  <strong>Key takeaway</strong>
-  The ACT shows the highest recorded diversity relative to sampling.
-  Western Australia and Tasmania also show high relative richness.
-</div>
-      </div>
+        <div class="insight-box">
 
+          <strong>
+            Key takeaway
+          </strong>
 
-      <!-- VIS 2 + VIS 3 -->
-      <div class="chart-grid">
+          <p>
+            The ACT shows the highest recorded diversity
+            relative to sampling.
+            Western Australia and Tasmania also show
+            high relative richness.
+          </p>
 
-        <div class="chart-block">
-          <div id="vis2" class="visualisation"></div>
-        </div>
-
-        <div class="chart-block">
-          <div id="vis3" class="visualisation"></div>
         </div>
 
       </div>
 
 
-      <div class="insight-box">
-        <strong>What the maps reveal</strong>
-        Bee records are concentrated around populated coastal regions,
-        particularly in the south-east.
-        These patterns also reflect where recording effort is strongest.
+
+      <!-- VIS 2 - FULL WIDTH -->
+      <div class="vis-card">
+
+        <div
+          id="vis2"
+          class="visualisation">
+        </div>
+
+      </div>
+
+
+
+      <!-- VIS 3 - FULL WIDTH -->
+      <div class="vis-card">
+
+        <div
+          id="vis3"
+          class="visualisation">
+        </div>
+
+        <div class="insight-box">
+
+          <strong>
+            What the maps reveal
+          </strong>
+
+          <p>
+            Bee records cluster around populated coastal regions.
+            The south-east shows particularly strong recording activity.
+            Recording effort also influences these patterns.
+          </p>
+
+        </div>
+
       </div>
 
     </section>
 
 
 
-    <!-- CHAPTER 2 -->
-    <section class="chapter">
 
-      <div class="chapter-heading">
-        <span>02</span>
+    <!-- =========================
+         CHAPTER 2
+    ========================== -->
+
+    <section class="chapter-block">
+
+      <div class="chapter-header">
+
+        <div class="chapter-number">
+          02
+        </div>
 
         <div>
-          <h2>How does bee activity change through the year?</h2>
+
+          <h2>
+            How does bee activity change through the year?
+          </h2>
 
           <p>
-            Recording activity changes substantially across the calendar,
-            and different bee families show different seasonal patterns.
+            Recording activity changes throughout the calendar.
+            Bee families also show different seasonal patterns.
           </p>
+
         </div>
+
       </div>
+
 
 
       <!-- VIS 4 + VIS 7 -->
       <div class="chart-grid">
 
-        <div class="chart-block">
+        <div class="vis-card">
 
           <h3 class="chart-title">
             When are bee families most commonly recorded?
@@ -117,83 +188,138 @@
             Darker cells indicate more recorded bee occurrences.
           </p>
 
-          <div id="vis4" class="visualisation"></div>
+          <div
+            id="vis4"
+            class="visualisation">
+          </div>
 
         </div>
 
 
-        <div class="chart-block">
+
+        <div class="vis-card">
 
           <h3 class="chart-title">
             How much does recording activity vary?
           </h3>
 
           <p class="chart-subtitle">
-            Boxplots summarise monthly variation; dots show individual months.
+            Boxplots summarise variation.
+            Dots represent individual months.
           </p>
 
-          <div id="vis7" class="visualisation"></div>
+          <div
+            id="vis7"
+            class="visualisation">
+          </div>
 
         </div>
 
       </div>
+
 
 
       <!-- VIS 9 -->
-      <div class="chart-block full">
-        <div id="vis9" class="visualisation"></div>
+      <div class="vis-card">
+
+        <div
+          id="vis9"
+          class="visualisation">
+        </div>
+
+        <p class="note">
+          Each family uses its own vertical scale.
+          This highlights its seasonal pattern.
+        </p>
+
       </div>
+
 
 
       <div class="insight-box">
-        <strong>Seasonal pattern</strong>
-        Recording activity is not constant throughout the year.
-        Several bee families are recorded more often in warmer months.
+
+        <strong>
+          Seasonal pattern
+        </strong>
+
+        <p>
+          Recording activity changes throughout the year.
+          Several families peak during warmer months.
+        </p>
+
       </div>
 
     </section>
 
 
 
-    <!-- CHAPTER 3 -->
-    <section class="chapter">
 
-      <div class="chapter-heading">
-        <span>03</span>
+    <!-- =========================
+         CHAPTER 3
+    ========================== -->
+
+    <section class="chapter-block">
+
+      <div class="chapter-header">
+
+        <div class="chapter-number">
+          03
+        </div>
 
         <div>
-          <h2>Which bee families dominate the records?</h2>
+
+          <h2>
+            Which bee families dominate the records?
+          </h2>
 
           <p>
-            Australia's bee occurrence records are dominated by several families,
-            but their contributions differ between states and territories.
+            Several families dominate Australia's bee records.
+            Their contributions also vary across locations.
           </p>
+
         </div>
+
       </div>
+
 
 
       <!-- VIS 5 -->
-      <div class="chart-block full">
+      <div class="vis-card">
 
-        <div id="vis5" class="visualisation"></div>
+        <div
+          id="vis5"
+          class="visualisation">
+        </div>
 
         <div class="insight-box">
-          <strong>Key takeaway</strong>
-          Apidae contributes the largest share of occurrence records.
-          Colletidae also represents a substantial share of observations.
+
+          <strong>
+            Key takeaway
+          </strong>
+
+          <p>
+            Apidae contributes the largest share of records.
+            Colletidae also represents a substantial share.
+          </p>
+
         </div>
 
       </div>
 
 
-      <!-- VIS 10 -->
-      <div class="chart-block full">
 
-        <div id="vis10" class="visualisation"></div>
+      <!-- VIS 10 -->
+      <div class="vis-card">
+
+        <div
+          id="vis10"
+          class="visualisation">
+        </div>
 
         <p class="note">
-  Hover over a flow to compare state, family and records.
-</p>
+          Hover over a flow to compare
+          state, family and records.
+        </p>
 
       </div>
 
@@ -201,139 +327,336 @@
 
 
 
-    <!-- CHAPTER 4 -->
-    <section class="chapter">
 
-      <div class="chapter-heading">
-        <span>04</span>
+    <!-- =========================
+         CHAPTER 4
+    ========================== -->
+
+    <section class="chapter-block">
+
+      <div class="chapter-header">
+
+        <div class="chapter-number">
+          04
+        </div>
 
         <div>
-          <h2>How does wild diversity compare with managed beekeeping?</h2>
+
+          <h2>
+            How does wild diversity compare
+            with managed beekeeping?
+          </h2>
 
           <p>
-            Recorded bee diversity and managed hive activity differ.
-            High diversity does not always mean more managed hives.
+            Recorded diversity and managed hive activity differ.
+            High diversity does not always mean more hives.
           </p>
+
         </div>
+
       </div>
+
 
 
       <!-- VIS 11 -->
-      <div class="chart-block full">
-        <div id="vis11" class="visualisation"></div>
+      <div class="vis-card">
+
+        <div
+          id="vis11"
+          class="visualisation">
+        </div>
+
       </div>
+
 
 
       <!-- VIS 6 + VIS 8 -->
       <div class="chart-grid">
 
-        <div class="chart-block">
-          <div id="vis6" class="visualisation"></div>
+        <div class="vis-card">
+
+          <div
+            id="vis6"
+            class="visualisation">
+          </div>
+
         </div>
 
-        <div class="chart-block">
-          <div id="vis8" class="visualisation"></div>
+
+
+        <div class="vis-card">
+
+          <div
+            id="vis8"
+            class="visualisation">
+          </div>
+
         </div>
 
       </div>
 
 
+
       <div class="insight-box">
-        <strong>Why this matters</strong>
-        High recorded diversity does not imply larger beekeeping industries.
-        The datasets capture different parts of Australia’s pollinator landscape.
+
+        <strong>
+          Why this matters
+        </strong>
+
+        <p>
+          High recorded diversity does not imply
+          a larger beekeeping industry.
+          The datasets describe different pollinator activity.
+        </p>
+
       </div>
 
     </section>
 
 
 
-    <!-- CONCLUSION -->
+
+    <!-- =========================
+         CONCLUSION
+    ========================== -->
+
     <section class="conclusion">
 
-      <h2>The bigger picture</h2>
+      <h2>
+        The bigger picture
+      </h2>
 
       <p>
         Australia’s bee records vary across geography and seasons.<br>
-        Queensland and Western Australia show high recorded diversity.<br>
+        Queensland has high overall recorded bee diversity.<br>
         New South Wales has the most managed hives.<br>
-        Wild bee records differ from managed beekeeping activity.
+        Wild records differ from managed beekeeping activity.
       </p>
 
     </section>
 
 
 
-<!-- SOURCES -->
-<section class="sources">
 
-  <h2>Data Sources & Project Information</h2>
+    <!-- =========================
+         SOURCES
+    ========================== -->
 
-  <p>
-    <strong>Atlas of Living Australia (ALA)</strong><br>
-    Bee occurrence records used for geographic, seasonal and taxonomic analysis.<br>
-    Source:
-    <a href="https://biocache.ala.org.au/search" target="_blank">
-      Atlas of Living Australia occurrence records
-    </a>
-  </p>
+    <section class="sources">
 
-  <p>
-    <strong>Australian Government Department of Agriculture,
-    Fisheries and Forestry / ABARES</strong><br>
-    Beekeeper and managed hive statistics.
-    State-level beekeeper figures use July 2019 data.<br>
-    Source:
-    <a href="https://www.agriculture.gov.au/abares/forestsaustralia/sofr/criterion-2/indicator-2.1d"
-       target="_blank">
-      Indicator 2.1d – Australia's State of the Forests Report
-    </a>
-  </p>
+      <h2>
+        Data Sources & Project Information
+      </h2>
 
-  <p>
-    <strong>Australian State and Territory Boundaries</strong><br>
-    GeoJSON boundary data used in the map visualisations.<br>
-    Source:
-    <a href="https://github.com/tonywr71/GeoJson-Data"
-       target="_blank">
-      Tonywr71 GeoJson-Data
-    </a>
-  </p>
 
-  <p>
-    <strong>Data note</strong><br>
-    ALA occurrence records reflect observation and collection effort.
-    They should not be interpreted as bee population estimates.
-  </p>
+      <p>
 
-  <p>
-    <strong>Author:</strong> Kayeen Euodia Wijaya (35092637) <br>
-    <strong>Unit:</strong> FIT3179 Data Visualisation<br>
-    <strong>Date:</strong> October 2026
-  </p>
+        <strong>
+          Atlas of Living Australia (ALA)
+        </strong>
 
-</section>
+        <br>
+
+        Bee occurrence records used for geographic,
+        seasonal and taxonomic analysis.
+
+        <br>
+
+        Source:
+
+        <a
+          href="https://biocache.ala.org.au/search"
+          target="_blank"
+          rel="noopener noreferrer">
+          Atlas of Living Australia occurrence records
+        </a>
+
+      </p>
+
+
+
+      <p>
+
+        <strong>
+          Australian Government Department of Agriculture,
+          Fisheries and Forestry / ABARES
+        </strong>
+
+        <br>
+
+        Beekeeper and managed hive statistics.
+        State-level figures use July 2019 data.
+
+        <br>
+
+        Source:
+
+        <a
+          href="https://www.agriculture.gov.au/abares/forestsaustralia/sofr/criterion-2/indicator-2.1d"
+          target="_blank"
+          rel="noopener noreferrer">
+          Indicator 2.1d – Australia's State of the Forests Report
+        </a>
+
+      </p>
+
+
+
+      <p>
+
+        <strong>
+          Australian State and Territory Boundaries
+        </strong>
+
+        <br>
+
+        GeoJSON boundary data used
+        in the map visualisations.
+
+        <br>
+
+        Source:
+
+        <a
+          href="https://github.com/tonywr71/GeoJson-Data"
+          target="_blank"
+          rel="noopener noreferrer">
+          Tonywr71 GeoJson-Data
+        </a>
+
+      </p>
+
+
+
+      <p>
+
+        <strong>
+          Data note
+        </strong>
+
+        <br>
+
+        ALA occurrence records reflect observation
+        and collection effort.
+        They are not bee population estimates.
+
+      </p>
+
+
+
+      <p>
+
+        <strong>Author:</strong>
+        Jaden Andikara The
+
+        <br>
+
+        <strong>Unit:</strong>
+        FIT3179 Data Visualisation
+
+        <br>
+
+        <strong>Date:</strong>
+        October 2026
+
+      </p>
+
+    </section>
+
 
   </main>
 
 
+
+  <!-- =========================
+       VEGA EMBEDS
+  ========================== -->
+
   <script>
+
     const options = {
       actions: false
     };
 
-    vegaEmbed("#vis1", "charts/vis1.json", options);
-    vegaEmbed("#vis2", "charts/vis2.json", options);
-    vegaEmbed("#vis3", "charts/vis3.json", options);
-    vegaEmbed("#vis4", "charts/vis4.json", options);
-    vegaEmbed("#vis5", "charts/vis5.json", options);
-    vegaEmbed("#vis6", "charts/vis6.json", options);
-    vegaEmbed("#vis7", "charts/vis7.json", options);
-    vegaEmbed("#vis8", "charts/vis8.json", options);
-    vegaEmbed("#vis9", "charts/vis9.json", options);
-    vegaEmbed("#vis10", "charts/vis10.json", options);
-    vegaEmbed("#vis11", "charts/vis11.json", options);
+
+    vegaEmbed(
+      "#vis1",
+      "charts/vis1.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis2",
+      "charts/vis2.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis3",
+      "charts/vis3.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis4",
+      "charts/vis4.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis5",
+      "charts/vis5.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis6",
+      "charts/vis6.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis7",
+      "charts/vis7.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis8",
+      "charts/vis8.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis9",
+      "charts/vis9.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis10",
+      "charts/vis10.json",
+      options
+    );
+
+
+    vegaEmbed(
+      "#vis11",
+      "charts/vis11.json",
+      options
+    );
+
   </script>
+
 
 </body>
 
