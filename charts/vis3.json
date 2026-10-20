@@ -41,6 +41,7 @@
 
         "format": {
           "type": "csv",
+
           "parse": {
             "latitudeCenter": "number",
             "longitudeCenter": "number",
@@ -53,6 +54,11 @@
       "transform": [
         {
           "filter": "isValid(datum.latitudeCenter) && isValid(datum.longitudeCenter) && datum.records > 0"
+        },
+
+        {
+          "calculate": "datum.records",
+          "as": "recordsForSize"
         }
       ],
 
@@ -75,7 +81,7 @@
         },
 
         "size": {
-          "field": "records",
+          "field": "recordsForSize",
           "type": "quantitative",
           "title": "Occurrence records",
 
@@ -89,9 +95,18 @@
             "direction": "horizontal",
             "title": "Occurrence records",
             "titleFontSize": 12,
+            "titleFontWeight": "bold",
             "labelFontSize": 11,
-            "symbolStrokeColor": "#666",
-            "offset": 14
+            "symbolStrokeColor": "#777",
+            "symbolFillColor": "#F2C94C",
+            "symbolOpacity": 0.75,
+            "values": [
+              100,
+              1000,
+              3000,
+              6000
+            ],
+            "offset": 16
           }
         },
 
