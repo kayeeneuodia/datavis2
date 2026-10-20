@@ -11,7 +11,7 @@
   },
 
   "width": 800,
-  "height": 520,
+  "height": 500,
 
   "projection": {
     "type": "equalEarth"
@@ -21,7 +21,6 @@
     {
       "data": {
         "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
-
         "format": {
           "type": "json",
           "property": "features"
@@ -30,7 +29,7 @@
 
       "mark": {
         "type": "geoshape",
-        "fill": "#ECE8DE",
+        "fill": "#F0EDE5",
         "stroke": "#FFFFFF",
         "strokeWidth": 1.2
       }
@@ -42,7 +41,6 @@
 
         "format": {
           "type": "csv",
-
           "parse": {
             "decimalLatitude": "number",
             "decimalLongitude": "number",
@@ -60,10 +58,10 @@
 
       "mark": {
         "type": "circle",
-        "size": 42,
-        "opacity": 0.72,
+        "size": 48,
+        "opacity": 0.8,
         "stroke": "#FFFFFF",
-        "strokeWidth": 0.45
+        "strokeWidth": 0.4
       },
 
       "encoding": {
@@ -101,10 +99,15 @@
           },
 
           "legend": {
-            "orient": "right",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 5,
+            "title": "Bee family",
             "titleFontSize": 13,
             "labelFontSize": 12,
-            "symbolSize": 100
+            "symbolSize": 120,
+            "offset": 14,
+            "labelLimit": 140
           }
         },
 
@@ -147,11 +150,6 @@
   "config": {
     "view": {
       "stroke": null
-    },
-
-    "legend": {
-      "labelFontSize": 12,
-      "titleFontSize": 12
     }
   }
 }
