@@ -21,7 +21,6 @@
     {
       "data": {
         "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
-
         "format": {
           "type": "json",
           "property": "features"
@@ -42,7 +41,6 @@
 
         "format": {
           "type": "csv",
-
           "parse": {
             "latitudeCenter": "number",
             "longitudeCenter": "number",
@@ -83,17 +81,17 @@
 
           "scale": {
             "type": "sqrt",
-            "range": [
-              20,
-              1800
-            ]
+            "range": [20, 1800]
           },
 
           "legend": {
-            "orient": "right",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "title": "Occurrence records",
             "titleFontSize": 12,
             "labelFontSize": 11,
-            "format": ","
+            "symbolStrokeColor": "#666",
+            "offset": 14
           }
         },
 
