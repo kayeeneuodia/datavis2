@@ -3,15 +3,15 @@
 
   "title": {
     "text": "Where Are Bee Records Concentrated?",
-    "subtitle": "Larger and darker circles represent areas with more recorded bee occurrences",
+    "subtitle": "Larger and darker circles show areas with more recorded bee occurrences",
     "anchor": "start",
-    "fontSize": 22,
+    "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "width": 760,
-  "height": 500,
+  "width": 800,
+  "height": 520,
 
   "projection": {
     "type": "equalEarth"
@@ -21,47 +21,58 @@
     {
       "data": {
         "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
+
         "format": {
           "type": "json",
           "property": "features"
         }
       },
+
       "mark": {
         "type": "geoshape",
-        "fill": "#d9d9d9",
-        "stroke": "white",
-        "strokeWidth": 1
+        "fill": "#ECE8DE",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.2
       }
     },
 
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_hotspot_grid.csv",
+        "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_grid_summary.csv",
+
         "format": {
           "type": "csv",
+
           "parse": {
-            "longitude": "number",
-            "latitude": "number",
-            "records": "number"
+            "latitudeCenter": "number",
+            "longitudeCenter": "number",
+            "records": "number",
+            "uniqueSpecies": "number"
           }
         }
       },
 
+      "transform": [
+        {
+          "filter": "isValid(datum.latitudeCenter) && isValid(datum.longitudeCenter) && datum.records > 0"
+        }
+      ],
+
       "mark": {
         "type": "circle",
-        "opacity": 0.65,
-        "stroke": "white",
-        "strokeWidth": 0.25
+        "opacity": 0.72,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.5
       },
 
       "encoding": {
         "longitude": {
-          "field": "longitude",
+          "field": "longitudeCenter",
           "type": "quantitative"
         },
 
         "latitude": {
-          "field": "latitude",
+          "field": "latitudeCenter",
           "type": "quantitative"
         },
 
@@ -69,13 +80,19 @@
           "field": "records",
           "type": "quantitative",
           "title": "Occurrence records",
+
           "scale": {
-            "range": [12, 1500]
+            "type": "sqrt",
+            "range": [
+              20,
+              1800
+            ]
           },
+
           "legend": {
             "orient": "right",
-            "labelFontSize": 12,
             "titleFontSize": 12,
+            "labelFontSize": 11,
             "format": ","
           }
         },
@@ -83,10 +100,11 @@
         "color": {
           "field": "records",
           "type": "quantitative",
-          "title": "Occurrence records",
+
           "scale": {
-            "scheme": "orangered"
+            "scheme": "yelloworangered"
           },
+
           "legend": null
         },
 
@@ -97,17 +115,12 @@
             "title": "Occurrence records",
             "format": ","
           },
+
           {
-            "field": "longitude",
+            "field": "uniqueSpecies",
             "type": "quantitative",
-            "title": "Longitude",
-            "format": ".2f"
-          },
-          {
-            "field": "latitude",
-            "type": "quantitative",
-            "title": "Latitude",
-            "format": ".2f"
+            "title": "Unique recorded taxa",
+            "format": ","
           }
         ]
       }
@@ -117,6 +130,11 @@
   "config": {
     "view": {
       "stroke": null
+    },
+
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
     }
   }
 }
