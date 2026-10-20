@@ -35,6 +35,7 @@
         }
       ]
     },
+
     {
       "name": "hoverFamily",
       "value": null,
@@ -55,8 +56,10 @@
     {
       "name": "raw",
       "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_family_summary.csv",
+
       "format": {
         "type": "csv",
+
         "parse": {
           "records": "number",
           "uniqueSpecies": "number"
@@ -67,26 +70,75 @@
     {
       "name": "states",
       "source": "raw",
+
       "transform": [
         {
-          "type": "aggregate",
-          "groupby": ["stateProvince"],
-          "fields": ["records"],
-          "ops": ["sum"],
-          "as": ["total"]
+          "type": "formula",
+          "expr": "datum.family == 'Apidae' ? 1 : datum.family == 'Colletidae' ? 2 : datum.family == 'Halictidae' ? 3 : datum.family == 'Megachilidae' ? 4 : 5",
+          "as": "familyOrder"
         },
+
+        {
+          "type": "formula",
+          "expr": "datum.records * datum.familyOrder",
+          "as": "weightedFamilyOrder"
+        },
+
+        {
+          "type": "aggregate",
+
+          "groupby": [
+            "stateProvince"
+          ],
+
+          "fields": [
+            "records",
+            "weightedFamilyOrder"
+          ],
+
+          "ops": [
+            "sum",
+            "sum"
+          ],
+
+          "as": [
+            "total",
+            "weightedOrder"
+          ]
+        },
+
+        {
+          "type": "formula",
+          "expr": "datum.weightedOrder / datum.total",
+          "as": "familyPosition"
+        },
+
         {
           "type": "collect",
+
           "sort": {
-            "field": "total",
-            "order": "descending"
+            "field": [
+              "familyPosition",
+              "total"
+            ],
+
+            "order": [
+              "ascending",
+              "descending"
+            ]
           }
         },
+
         {
           "type": "window",
-          "ops": ["row_number"],
-          "as": ["index"]
+          "ops": [
+            "row_number"
+          ],
+          "as": [
+            "index"
+          ]
         },
+
         {
           "type": "formula",
           "expr": "55 + (datum.index - 1) * 38",
@@ -98,31 +150,53 @@
     {
       "name": "families",
       "source": "raw",
+
       "transform": [
         {
           "type": "aggregate",
-          "groupby": ["family"],
-          "fields": ["records"],
-          "ops": ["sum"],
-          "as": ["total"]
+
+          "groupby": [
+            "family"
+          ],
+
+          "fields": [
+            "records"
+          ],
+
+          "ops": [
+            "sum"
+          ],
+
+          "as": [
+            "total"
+          ]
         },
+
         {
           "type": "formula",
           "expr": "datum.family == 'Apidae' ? 1 : datum.family == 'Colletidae' ? 2 : datum.family == 'Halictidae' ? 3 : datum.family == 'Megachilidae' ? 4 : 5",
           "as": "familyOrder"
         },
+
         {
           "type": "collect",
+
           "sort": {
             "field": "familyOrder",
             "order": "ascending"
           }
         },
+
         {
           "type": "window",
-          "ops": ["row_number"],
-          "as": ["index"]
+          "ops": [
+            "row_number"
+          ],
+          "as": [
+            "index"
+          ]
         },
+
         {
           "type": "formula",
           "expr": "78 + (datum.index - 1) * 55",
@@ -134,38 +208,62 @@
     {
       "name": "links",
       "source": "raw",
+
       "transform": [
         {
           "type": "lookup",
           "from": "states",
           "key": "stateProvince",
-          "fields": ["stateProvince"],
-          "values": ["y"],
-          "as": ["sourceY"]
+
+          "fields": [
+            "stateProvince"
+          ],
+
+          "values": [
+            "y"
+          ],
+
+          "as": [
+            "sourceY"
+          ]
         },
+
         {
           "type": "lookup",
           "from": "families",
           "key": "family",
-          "fields": ["family"],
-          "values": ["y"],
-          "as": ["targetY"]
+
+          "fields": [
+            "family"
+          ],
+
+          "values": [
+            "y"
+          ],
+
+          "as": [
+            "targetY"
+          ]
         },
+
         {
           "type": "formula",
           "expr": "190",
           "as": "sourceX"
         },
+
         {
           "type": "formula",
           "expr": "width - 145",
           "as": "targetX"
         },
+
         {
           "type": "formula",
           "expr": "(datum.sourceX + datum.targetX) / 2",
           "as": "midX"
         },
+
         {
           "type": "formula",
           "expr": "'M' + datum.sourceX + ',' + datum.sourceY + ' C' + datum.midX + ',' + datum.sourceY + ' ' + datum.midX + ',' + datum.targetY + ' ' + datum.targetX + ',' + datum.targetY",
@@ -179,16 +277,22 @@
     {
       "name": "linkWidth",
       "type": "sqrt",
+
       "domain": {
         "data": "links",
         "field": "records"
       },
-      "range": [1.2, 16]
+
+      "range": [
+        1.2,
+        16
+      ]
     },
 
     {
       "name": "familyColor",
       "type": "ordinal",
+
       "domain": [
         "Apidae",
         "Colletidae",
@@ -196,6 +300,7 @@
         "Megachilidae",
         "Stenotritidae"
       ],
+
       "range": [
         "#4E79A7",
         "#F28E2B",
@@ -210,6 +315,7 @@
     {
       "name": "flowPath",
       "type": "path",
+
       "from": {
         "data": "links"
       },
@@ -245,7 +351,7 @@
 
         "update": {
           "strokeOpacity": {
-            "signal": "hoverState == null ? 0.35 : (datum.stateProvince == hoverState && datum.family == hoverFamily ? 0.95 : 0.08)"
+            "signal": "hoverState == null ? 0.38 : (datum.stateProvince == hoverState && datum.family == hoverFamily ? 0.95 : 0.07)"
           }
         }
       }
@@ -253,6 +359,7 @@
 
     {
       "type": "symbol",
+
       "from": {
         "data": "states"
       },
@@ -282,7 +389,7 @@
 
         "update": {
           "opacity": {
-            "signal": "hoverState == null || datum.stateProvince == hoverState ? 1 : 0.35"
+            "signal": "hoverState == null || datum.stateProvince == hoverState ? 1 : 0.3"
           }
         }
       }
@@ -290,6 +397,7 @@
 
     {
       "type": "text",
+
       "from": {
         "data": "states"
       },
@@ -331,7 +439,7 @@
 
         "update": {
           "opacity": {
-            "signal": "hoverState == null || datum.stateProvince == hoverState ? 1 : 0.35"
+            "signal": "hoverState == null || datum.stateProvince == hoverState ? 1 : 0.3"
           }
         }
       }
@@ -339,6 +447,7 @@
 
     {
       "type": "symbol",
+
       "from": {
         "data": "families"
       },
@@ -369,7 +478,7 @@
 
         "update": {
           "opacity": {
-            "signal": "hoverFamily == null || datum.family == hoverFamily ? 1 : 0.35"
+            "signal": "hoverFamily == null || datum.family == hoverFamily ? 1 : 0.3"
           }
         }
       }
@@ -377,6 +486,7 @@
 
     {
       "type": "text",
+
       "from": {
         "data": "families"
       },
@@ -418,7 +528,7 @@
 
         "update": {
           "opacity": {
-            "signal": "hoverFamily == null || datum.family == hoverFamily ? 1 : 0.35"
+            "signal": "hoverFamily == null || datum.family == hoverFamily ? 1 : 0.3"
           }
         }
       }
