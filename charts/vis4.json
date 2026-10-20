@@ -16,79 +16,255 @@
     }
   },
 
-  "mark": {
-    "type": "rect",
-    "stroke": "white",
-    "strokeWidth": 1
-  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
 
-  "encoding": {
-    "x": {
-      "field": "monthName",
-      "type": "ordinal",
-      "title": "Month",
-      "sort": [
-        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      "encoding": {
+        "x": {
+          "field": "monthName",
+          "type": "ordinal",
+          "title": "Month",
+          "sort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
+
+          "axis": {
+            "labelAngle": 0,
+            "labelFontSize": 11,
+            "titleFontSize": 12
+          }
+        },
+
+        "y": {
+          "field": "family",
+          "type": "nominal",
+          "title": "Bee family",
+
+          "sort": [
+            "Apidae",
+            "Colletidae",
+            "Halictidae",
+            "Megachilidae",
+            "Stenotritidae"
+          ],
+
+          "axis": {
+            "labelFontSize": 11,
+            "titleFontSize": 12
+          }
+        },
+
+        "color": {
+          "field": "records",
+          "type": "quantitative",
+          "title": "Occurrence records",
+
+          "scale": {
+            "scheme": "orangered"
+          },
+
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 220,
+            "labelFontSize": 10,
+            "titleFontSize": 11
+          }
+        },
+
+        "tooltip": [
+          {
+            "field": "family",
+            "type": "nominal",
+            "title": "Bee family"
+          },
+
+          {
+            "field": "monthName",
+            "type": "ordinal",
+            "title": "Month"
+          },
+
+          {
+            "field": "records",
+            "type": "quantitative",
+            "title": "Occurrence records",
+            "format": ","
+          },
+
+          {
+            "field": "uniqueSpecies",
+            "type": "quantitative",
+            "title": "Unique recorded taxa",
+            "format": ","
+          }
+        ]
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "peakRank"
+            }
+          ],
+
+          "sort": [
+            {
+              "field": "records",
+              "order": "descending"
+            }
+          ],
+
+          "groupby": [
+            "family"
+          ]
+        },
+
+        {
+          "filter": "datum.peakRank == 1"
+        }
       ],
-      "axis": {
-        "labelAngle": 0,
-        "labelFontSize": 11,
-        "titleFontSize": 12
+
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "size": 520,
+        "stroke": "#3D2B0A",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+        "x": {
+          "field": "monthName",
+          "type": "ordinal",
+          "sort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ]
+        },
+
+        "y": {
+          "field": "family",
+          "type": "nominal",
+          "sort": [
+            "Apidae",
+            "Colletidae",
+            "Halictidae",
+            "Megachilidae",
+            "Stenotritidae"
+          ]
+        }
       }
     },
 
-    "y": {
-      "field": "family",
-      "type": "nominal",
-      "title": "Bee family",
-      "axis": {
-        "labelFontSize": 11,
-        "titleFontSize": 12
-      }
-    },
+    {
+      "transform": [
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "peakRank"
+            }
+          ],
 
-    "color": {
-      "field": "records",
-      "type": "quantitative",
-      "title": "Occurrence records",
-      "scale": {
-        "scheme": "orangered"
-      },
-      "legend": {
-        "orient": "bottom",
-        "direction": "horizontal",
-        "gradientLength": 220,
-        "labelFontSize": 10,
-        "titleFontSize": 11
-      }
-    },
+          "sort": [
+            {
+              "field": "records",
+              "order": "descending"
+            }
+          ],
 
-    "tooltip": [
-      {
-        "field": "family",
-        "type": "nominal",
-        "title": "Bee family"
+          "groupby": [
+            "family"
+          ]
+        },
+
+        {
+          "filter": "datum.peakRank == 1"
+        },
+
+        {
+          "calculate": "'Peak'",
+          "as": "peakLabel"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "fontSize": 9,
+        "fontWeight": "bold",
+        "color": "#3D2B0A"
       },
-      {
-        "field": "monthName",
-        "type": "ordinal",
-        "title": "Month"
-      },
-      {
-        "field": "records",
-        "type": "quantitative",
-        "title": "Occurrence records",
-        "format": ","
-      },
-      {
-        "field": "uniqueSpecies",
-        "type": "quantitative",
-        "title": "Unique recorded taxa",
-        "format": ","
+
+      "encoding": {
+        "x": {
+          "field": "monthName",
+          "type": "ordinal",
+          "sort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ]
+        },
+
+        "y": {
+          "field": "family",
+          "type": "nominal",
+          "sort": [
+            "Apidae",
+            "Colletidae",
+            "Halictidae",
+            "Megachilidae",
+            "Stenotritidae"
+          ]
+        },
+
+        "text": {
+          "field": "peakLabel"
+        }
       }
-    ]
-  },
+    }
+  ],
 
   "config": {
     "view": {
