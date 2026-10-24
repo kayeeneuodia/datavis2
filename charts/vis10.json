@@ -5,61 +5,29 @@
   "height": 360,
 
   "padding": {
-    "left": 30,
-    "right": 30,
-    "top": 45,
-    "bottom": 15
+    "left": 25,
+    "right": 25,
+    "top": 38,
+    "bottom": 18
   },
 
   "title": {
     "text": "How Are Bee Records Distributed Across States and Families?",
     "subtitle": "Thicker flows represent more ALA bee occurrence records",
     "anchor": "start",
+    "font": "Inter",
+    "subtitleFont": "Inter",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "signals": [
-    {
-      "name": "hoverState",
-      "value": null,
-      "on": [
-        {
-          "events": "@flowPath:mouseover",
-          "update": "datum.stateProvince"
-        },
-        {
-          "events": "@flowPath:mouseout",
-          "update": "null"
-        }
-      ]
-    },
-
-    {
-      "name": "hoverFamily",
-      "value": null,
-      "on": [
-        {
-          "events": "@flowPath:mouseover",
-          "update": "datum.family"
-        },
-        {
-          "events": "@flowPath:mouseout",
-          "update": "null"
-        }
-      ]
-    }
-  ],
-
   "data": [
     {
       "name": "raw",
       "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_family_summary.csv",
-
       "format": {
         "type": "csv",
-
         "parse": {
           "records": "number",
           "uniqueSpecies": "number"
@@ -73,75 +41,30 @@
 
       "transform": [
         {
-          "type": "formula",
-          "expr": "datum.family == 'Apidae' ? 1 : datum.family == 'Colletidae' ? 2 : datum.family == 'Halictidae' ? 3 : datum.family == 'Megachilidae' ? 4 : 5",
-          "as": "familyOrder"
-        },
-
-        {
-          "type": "formula",
-          "expr": "datum.records * datum.familyOrder",
-          "as": "weightedFamilyOrder"
-        },
-
-        {
           "type": "aggregate",
-
-          "groupby": [
-            "stateProvince"
-          ],
-
-          "fields": [
-            "records",
-            "weightedFamilyOrder"
-          ],
-
-          "ops": [
-            "sum",
-            "sum"
-          ],
-
-          "as": [
-            "total",
-            "weightedOrder"
-          ]
-        },
-
-        {
-          "type": "formula",
-          "expr": "datum.weightedOrder / datum.total",
-          "as": "familyPosition"
+          "groupby": ["stateProvince"],
+          "fields": ["records"],
+          "ops": ["sum"],
+          "as": ["total"]
         },
 
         {
           "type": "collect",
-
           "sort": {
-            "field": [
-              "familyPosition",
-              "total"
-            ],
-
-            "order": [
-              "ascending",
-              "descending"
-            ]
+            "field": "total",
+            "order": "descending"
           }
         },
 
         {
           "type": "window",
-          "ops": [
-            "row_number"
-          ],
-          "as": [
-            "index"
-          ]
+          "ops": ["row_number"],
+          "as": ["index"]
         },
 
         {
           "type": "formula",
-          "expr": "55 + (datum.index - 1) * 38",
+          "expr": "50 + (datum.index - 1) * 38",
           "as": "y"
         }
       ]
@@ -154,47 +77,24 @@
       "transform": [
         {
           "type": "aggregate",
-
-          "groupby": [
-            "family"
-          ],
-
-          "fields": [
-            "records"
-          ],
-
-          "ops": [
-            "sum"
-          ],
-
-          "as": [
-            "total"
-          ]
-        },
-
-        {
-          "type": "formula",
-          "expr": "datum.family == 'Apidae' ? 1 : datum.family == 'Colletidae' ? 2 : datum.family == 'Halictidae' ? 3 : datum.family == 'Megachilidae' ? 4 : 5",
-          "as": "familyOrder"
+          "groupby": ["family"],
+          "fields": ["records"],
+          "ops": ["sum"],
+          "as": ["total"]
         },
 
         {
           "type": "collect",
-
           "sort": {
-            "field": "familyOrder",
-            "order": "ascending"
+            "field": "total",
+            "order": "descending"
           }
         },
 
         {
           "type": "window",
-          "ops": [
-            "row_number"
-          ],
-          "as": [
-            "index"
-          ]
+          "ops": ["row_number"],
+          "as": ["index"]
         },
 
         {
@@ -214,60 +114,18 @@
           "type": "lookup",
           "from": "states",
           "key": "stateProvince",
-
-          "fields": [
-            "stateProvince"
-          ],
-
-          "values": [
-            "y"
-          ],
-
-          "as": [
-            "sourceY"
-          ]
+          "fields": ["stateProvince"],
+          "values": ["y"],
+          "as": ["sourceY"]
         },
 
         {
           "type": "lookup",
           "from": "families",
           "key": "family",
-
-          "fields": [
-            "family"
-          ],
-
-          "values": [
-            "y"
-          ],
-
-          "as": [
-            "targetY"
-          ]
-        },
-
-        {
-          "type": "formula",
-          "expr": "190",
-          "as": "sourceX"
-        },
-
-        {
-          "type": "formula",
-          "expr": "width - 145",
-          "as": "targetX"
-        },
-
-        {
-          "type": "formula",
-          "expr": "(datum.sourceX + datum.targetX) / 2",
-          "as": "midX"
-        },
-
-        {
-          "type": "formula",
-          "expr": "'M' + datum.sourceX + ',' + datum.sourceY + ' C' + datum.midX + ',' + datum.sourceY + ' ' + datum.midX + ',' + datum.targetY + ' ' + datum.targetX + ',' + datum.targetY",
-          "as": "path"
+          "fields": ["family"],
+          "values": ["y"],
+          "as": ["targetY"]
         }
       ]
     }
@@ -283,10 +141,7 @@
         "field": "records"
       },
 
-      "range": [
-        1.2,
-        16
-      ]
+      "range": [1.5, 21]
     },
 
     {
@@ -302,19 +157,18 @@
       ],
 
       "range": [
-        "#4E79A7",
-        "#F28E2B",
-        "#E15759",
-        "#76B7B2",
-        "#59A14F"
+        "#32689A",
+        "#E67E22",
+        "#D94F4F",
+        "#49A6A0",
+        "#4F8B45"
       ]
     }
   ],
 
   "marks": [
     {
-      "name": "flowPath",
-      "type": "path",
+      "type": "rule",
 
       "from": {
         "data": "links"
@@ -322,8 +176,20 @@
 
       "encode": {
         "enter": {
-          "path": {
-            "field": "path"
+          "x": {
+            "value": 195
+          },
+
+          "x2": {
+            "signal": "width - 135"
+          },
+
+          "y": {
+            "field": "sourceY"
+          },
+
+          "y2": {
+            "field": "targetY"
           },
 
           "stroke": {
@@ -336,12 +202,8 @@
             "field": "records"
           },
 
-          "strokeCap": {
-            "value": "round"
-          },
-
-          "fill": {
-            "value": null
+          "strokeOpacity": {
+            "value": 0.42
           },
 
           "tooltip": {
@@ -349,9 +211,9 @@
           }
         },
 
-        "update": {
+        "hover": {
           "strokeOpacity": {
-            "signal": "hoverState == null ? 0.38 : (datum.stateProvince == hoverState && datum.family == hoverFamily ? 0.95 : 0.07)"
+            "value": 0.9
           }
         }
       }
@@ -367,7 +229,7 @@
       "encode": {
         "enter": {
           "x": {
-            "value": 190
+            "value": 195
           },
 
           "y": {
@@ -379,17 +241,11 @@
           },
 
           "size": {
-            "value": 250
+            "value": 260
           },
 
           "fill": {
-            "value": "#4A4A4A"
-          }
-        },
-
-        "update": {
-          "opacity": {
-            "signal": "hoverState == null || datum.stateProvince == hoverState ? 1 : 0.3"
+            "value": "#555555"
           }
         }
       }
@@ -405,7 +261,7 @@
       "encode": {
         "enter": {
           "x": {
-            "value": 174
+            "value": 179
           },
 
           "y": {
@@ -424,8 +280,12 @@
             "value": "middle"
           },
 
+          "font": {
+            "value": "Inter"
+          },
+
           "fontSize": {
-            "value": 12
+            "value": 13
           },
 
           "fontWeight": {
@@ -433,13 +293,7 @@
           },
 
           "fill": {
-            "value": "#333"
-          }
-        },
-
-        "update": {
-          "opacity": {
-            "signal": "hoverState == null || datum.stateProvince == hoverState ? 1 : 0.3"
+            "value": "#333333"
           }
         }
       }
@@ -455,7 +309,7 @@
       "encode": {
         "enter": {
           "x": {
-            "signal": "width - 145"
+            "signal": "width - 135"
           },
 
           "y": {
@@ -467,18 +321,12 @@
           },
 
           "size": {
-            "value": 250
+            "value": 260
           },
 
           "fill": {
             "scale": "familyColor",
             "field": "family"
-          }
-        },
-
-        "update": {
-          "opacity": {
-            "signal": "hoverFamily == null || datum.family == hoverFamily ? 1 : 0.3"
           }
         }
       }
@@ -494,7 +342,7 @@
       "encode": {
         "enter": {
           "x": {
-            "signal": "width - 128"
+            "signal": "width - 118"
           },
 
           "y": {
@@ -513,8 +361,12 @@
             "value": "middle"
           },
 
+          "font": {
+            "value": "Inter"
+          },
+
           "fontSize": {
-            "value": 12
+            "value": 13
           },
 
           "fontWeight": {
@@ -522,13 +374,7 @@
           },
 
           "fill": {
-            "value": "#333"
-          }
-        },
-
-        "update": {
-          "opacity": {
-            "signal": "hoverFamily == null || datum.family == hoverFamily ? 1 : 0.3"
+            "value": "#333333"
           }
         }
       }
@@ -540,11 +386,11 @@
       "encode": {
         "enter": {
           "x": {
-            "value": 190
+            "value": 195
           },
 
           "y": {
-            "value": 18
+            "value": 17
           },
 
           "text": {
@@ -555,6 +401,10 @@
             "value": "center"
           },
 
+          "font": {
+            "value": "Inter"
+          },
+
           "fontSize": {
             "value": 12
           },
@@ -564,7 +414,7 @@
           },
 
           "fill": {
-            "value": "#444"
+            "value": "#444444"
           }
         }
       }
@@ -576,11 +426,11 @@
       "encode": {
         "enter": {
           "x": {
-            "signal": "width - 145"
+            "signal": "width - 135"
           },
 
           "y": {
-            "value": 18
+            "value": 17
           },
 
           "text": {
@@ -589,6 +439,10 @@
 
           "align": {
             "value": "center"
+          },
+
+          "font": {
+            "value": "Inter"
           },
 
           "fontSize": {
@@ -600,10 +454,31 @@
           },
 
           "fill": {
-            "value": "#444"
+            "value": "#444444"
           }
         }
       }
     }
-  ]
+  ],
+
+  "config": {
+    "title": {
+      "font": "Inter",
+      "subtitleFont": "Inter"
+    },
+
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "text": {
+      "font": "Inter"
+    }
+  }
 }
