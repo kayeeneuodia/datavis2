@@ -5,6 +5,8 @@
     "text": "Does Greater Bee Diversity Mean More Managed Hives?",
     "subtitle": "Bubble size represents total registered beekeepers in each state",
     "anchor": "start",
+    "font": "Inter",
+    "subtitleFont": "Inter",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
@@ -30,7 +32,7 @@
     {
       "mark": {
         "type": "circle",
-        "opacity": 0.8,
+        "opacity": 0.82,
         "stroke": "white",
         "strokeWidth": 1.5
       },
@@ -81,14 +83,27 @@
           "type": "quantitative",
           "title": "Total beekeepers",
           "scale": {
-            "range": [200, 1800]
+            "range": [220, 1900]
+          },
+          "legend": {
+            "orient": "right",
+            "values": [2000, 4000, 6000, 8000],
+            "labelFontSize": 11,
+            "titleFontSize": 11,
+            "symbolOpacity": 0.75
           }
         },
 
         "color": {
           "field": "state",
           "type": "nominal",
-          "title": "State"
+          "title": "State",
+          "legend": {
+            "orient": "right",
+            "labelFontSize": 11,
+            "titleFontSize": 11,
+            "symbolSize": 90
+          }
         },
 
         "tooltip": [
@@ -135,7 +150,7 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "size": 2300,
+        "size": 2400,
         "stroke": "#D6A51E",
         "strokeWidth": 3
       },
@@ -168,7 +183,8 @@
 
       "mark": {
         "type": "text",
-        "dy": -30,
+        "dy": -31,
+        "font": "Inter",
         "fontSize": 12,
         "fontWeight": "bold",
         "color": "#5A4526"
@@ -207,6 +223,7 @@
       "mark": {
         "type": "text",
         "dy": -14,
+        "font": "Inter",
         "fontSize": 11,
         "color": "#5A4526"
       },
@@ -240,15 +257,25 @@
       "stroke": null
     },
 
+    "title": {
+      "font": "Inter",
+      "subtitleFont": "Inter"
+    },
+
     "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
       "labelFontSize": 12,
       "titleFontSize": 12
     },
 
     "legend": {
-      "labelFontSize": 12,
-      "titleFontSize": 12,
-      "orient": "right"
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "text": {
+      "font": "Inter"
     }
   }
 }
