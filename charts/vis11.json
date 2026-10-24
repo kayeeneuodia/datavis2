@@ -5,17 +5,19 @@
     "text": "Who Are Australia's Registered Beekeepers?",
     "subtitle": "Each square represents approximately 1% of registered beekeepers",
     "anchor": "start",
+    "font": "Inter",
+    "subtitleFont": "Inter",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
   },
 
-  "spacing": 36,
+  "spacing": 20,
 
   "hconcat": [
     {
-      "width": 430,
-      "height": 300,
+      "width": 500,
+      "height": 320,
 
       "data": {
         "sequence": {
@@ -103,8 +105,8 @@
     },
 
     {
-      "width": 190,
-      "height": 300,
+      "width": 175,
+      "height": 320,
 
       "data": {
         "values": [
@@ -112,14 +114,14 @@
             "type": "Recreational",
             "percentage": "93.7%",
             "count": "27,822 beekeepers",
-            "y": 95
+            "y": 98
           },
 
           {
             "type": "Commercial",
             "percentage": "6.3%",
             "count": "1,868 beekeepers",
-            "y": 215
+            "y": 225
           }
         ]
       },
@@ -130,7 +132,8 @@
             "type": "text",
             "align": "left",
             "baseline": "middle",
-            "fontSize": 25,
+            "font": "Inter",
+            "fontSize": 26,
             "fontWeight": "bold"
           },
 
@@ -143,7 +146,7 @@
               "field": "y",
               "type": "quantitative",
               "scale": {
-                "domain": [300, 0]
+                "domain": [320, 0]
               },
               "axis": null
             },
@@ -177,9 +180,10 @@
             "type": "text",
             "align": "left",
             "baseline": "middle",
+            "font": "Inter",
             "fontSize": 13,
             "fontWeight": "bold",
-            "color": "#333"
+            "color": "#333333"
           },
 
           "encoding": {
@@ -191,13 +195,13 @@
               "field": "y",
               "type": "quantitative",
               "scale": {
-                "domain": [300, 0]
+                "domain": [320, 0]
               },
               "axis": null
             },
 
             "yOffset": {
-              "value": 24
+              "value": 25
             },
 
             "text": {
@@ -211,8 +215,9 @@
             "type": "text",
             "align": "left",
             "baseline": "middle",
+            "font": "Inter",
             "fontSize": 12,
-            "color": "#666"
+            "color": "#666666"
           },
 
           "encoding": {
@@ -224,13 +229,13 @@
               "field": "y",
               "type": "quantitative",
               "scale": {
-                "domain": [300, 0]
+                "domain": [320, 0]
               },
               "axis": null
             },
 
             "yOffset": {
-              "value": 44
+              "value": 45
             },
 
             "text": {
@@ -245,6 +250,25 @@
   "config": {
     "view": {
       "stroke": null
+    },
+
+    "title": {
+      "font": "Inter",
+      "subtitleFont": "Inter"
+    },
+
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "text": {
+      "font": "Inter"
     }
   }
 }
