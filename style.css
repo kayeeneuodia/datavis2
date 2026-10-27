@@ -21,14 +21,9 @@ html {
   --bee-brown: #5a4526;
 
   --cream: #f8f3e7;
-  --cream-light: #fffaf0;
-
-  --card: #ffffff;
 
   --muted: #686157;
   --border: #e8ddc4;
-
-  --soft-honey: #fff5cf;
 }
 
 
@@ -41,231 +36,314 @@ body {
     Helvetica,
     sans-serif;
 
-  color: var(--bee-black);
+  color:
+    var(--bee-black);
 
-  background-color: var(--cream);
+  background-color:
+    var(--cream);
 
   background-image:
     url("data:image/svg+xml,%3Csvg width='72' height='84' viewBox='0 0 72 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 2 L70 21 L70 63 L36 82 L2 63 L2 21 Z' fill='none' stroke='%23d4a72c' stroke-opacity='0.13' stroke-width='1.3'/%3E%3C/svg%3E");
 
-  background-size: 72px 84px;
-  background-position: center top;
+  background-size:
+    72px 84px;
 
-  line-height: 1.55;
+  line-height:
+    1.55;
 }
 
 
 
 /* =========================================================
-   HONEYCOMB CHAPTER NAVIGATION
+   SCROLL PROGRESS
+========================================================= */
+
+.scroll-progress-track {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  z-index: 3000;
+
+  background:
+    rgba(255, 255, 255, 0.75);
+
+  pointer-events: none;
+}
+
+
+.scroll-progress {
+  width: 0;
+  height: 100%;
+
+  background:
+    var(--honey-dark);
+
+  transition:
+    width 0.08s linear;
+}
+
+
+
+/* =========================================================
+   COMPACT HONEYCOMB NAV
 ========================================================= */
 
 .chapter-nav {
   position: fixed;
 
-  right: 24px;
+  right: 18px;
   top: 50%;
 
-  transform: translateY(-50%);
+  transform:
+    translateY(-50%);
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  gap: 10px;
+  flex-direction:
+    column;
 
-  z-index: 1000;
+  align-items:
+    center;
+
+  gap: 9px;
+
+  z-index:
+    1200;
 }
 
 
-/* connector between hexagons */
+/* small connecting line only between buttons */
 
 .chapter-nav::before {
   content: "";
 
   position: absolute;
 
-  top: 30px;
-  bottom: 30px;
+  top: 28px;
+  bottom: 28px;
+
   left: 50%;
 
-  transform: translateX(-50%);
+  width: 2px;
 
-  width: 3px;
+  transform:
+    translateX(-50%);
 
   background:
-    linear-gradient(
-      to bottom,
-      #d4bd79,
-      #e3d3a4
-    );
+    #ddcd9e;
 
-  z-index: 0;
+  z-index:
+    -1;
 }
 
-
-/* OUTER HONEYCOMB */
 
 .chapter-dot {
   position: relative;
 
-  z-index: 1;
-
-  width: 66px;
-  height: 72px;
+  width: 50px;
+  height: 56px;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   padding: 0;
 
-  /*
-    Important:
-    these explicitly kill the old circular shape.
-  */
-  border: none !important;
-  border-radius: 0 !important;
+  border:
+    none;
+
+  border-radius:
+    0;
 
   background:
-    #dbc88c;
+    #dbc98f;
 
-  text-decoration: none;
-
-  -webkit-clip-path:
-    polygon(
-      25% 0%,
-      75% 0%,
-      100% 50%,
-      75% 100%,
-      25% 100%,
-      0% 50%
-    );
+  text-decoration:
+    none;
 
   clip-path:
     polygon(
-      25% 0%,
-      75% 0%,
+      25% 0,
+      75% 0,
       100% 50%,
       75% 100%,
       25% 100%,
-      0% 50%
+      0 50%
     );
 
   filter:
     drop-shadow(
-      0 5px 5px
-      rgba(60, 45, 15, 0.12)
+      0 2px 3px
+      rgba(58, 45, 18, 0.08)
     );
 
   transition:
-    transform 0.22s ease,
-    background 0.22s ease,
-    filter 0.22s ease;
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 
-/* INNER HONEYCOMB */
+/* cream centre */
 
-.chapter-dot span {
+.chapter-dot::before {
+  content: "";
+
   position: absolute;
 
   inset: 3px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   background:
     #fffaf0;
 
-  color:
-    #756a58;
-
-  font-family:
-    "Inter",
-    Arial,
-    sans-serif;
-
-  font-size: 13px;
-
-  font-weight: 800;
-
-  -webkit-clip-path:
-    polygon(
-      25% 0%,
-      75% 0%,
-      100% 50%,
-      75% 100%,
-      25% 100%,
-      0% 50%
-    );
-
   clip-path:
     polygon(
-      25% 0%,
-      75% 0%,
+      25% 0,
+      75% 0,
       100% 50%,
       75% 100%,
       25% 100%,
-      0% 50%
+      0 50%
     );
-
-  transition:
-    background 0.22s ease,
-    color 0.22s ease;
 }
 
 
-/* HOVER */
+.chapter-dot span {
+  position: relative;
+
+  z-index: 2;
+
+  color:
+    #756b5c;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+}
+
+
+
+/* chapter name tooltip */
+
+.chapter-dot::after {
+  content:
+    attr(data-label);
+
+  position:
+    absolute;
+
+  right:
+    60px;
+
+  top:
+    50%;
+
+  transform:
+    translate(
+      8px,
+      -50%
+    );
+
+  width:
+    max-content;
+
+  max-width:
+    230px;
+
+  padding:
+    7px 10px;
+
+  color:
+    #fff8df;
+
+  background:
+    #29271f;
+
+  border-radius:
+    6px;
+
+  font-family:
+    "Inter",
+    sans-serif;
+
+  font-size:
+    10px;
+
+  font-weight:
+    600;
+
+  white-space:
+    nowrap;
+
+  opacity:
+    0;
+
+  visibility:
+    hidden;
+
+  pointer-events:
+    none;
+
+  box-shadow:
+    0 4px 12px
+    rgba(0, 0, 0, 0.14);
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+
+.chapter-dot:hover::after {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translate(
+      0,
+      -50%
+    );
+}
+
 
 .chapter-dot:hover {
   background:
     var(--honey-dark);
 
   transform:
-    scale(1.08);
-
-  filter:
-    drop-shadow(
-      0 7px 8px
-      rgba(60, 45, 15, 0.18)
-    );
+    scale(1.07);
 }
 
-
-.chapter-dot:hover span {
-  background:
-    #fff1b5;
-
-  color:
-    var(--bee-black);
-}
-
-
-/* ACTIVE CHAPTER */
 
 .chapter-dot.active {
   background:
     var(--bee-black);
 
   transform:
-    scale(1.1);
+    scale(1.08);
+}
 
-  filter:
-    drop-shadow(
-      0 8px 9px
-      rgba(60, 45, 15, 0.23)
-    );
+
+.chapter-dot.active::before {
+  background:
+    var(--honey);
 }
 
 
 .chapter-dot.active span {
-  background:
-    var(--honey);
-
   color:
-    #241f15;
+    var(--bee-black);
 }
 
 
@@ -286,23 +364,25 @@ body {
   align-items: center;
   justify-content: center;
 
-  width: 100%;
+  min-height:
+    210px;
 
-  min-height: 210px;
+  padding:
+    52px 24px 48px;
 
-  padding: 58px 24px 54px;
-
-  text-align: center;
+  text-align:
+    center;
 
   background:
     linear-gradient(
       135deg,
-      #f4cf58 0%,
-      #efbd32 100%
+      #f4cf58,
+      #efbd32
     );
 
   border-bottom:
-    5px solid var(--bee-black);
+    5px solid
+    var(--bee-black);
 }
 
 
@@ -319,40 +399,8 @@ body {
   background-size:
     90px 104px;
 
-  background-position:
-    center;
-
   pointer-events:
     none;
-}
-
-
-.hero::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: 0;
-
-  transform:
-    translateX(-50%);
-
-  width:
-    210px;
-
-  height:
-    8px;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      var(--bee-black) 0 22px,
-      var(--honey) 22px 44px
-    );
-
-  border-radius:
-    6px 6px 0 0;
 }
 
 
@@ -361,16 +409,8 @@ body {
 
   z-index: 2;
 
-  width: 100%;
-
-  max-width:
-    950px;
-
   margin:
-    0 auto 12px;
-
-  padding:
-    0 20px;
+    0 0 10px;
 
   font-family:
     "Lora",
@@ -383,50 +423,26 @@ body {
   line-height:
     1.12;
 
-  font-weight:
-    700;
-
-  letter-spacing:
-    -0.6px;
-
-  text-align:
-    center;
-
   color:
     #241f15;
 }
 
 
 .hero p {
-  position:
-    relative;
+  position: relative;
 
-  z-index:
-    2;
+  z-index: 2;
 
-  width:
-    100%;
-
-  max-width:
-    800px;
-
-  margin:
-    0 auto;
-
-  padding:
-    0 20px;
+  margin: 0;
 
   color:
     #443820;
 
   font-size:
-    16px;
+    15px;
 
   line-height:
-    1.7;
-
-  text-align:
-    center;
+    1.65;
 }
 
 
@@ -446,13 +462,13 @@ main {
     0 auto;
 
   padding:
-    34px 18px 64px;
+    28px 18px 56px;
 }
 
 
 
 /* =========================================================
-   CHAPTER
+   CHAPTERS
 ========================================================= */
 
 .chapter-block {
@@ -463,29 +479,29 @@ main {
     hidden;
 
   scroll-margin-top:
-    24px;
+    18px;
 
-  margin:
-    0 0 52px;
+  margin-bottom:
+    42px;
 
   padding:
-    40px 42px 46px;
+    34px 38px 38px;
 
   background:
     rgba(255, 255, 255, 0.98);
 
   border:
-    1px solid var(--border);
+    1px solid
+    var(--border);
 
   border-radius:
-    20px;
+    18px;
 
   box-shadow:
-    0 8px 28px rgba(77, 59, 20, 0.045);
+    0 7px 24px
+    rgba(77, 59, 20, 0.04);
 }
 
-
-/* subtle honey accent */
 
 .chapter-block::before {
   content: "";
@@ -494,98 +510,53 @@ main {
 
   top: 0;
 
-  left: 32px;
-  right: 32px;
+  left: 30px;
+  right: 30px;
 
   height:
-    5px;
+    4px;
 
   background:
     linear-gradient(
       90deg,
-      transparent 0%,
-      var(--honey-dark) 15%,
-      var(--honey) 50%,
-      var(--honey-dark) 85%,
-      transparent 100%
+      transparent,
+      var(--honey),
+      transparent
     );
-
-  border-radius:
-    0 0 8px 8px;
 }
 
-
-/* honeycomb corner decoration */
-
-.chapter-block::after {
-  content: "";
-
-  position: absolute;
-
-  width:
-    220px;
-
-  height:
-    170px;
-
-  right:
-    -35px;
-
-  top:
-    -30px;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 2 L52 16 L52 46 L27 60 L2 46 L2 16 Z' fill='none' stroke='%23c58d12' stroke-opacity='0.13' stroke-width='1.5'/%3E%3C/svg%3E");
-
-  background-size:
-    54px 62px;
-
-  pointer-events:
-    none;
-}
-
-
-
-/* =========================================================
-   CHAPTER HEADER
-========================================================= */
 
 .chapter-header {
-  position:
-    relative;
-
-  z-index:
-    2;
-
   display:
     grid;
 
   grid-template-columns:
-    62px 1fr;
+    58px 1fr;
 
   gap:
-    18px;
+    16px;
 
   align-items:
     start;
 
   margin-bottom:
-    34px;
+    26px;
 
   padding-bottom:
-    22px;
+    18px;
 
   border-bottom:
-    2px solid #eee3c8;
+    1px solid
+    #eee3c8;
 }
 
 
 .chapter-number {
   width:
-    52px;
+    50px;
 
   height:
-    58px;
+    56px;
 
   display:
     flex;
@@ -603,39 +574,26 @@ main {
     #332812;
 
   font-size:
-    16px;
+    15px;
 
   font-weight:
     800;
 
-  -webkit-clip-path:
-    polygon(
-      25% 6.7%,
-      75% 6.7%,
-      100% 50%,
-      75% 93.3%,
-      25% 93.3%,
-      0% 50%
-    );
-
   clip-path:
     polygon(
-      25% 6.7%,
-      75% 6.7%,
+      25% 0,
+      75% 0,
       100% 50%,
-      75% 93.3%,
-      25% 93.3%,
-      0% 50%
+      75% 100%,
+      25% 100%,
+      0 50%
     );
 }
 
 
 .chapter-header h2 {
   margin:
-    0 0 8px;
-
-  max-width:
-    900px;
+    0 0 6px;
 
   font-family:
     "Lora",
@@ -643,43 +601,30 @@ main {
     serif;
 
   font-size:
-    31px;
+    29px;
 
   line-height:
     1.25;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    -0.3px;
-
-  color:
-    var(--bee-black);
 }
 
 
 .chapter-header p {
-  max-width:
-    850px;
-
-  margin:
-    0;
+  margin: 0;
 
   color:
     var(--muted);
 
   font-size:
-    15px;
+    14px;
 
   line-height:
-    1.7;
+    1.6;
 }
 
 
 
 /* =========================================================
-   VISUALISATION CARDS
+   VIS CARDS
 ========================================================= */
 
 .vis-card {
@@ -690,19 +635,38 @@ main {
     0;
 
   margin:
-    26px 0 36px;
+    18px 0 26px;
 
   padding:
-    20px 20px 18px;
+    16px 18px;
 
   background:
     #fffdfa;
 
   border:
-    1px solid #eee2c9;
+    1px solid
+    #eee2c9;
 
   border-radius:
-    15px;
+    13px;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+
+.vis-card:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    #dfcc91;
+
+  box-shadow:
+    0 7px 18px
+    rgba(77, 59, 20, 0.08);
 }
 
 
@@ -724,20 +688,11 @@ main {
 
   overflow-x:
     auto;
-
-  padding:
-    2px 0;
 }
 
 
-.visualisation .vega-embed {
-  max-width:
-    100%;
-}
-
-
-.visualisation canvas,
-.visualisation svg {
+.visualisation
+.vega-embed {
   max-width:
     100%;
 }
@@ -745,7 +700,7 @@ main {
 
 
 /* =========================================================
-   TWO COLUMN LAYOUT
+   TWO COLUMN
 ========================================================= */
 
 .chart-grid {
@@ -757,16 +712,7 @@ main {
     minmax(0, 1fr);
 
   gap:
-    28px;
-
-  align-items:
-    stretch;
-}
-
-
-.chart-grid .vis-card {
-  margin-top:
-    0;
+    22px;
 }
 
 
@@ -777,10 +723,7 @@ main {
 
 .chart-title {
   margin:
-    0 0 6px;
-
-  color:
-    var(--bee-black);
+    0 0 5px;
 
   font-family:
     "Lora",
@@ -789,27 +732,21 @@ main {
 
   font-size:
     18px;
-
-  line-height:
-    1.35;
-
-  font-weight:
-    700;
 }
 
 
 .chart-subtitle {
   margin:
-    0 0 14px;
+    0 0 10px;
 
   color:
     var(--muted);
 
   font-size:
-    12px;
+    11px;
 
   line-height:
-    1.55;
+    1.45;
 }
 
 
@@ -820,10 +757,10 @@ main {
 
 .note {
   max-width:
-    900px;
+    820px;
 
   margin:
-    16px auto 18px;
+    10px auto 12px;
 
   text-align:
     center;
@@ -832,16 +769,55 @@ main {
     #6a645c;
 
   font-size:
-    12px;
+    11px;
 
   line-height:
-    1.65;
+    1.55;
 }
 
 
 
 /* =========================================================
-   INSIGHT BOXES
+   INTERACTION HINT
+========================================================= */
+
+.interaction-hint {
+  width:
+    fit-content;
+
+  margin:
+    10px auto 2px;
+
+  padding:
+    6px 11px;
+
+  background:
+    #fff5cc;
+
+  border:
+    1px solid
+    #e6d18c;
+
+  border-radius:
+    999px;
+
+  color:
+    #655a42;
+
+  font-size:
+    10px;
+}
+
+
+.interaction-hint strong {
+  color:
+    var(--bee-brown);
+}
+
+
+
+/* =========================================================
+   INSIGHT
 ========================================================= */
 
 .insight-box {
@@ -849,13 +825,10 @@ main {
     relative;
 
   margin:
-    18px 0 26px;
+    12px 0 20px;
 
   padding:
-    17px 20px 17px 24px;
-
-  color:
-    #403726;
+    13px 18px 13px 21px;
 
   background:
     linear-gradient(
@@ -864,11 +837,15 @@ main {
       #fff9e5
     );
 
+  color:
+    #403726;
+
   border-left:
-    5px solid var(--honey-dark);
+    4px solid
+    var(--honey-dark);
 
   border-radius:
-    9px;
+    8px;
 }
 
 
@@ -879,38 +856,28 @@ main {
     absolute;
 
   left:
-    -10px;
+    -8px;
 
   top:
-    17px;
-
-  width:
     15px;
 
+  width:
+    12px;
+
   height:
-    17px;
+    14px;
 
   background:
     var(--honey-dark);
 
-  -webkit-clip-path:
-    polygon(
-      25% 6.7%,
-      75% 6.7%,
-      100% 50%,
-      75% 93.3%,
-      25% 93.3%,
-      0% 50%
-    );
-
   clip-path:
     polygon(
-      25% 6.7%,
-      75% 6.7%,
+      25% 0,
+      75% 0,
       100% 50%,
-      75% 93.3%,
-      25% 93.3%,
-      0% 50%
+      75% 100%,
+      25% 100%,
+      0 50%
     );
 }
 
@@ -920,28 +887,24 @@ main {
     block;
 
   margin-bottom:
-    5px;
+    4px;
 
   color:
     var(--bee-brown);
 
   font-size:
-    14px;
-
-  font-weight:
-    700;
+    13px;
 }
 
 
 .insight-box p {
-  margin:
-    0;
+  margin: 0;
 
   font-size:
-    13px;
+    12px;
 
   line-height:
-    1.7;
+    1.6;
 }
 
 
@@ -951,17 +914,11 @@ main {
 ========================================================= */
 
 .conclusion {
-  position:
-    relative;
-
-  overflow:
-    hidden;
-
   margin-bottom:
-    30px;
+    24px;
 
   padding:
-    32px 36px;
+    26px 30px;
 
   background:
     linear-gradient(
@@ -971,51 +928,17 @@ main {
     );
 
   border:
-    1px solid #ecd283;
+    1px solid
+    #ecd283;
 
   border-radius:
-    18px;
-}
-
-
-.conclusion::after {
-  content: "";
-
-  position:
-    absolute;
-
-  width:
-    160px;
-
-  height:
-    140px;
-
-  right:
-    -25px;
-
-  bottom:
-    -40px;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 2 L52 16 L52 46 L27 60 L2 46 L2 16 Z' fill='none' stroke='%23c58d12' stroke-opacity='0.16' stroke-width='1.5'/%3E%3C/svg%3E");
-
-  background-size:
-    54px 62px;
-
-  pointer-events:
-    none;
+    16px;
 }
 
 
 .conclusion h2 {
-  position:
-    relative;
-
-  z-index:
-    1;
-
   margin:
-    0 0 12px;
+    0 0 8px;
 
   font-family:
     "Lora",
@@ -1023,37 +946,18 @@ main {
     serif;
 
   font-size:
-    28px;
-
-  line-height:
-    1.25;
-
-  color:
-    var(--bee-black);
+    26px;
 }
 
 
 .conclusion p {
-  position:
-    relative;
-
-  z-index:
-    1;
-
-  margin:
-    0;
-
-  max-width:
-    780px;
-
-  color:
-    #3b362f;
+  margin: 0;
 
   font-size:
-    14px;
+    13px;
 
   line-height:
-    1.8;
+    1.7;
 }
 
 
@@ -1064,22 +968,23 @@ main {
 
 .sources {
   padding:
-    30px 34px;
+    26px 30px;
 
   background:
     #efede6;
 
   border-top:
-    5px solid var(--bee-black);
+    4px solid
+    var(--bee-black);
 
   border-radius:
-    16px;
+    14px;
 }
 
 
 .sources h2 {
   margin:
-    0 0 22px;
+    0 0 18px;
 
   font-family:
     "Lora",
@@ -1087,177 +992,77 @@ main {
     serif;
 
   font-size:
-    25px;
-
-  line-height:
-    1.3;
-
-  color:
-    var(--bee-black);
+    23px;
 }
 
 
 .sources p {
   margin:
-    0 0 20px;
-
-  max-width:
-    950px;
+    0 0 16px;
 
   color:
     #514b42;
 
   font-size:
-    13px;
+    12px;
 
   line-height:
-    1.7;
-}
-
-
-.sources p:last-child {
-  margin-bottom:
-    0;
-}
-
-
-.sources strong {
-  color:
-    var(--bee-black);
-
-  font-weight:
-    700;
+    1.6;
 }
 
 
 .sources a {
   color:
     #73580b;
-
-  font-weight:
-    500;
-
-  text-decoration:
-    underline;
-
-  text-decoration-thickness:
-    1px;
-
-  text-underline-offset:
-    3px;
-
-  overflow-wrap:
-    anywhere;
-}
-
-
-.sources a:hover {
-  color:
-    var(--amber);
 }
 
 
 
 /* =========================================================
-   VEGA
-========================================================= */
-
-.vega-embed {
-  max-width:
-    100%;
-}
-
-
-.vega-embed summary {
-  display:
-    none;
-}
-
-
-.vega-actions {
-  display:
-    none !important;
-}
-
-
-
-/* =========================================================
-   CUSTOM VEGA TOOLTIPS
+   VEGA TOOLTIP
 ========================================================= */
 
 .vg-tooltip {
   font-family:
     "Inter",
-    Arial,
     sans-serif !important;
 
   background:
-    linear-gradient(
-      145deg,
-      #fffdf6,
-      #fff7dc
-    ) !important;
+    #fffaf0 !important;
 
   color:
     var(--bee-black) !important;
 
   border:
-    1px solid #e3ca77 !important;
+    1px solid
+    #dfc878 !important;
 
   border-left:
-    5px solid var(--honey-dark) !important;
+    4px solid
+    var(--honey-dark) !important;
 
   border-radius:
-    10px !important;
+    8px !important;
 
   padding:
-    10px 12px !important;
+    9px 11px !important;
 
   box-shadow:
-    0 10px 28px rgba(61, 45, 16, 0.18) !important;
+    0 8px 22px
+    rgba(60, 45, 15, 0.16) !important;
 
   font-size:
-    12px !important;
-
-  line-height:
-    1.45 !important;
-
-  max-width:
-    320px !important;
-}
-
-
-.vg-tooltip table {
-  border-spacing:
-    0 5px !important;
-}
-
-
-.vg-tooltip td {
-  padding:
-    2px 6px !important;
-
-  vertical-align:
-    top !important;
+    11px !important;
 }
 
 
 .vg-tooltip td.key {
   color:
     #766b5a !important;
-
-  font-weight:
-    500 !important;
-
-  padding-right:
-    16px !important;
 }
 
 
 .vg-tooltip td.value {
-  color:
-    var(--bee-black) !important;
-
   font-weight:
     700 !important;
 }
@@ -1265,77 +1070,53 @@ main {
 
 
 /* =========================================================
-   RESPONSIVE - SMALL LAPTOP / TABLET
+   SMALL LAPTOP
 ========================================================= */
 
 @media (max-width: 980px) {
 
-  main {
-    padding:
-      28px 14px 52px;
-  }
-
-
   .chapter-nav {
     right:
-      8px;
-
-    gap:
-      8px;
+      7px;
   }
 
 
   .chapter-dot {
     width:
-      54px;
+      44px;
 
     height:
-      60px;
+      50px;
   }
 
 
   .chapter-dot span {
     font-size:
-      11px;
+      10px;
   }
 
 
-  .chapter-nav::before {
-    top:
-      25px;
-
-    bottom:
-      25px;
-
-    width:
-      2px;
+  .chapter-dot::after {
+    display:
+      none;
   }
 
 
   .chart-grid {
     grid-template-columns:
       1fr;
-
-    gap:
-      18px;
   }
 
 
   .hero h1 {
     font-size:
-      42px;
+      40px;
   }
 
 
   .chapter-block {
     padding:
-      34px 28px 40px;
-  }
-
-
-  .chapter-header h2 {
-    font-size:
-      28px;
+      30px 25px 34px;
   }
 
 }
@@ -1343,7 +1124,7 @@ main {
 
 
 /* =========================================================
-   RESPONSIVE - MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
@@ -1356,169 +1137,85 @@ main {
 
   main {
     padding:
-      18px 10px 40px;
+      16px 10px 36px;
   }
 
 
   .hero {
     min-height:
-      190px;
+      180px;
 
     padding:
-      44px 18px 40px;
+      40px 16px;
   }
 
 
   .hero h1 {
-    padding:
-      0;
-
     font-size:
-      34px;
-
-    line-height:
-      1.15;
+      33px;
   }
 
 
   .hero p {
-    padding:
-      0;
-
     font-size:
-      14px;
+      13px;
   }
 
 
   .chapter-block {
-    padding:
-      28px 18px 32px;
-
     margin-bottom:
-      30px;
+      26px;
 
-    border-radius:
-      14px;
-
-    scroll-margin-top:
-      12px;
-  }
-
-
-  .chapter-block::before {
-    left:
-      18px;
-
-    right:
-      18px;
+    padding:
+      25px 16px 28px;
   }
 
 
   .chapter-header {
     grid-template-columns:
-      46px 1fr;
-
-    gap:
-      11px;
-
-    margin-bottom:
-      26px;
+      44px 1fr;
   }
 
 
   .chapter-number {
     width:
-      41px;
+      40px;
 
     height:
-      47px;
-
-    font-size:
-      13px;
+      46px;
   }
 
 
   .chapter-header h2 {
     font-size:
-      23px;
+      22px;
   }
 
 
   .chapter-header p {
     font-size:
-      13px;
+      12px;
   }
 
 
   .vis-card {
     padding:
-      14px 10px 14px;
+      12px 9px;
+
+    margin:
+      14px 0 20px;
   }
 
 
-  .chart-title {
-    font-size:
-      17px;
-  }
-
-
-  .chart-subtitle {
-    font-size:
-      11px;
-  }
-
-
-  .note {
-    font-size:
-      11px;
-  }
-
-
-  .insight-box {
-    padding:
-      15px 15px 15px 19px;
+  .vis-card:hover {
+    transform:
+      none;
   }
 
 
   .insight-box p {
     font-size:
-      12px;
-  }
-
-
-  .conclusion {
-    padding:
-      24px 20px;
-  }
-
-
-  .conclusion h2 {
-    font-size:
-      23px;
-  }
-
-
-  .conclusion p {
-    font-size:
-      13px;
-  }
-
-
-  .sources {
-    padding:
-      24px 20px;
-  }
-
-
-  .sources h2 {
-    font-size:
-      22px;
-  }
-
-
-  .sources p {
-    font-size:
-      12px;
+      11px;
   }
 
 }
