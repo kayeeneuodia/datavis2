@@ -75,7 +75,7 @@
           250000,
           300000
         ],
-        "format": ",",
+        "labelExpr": "format(datum.value, ',')",
         "labelFont": "Inter",
         "titleFont": "Inter"
       }
@@ -125,7 +125,8 @@
               4000,
               6000,
               8000
-            ]
+            ],
+            "format": ","
           }
         },
 
