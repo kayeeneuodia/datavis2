@@ -6,11 +6,9 @@
   box-sizing: border-box;
 }
 
-
 html {
   scroll-behavior: smooth;
 }
-
 
 :root {
   --honey: #f2c94c;
@@ -23,7 +21,6 @@ html {
   --muted: #686157;
   --border: #e8ddc4;
 }
-
 
 body {
   margin: 0;
@@ -47,7 +44,6 @@ body {
 }
 
 
-
 /* =========================================================
    PROGRESS
 ========================================================= */
@@ -64,9 +60,8 @@ body {
   z-index: 3000;
 
   background:
-    rgba(255,255,255,0.75);
+    rgba(255, 255, 255, 0.75);
 }
-
 
 .scroll-progress {
   height: 100%;
@@ -76,7 +71,6 @@ body {
   background:
     var(--honey-dark);
 }
-
 
 
 /* =========================================================
@@ -102,7 +96,6 @@ body {
   z-index: 1200;
 }
 
-
 .chapter-nav::before {
   content: "";
 
@@ -124,7 +117,6 @@ body {
   z-index:
     -1;
 }
-
 
 .chapter-dot {
   position: relative;
@@ -153,7 +145,6 @@ body {
     );
 }
 
-
 .chapter-dot::before {
   content: "";
 
@@ -167,7 +158,6 @@ body {
   clip-path:
     inherit;
 }
-
 
 .chapter-dot span {
   position: relative;
@@ -184,24 +174,20 @@ body {
     700;
 }
 
-
 .chapter-dot.active {
   background:
     var(--bee-black);
 }
-
 
 .chapter-dot.active::before {
   background:
     var(--honey);
 }
 
-
 .chapter-dot.active span {
   color:
     var(--bee-black);
 }
-
 
 .chapter-dot::after {
   content:
@@ -243,12 +229,10 @@ body {
     opacity 0.2s ease;
 }
 
-
 .chapter-dot:hover::after {
   opacity:
     1;
 }
-
 
 
 /* =========================================================
@@ -288,7 +272,6 @@ body {
     var(--bee-black);
 }
 
-
 .hero h1 {
   margin:
     0 0 9px;
@@ -301,7 +284,6 @@ body {
     48px;
 }
 
-
 .hero p {
   margin:
     0;
@@ -309,7 +291,6 @@ body {
   font-size:
     14px;
 }
-
 
 
 /* =========================================================
@@ -331,7 +312,6 @@ main {
 }
 
 
-
 /* =========================================================
    CHAPTER
 ========================================================= */
@@ -348,7 +328,7 @@ main {
     28px 32px 32px;
 
   background:
-    rgba(255,255,255,0.98);
+    rgba(255, 255, 255, 0.98);
 
   border:
     1px solid
@@ -357,7 +337,6 @@ main {
   border-radius:
     17px;
 }
-
 
 .chapter-header {
   display: grid;
@@ -378,7 +357,6 @@ main {
     1px solid
     #eee3c8;
 }
-
 
 .chapter-number {
   width:
@@ -412,7 +390,6 @@ main {
     );
 }
 
-
 .chapter-header h2 {
   margin:
     0 0 5px;
@@ -425,7 +402,6 @@ main {
     28px;
 }
 
-
 .chapter-header p {
   margin:
     0;
@@ -436,7 +412,6 @@ main {
   font-size:
     13px;
 }
-
 
 
 /* =========================================================
@@ -464,7 +439,6 @@ main {
     12px;
 }
 
-
 .visualisation {
   width:
     100%;
@@ -472,8 +446,7 @@ main {
   min-width:
     0;
 
-  display:
-    flex;
+  display: flex;
 
   justify-content:
     center;
@@ -485,12 +458,10 @@ main {
     auto;
 }
 
-
 .visualisation .vega-embed {
   max-width:
     100%;
 }
-
 
 
 /* =========================================================
@@ -512,7 +483,6 @@ main {
     stretch;
 }
 
-
 .map-main {
   min-width:
     0;
@@ -521,14 +491,12 @@ main {
     hidden;
 }
 
-
 .map-main
 .visualisation
 .vega-embed {
   width:
     100%;
 }
-
 
 .map-main
 .visualisation svg {
@@ -538,7 +506,6 @@ main {
   height:
     auto !important;
 }
-
 
 .map-main
 .visualisation canvas {
@@ -550,14 +517,14 @@ main {
 }
 
 
-
 /* =========================================================
    SIDE INSIGHT
 ========================================================= */
 
 .side-insight {
-  display:
-    flex;
+  position: relative;
+
+  display: flex;
 
   flex-direction:
     column;
@@ -586,14 +553,44 @@ main {
     9px;
 }
 
+.side-insight::before {
+  content: "";
+
+  position: absolute;
+
+  left:
+    -8px;
+
+  top:
+    20px;
+
+  width:
+    11px;
+
+  height:
+    13px;
+
+  background:
+    var(--honey-dark);
+
+  clip-path:
+    polygon(
+      25% 0,
+      75% 0,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0 50%
+    );
+}
 
 .insight-kicker,
 .takeaway-kicker {
   display:
     block;
 
-  margin-bottom:
-    5px;
+  margin:
+    0 0 4px;
 
   color:
     var(--bee-brown);
@@ -611,7 +608,6 @@ main {
     uppercase;
 }
 
-
 .side-insight h3 {
   margin:
     0 0 8px;
@@ -627,7 +623,6 @@ main {
     1.3;
 }
 
-
 .side-insight p {
   margin:
     0;
@@ -641,7 +636,6 @@ main {
   line-height:
     1.6;
 }
-
 
 
 /* =========================================================
@@ -664,30 +658,30 @@ main {
 }
 
 
-
 /* =========================================================
-   STANDARD TAKEAWAY STRIP
+   TAKEAWAY STRIPS
 ========================================================= */
 
+/*
+   IMPORTANT:
+   Takeaways underneath wide charts now use
+   a compact vertical layout.
+
+   This fixes Vis 8, Vis 9 and Vis 10.
+*/
+
 .takeaway-strip {
+  position:
+    relative;
+
   display:
-    grid;
-
-  grid-template-columns:
-    minmax(220px, 0.9fr)
-    minmax(0, 1.6fr);
-
-  gap:
-    18px;
-
-  align-items:
-    center;
+    block;
 
   margin-top:
-    11px;
+    10px;
 
   padding:
-    12px 16px;
+    11px 16px 12px 18px;
 
   background:
     linear-gradient(
@@ -704,10 +698,48 @@ main {
     8px;
 }
 
+.takeaway-strip::before {
+  content: "";
+
+  position: absolute;
+
+  left:
+    -8px;
+
+  top:
+    13px;
+
+  width:
+    11px;
+
+  height:
+    13px;
+
+  background:
+    var(--honey-dark);
+
+  clip-path:
+    polygon(
+      25% 0,
+      75% 0,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0 50%
+    );
+}
+
+.takeaway-strip > div {
+  display:
+    block;
+
+  margin:
+    0;
+}
 
 .takeaway-strip h3 {
   margin:
-    0;
+    0 0 4px;
 
   font-family:
     "Lora",
@@ -720,74 +752,47 @@ main {
     1.3;
 }
 
-
 .takeaway-strip p {
-  margin:
-    0;
-
-  font-size:
-    11px;
-
-  line-height:
-    1.55;
-}
-
-
-
-/* =========================================================
-   VIS 9 SEASONAL INSIGHT
-========================================================= */
-
-.seasonal-insight {
-  display:
-    block;
-
-  margin-top:
-    10px;
-
-  padding:
-    12px 16px 13px 18px;
-}
-
-
-.seasonal-insight .takeaway-kicker {
-  margin:
-    0 0 2px;
-
-  font-size:
-    9px;
-}
-
-
-.seasonal-insight h3 {
-  margin:
-    0 0 4px;
-
-  font-size:
-    15px;
-
-  line-height:
-    1.3;
-}
-
-
-.seasonal-insight p {
-  margin:
-    0;
-
   max-width:
-    900px;
+    880px;
+
+  margin:
+    0;
 
   color:
     #514735;
 
   font-size:
-    11px;
+    10.8px;
 
   line-height:
     1.5;
 }
 
+
+/* =========================================================
+   SEASONAL INSIGHT
+========================================================= */
+
+.seasonal-insight {
+  display:
+    block;
+}
+
+.seasonal-insight .takeaway-kicker {
+  margin-bottom:
+    3px;
+}
+
+.seasonal-insight h3 {
+  margin:
+    0 0 4px;
+}
+
+.seasonal-insight p {
+  margin:
+    0;
+}
 
 
 /* =========================================================
@@ -805,7 +810,6 @@ main {
     18px;
 }
 
-
 .chart-title {
   margin:
     0 0 4px;
@@ -818,7 +822,6 @@ main {
     17px;
 }
 
-
 .chart-subtitle {
   margin:
     0 0 8px;
@@ -829,7 +832,6 @@ main {
   font-size:
     10.5px;
 }
-
 
 
 /* =========================================================
@@ -850,7 +852,6 @@ main {
     14px 0 20px;
 }
 
-
 .small-comparison-card {
   margin:
     0;
@@ -858,7 +859,6 @@ main {
   overflow:
     hidden;
 }
-
 
 .scale-to-card svg,
 .scale-to-card canvas {
@@ -868,7 +868,6 @@ main {
   height:
     auto !important;
 }
-
 
 
 /* =========================================================
@@ -888,7 +887,6 @@ main {
   font-size:
     10px;
 }
-
 
 
 /* =========================================================
@@ -920,7 +918,6 @@ main {
 }
 
 
-
 /* =========================================================
    CONCLUSION
 ========================================================= */
@@ -947,7 +944,6 @@ main {
     14px;
 }
 
-
 .conclusion h2 {
   margin:
     0 0 6px;
@@ -957,7 +953,6 @@ main {
     serif;
 }
 
-
 .conclusion p {
   margin:
     0;
@@ -965,7 +960,6 @@ main {
   font-size:
     12.5px;
 }
-
 
 
 /* =========================================================
@@ -987,13 +981,11 @@ main {
     14px;
 }
 
-
 .sources h2 {
   font-family:
     "Lora",
     serif;
 }
-
 
 .sources-grid {
   display:
@@ -1006,13 +998,12 @@ main {
     12px 22px;
 }
 
-
 .source-item {
   padding:
     12px 14px;
 
   background:
-    rgba(255,255,255,0.5);
+    rgba(255, 255, 255, 0.5);
 
   border:
     1px solid
@@ -1025,12 +1016,10 @@ main {
     10.5px;
 }
 
-
 .source-item p {
   margin:
     5px 0;
 }
-
 
 .project-meta {
   display:
@@ -1052,7 +1041,6 @@ main {
   font-size:
     10.5px;
 }
-
 
 
 /* =========================================================
@@ -1080,7 +1068,6 @@ main {
 }
 
 
-
 /* =========================================================
    RESPONSIVE
 ========================================================= */
@@ -1092,32 +1079,22 @@ main {
       1fr;
   }
 
-
   .treemap-layout {
     grid-template-columns:
       1fr;
   }
-
 
   .chart-grid {
     grid-template-columns:
       1fr;
   }
 
-
   .chapter4-grid {
     grid-template-columns:
       1fr;
   }
 
-
-  .takeaway-strip {
-    grid-template-columns:
-      1fr;
-  }
-
 }
-
 
 
 @media (max-width: 700px) {
@@ -1127,42 +1104,35 @@ main {
       none;
   }
 
-
   main {
     padding:
       14px 9px 32px;
   }
-
 
   .hero h1 {
     font-size:
       32px;
   }
 
-
   .chapter-block {
     padding:
       22px 15px;
   }
-
 
   .chapter-header {
     grid-template-columns:
       43px 1fr;
   }
 
-
   .chapter-header h2 {
     font-size:
       21px;
   }
 
-
   .sources-grid {
     grid-template-columns:
       1fr;
   }
-
 
   .project-meta {
     flex-direction:
