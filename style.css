@@ -1361,3 +1361,126 @@ main {
   }
 
 }
+
+/* =========================================================
+   FINAL BEE / HIVE DECORATIONS
+========================================================= */
+
+/* Keep chapter content above decorations */
+.chapter-header {
+  position: relative;
+  z-index: 2;
+}
+
+.chapter-header > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   Small decorative bee
+--------------------------------------------------------- */
+
+.chapter-header::before {
+  content: "";
+
+  position: absolute;
+
+  top: -4px;
+  right: 72px;
+
+  width: 34px;
+  height: 30px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cellipse cx='32' cy='30' rx='15' ry='11' fill='%23F2C94C' stroke='%235A4526' stroke-width='2.5'/%3E%3Cpath d='M24 21 C16 7 4 12 9 22 C13 29 20 28 24 25' fill='%23FFF8DF' stroke='%23C58D12' stroke-width='2'/%3E%3Cpath d='M40 21 C48 7 60 12 55 22 C51 29 44 28 40 25' fill='%23FFF8DF' stroke='%23C58D12' stroke-width='2'/%3E%3Cpath d='M25 23 L25 37 M32 20 L32 40 M39 23 L39 37' stroke='%235A4526' stroke-width='3'/%3E%3Ccircle cx='45' cy='29' r='2' fill='%2329271F'/%3E%3Cpath d='M47 23 Q54 18 57 21' fill='none' stroke='%235A4526' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  opacity: 0.65;
+
+  pointer-events: none;
+
+  transform: rotate(-8deg);
+}
+
+
+/* ---------------------------------------------------------
+   Small decorative beehive
+--------------------------------------------------------- */
+
+.chapter-header::after {
+  content: "";
+
+  position: absolute;
+
+  top: -9px;
+  right: 15px;
+
+  width: 42px;
+  height: 46px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 68'%3E%3Cpath d='M16 18 Q30 7 44 18' fill='none' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M11 27 Q30 14 49 27' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M8 37 Q30 24 52 37' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M10 48 Q30 35 50 48' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M15 57 Q30 47 45 57' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cellipse cx='30' cy='53' rx='5' ry='4' fill='%235A4526'/%3E%3C/svg%3E");
+
+  opacity: 0.55;
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   Restore subtle honeycomb corner inside each chapter
+--------------------------------------------------------- */
+
+.chapter-block::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 170px;
+
+  right: -35px;
+  top: -30px;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 2 L52 16 L52 46 L27 60 L2 46 L2 16 Z' fill='none' stroke='%23c58d12' stroke-opacity='0.13' stroke-width='1.5'/%3E%3C/svg%3E");
+
+  background-size: 54px 62px;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* ---------------------------------------------------------
+   Make sure chart cards/content stay above decoration
+--------------------------------------------------------- */
+
+.vis-card {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   Hide decorative bee + hive if screen becomes too narrow
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+  .chapter-header::before,
+  .chapter-header::after {
+    display: none;
+  }
+
+}
