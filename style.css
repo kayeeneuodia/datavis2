@@ -70,167 +70,180 @@ body {
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
 
-  gap: 13px;
+  gap: 10px;
 
   z-index: 1000;
 }
 
 
-/* vertical connecting line */
+/* connector between hexagons */
 
 .chapter-nav::before {
   content: "";
 
   position: absolute;
 
-  top: 25px;
-  bottom: 25px;
-
+  top: 30px;
+  bottom: 30px;
   left: 50%;
 
-  width: 3px;
-
   transform: translateX(-50%);
+
+  width: 3px;
 
   background:
     linear-gradient(
       to bottom,
-      #d5c491,
-      #e4d8b4
+      #d4bd79,
+      #e3d3a4
     );
 
   z-index: 0;
 }
 
 
-/* hexagon outer shape */
+/* OUTER HONEYCOMB */
 
 .chapter-dot {
   position: relative;
 
   z-index: 1;
 
-  display: flex;
+  width: 66px;
+  height: 72px;
 
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 54px;
-  height: 60px;
+  padding: 0;
+
+  /*
+    Important:
+    these explicitly kill the old circular shape.
+  */
+  border: none !important;
+  border-radius: 0 !important;
 
   background:
-    #d7c692;
-
-  clip-path:
-    polygon(
-      25% 6.7%,
-      75% 6.7%,
-      100% 50%,
-      75% 93.3%,
-      25% 93.3%,
-      0% 50%
-    );
-
-  color:
-    #756b59;
+    #dbc88c;
 
   text-decoration: none;
 
+  -webkit-clip-path:
+    polygon(
+      25% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0% 50%
+    );
+
+  clip-path:
+    polygon(
+      25% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0% 50%
+    );
+
   filter:
     drop-shadow(
-      0 4px 5px
-      rgba(62, 48, 20, 0.12)
+      0 5px 5px
+      rgba(60, 45, 15, 0.12)
     );
 
   transition:
     transform 0.22s ease,
-    filter 0.22s ease,
-    background 0.22s ease;
+    background 0.22s ease,
+    filter 0.22s ease;
 }
 
 
-/* inner hexagon face */
+/* INNER HONEYCOMB */
 
-.chapter-dot::before {
-  content: "";
-
+.chapter-dot span {
   position: absolute;
 
   inset: 3px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background:
-    rgba(255, 250, 240, 0.98);
+    #fffaf0;
 
-  clip-path:
-    polygon(
-      25% 6.7%,
-      75% 6.7%,
-      100% 50%,
-      75% 93.3%,
-      25% 93.3%,
-      0% 50%
-    );
-
-  transition:
-    background 0.22s ease;
-}
-
-
-.chapter-dot span {
-  position: relative;
-
-  z-index: 2;
+  color:
+    #756a58;
 
   font-family:
     "Inter",
     Arial,
     sans-serif;
 
-  font-size: 12px;
+  font-size: 13px;
 
   font-weight: 800;
 
-  color:
-    #756b59;
+  -webkit-clip-path:
+    polygon(
+      25% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0% 50%
+    );
+
+  clip-path:
+    polygon(
+      25% 0%,
+      75% 0%,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0% 50%
+    );
 
   transition:
+    background 0.22s ease,
     color 0.22s ease;
 }
 
 
-/* hover */
+/* HOVER */
 
 .chapter-dot:hover {
   background:
     var(--honey-dark);
 
   transform:
-    scale(1.09);
+    scale(1.08);
 
   filter:
     drop-shadow(
       0 7px 8px
-      rgba(62, 48, 20, 0.17)
+      rgba(60, 45, 15, 0.18)
     );
 }
 
 
-.chapter-dot:hover::before {
-  background:
-    #fff3bd;
-}
-
-
 .chapter-dot:hover span {
+  background:
+    #fff1b5;
+
   color:
     var(--bee-black);
 }
 
 
-/* active chapter */
+/* ACTIVE CHAPTER */
 
 .chapter-dot.active {
   background:
@@ -241,19 +254,16 @@ body {
 
   filter:
     drop-shadow(
-      0 7px 9px
-      rgba(62, 48, 20, 0.22)
+      0 8px 9px
+      rgba(60, 45, 15, 0.23)
     );
 }
 
 
-.chapter-dot.active::before {
+.chapter-dot.active span {
   background:
     var(--honey);
-}
 
-
-.chapter-dot.active span {
   color:
     #241f15;
 }
@@ -291,7 +301,8 @@ body {
       #efbd32 100%
     );
 
-  border-bottom: 5px solid var(--bee-black);
+  border-bottom:
+    5px solid var(--bee-black);
 }
 
 
@@ -305,11 +316,14 @@ body {
   background-image:
     url("data:image/svg+xml,%3Csvg width='90' height='104' viewBox='0 0 90 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 2 L88 27 L88 77 L45 102 L2 77 L2 27 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.27' stroke-width='2'/%3E%3C/svg%3E");
 
-  background-size: 90px 104px;
+  background-size:
+    90px 104px;
 
-  background-position: center;
+  background-position:
+    center;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 
@@ -321,10 +335,14 @@ body {
   left: 50%;
   bottom: 0;
 
-  transform: translateX(-50%);
+  transform:
+    translateX(-50%);
 
-  width: 210px;
-  height: 8px;
+  width:
+    210px;
+
+  height:
+    8px;
 
   background:
     repeating-linear-gradient(
@@ -333,7 +351,8 @@ body {
       var(--honey) 22px 44px
     );
 
-  border-radius: 6px 6px 0 0;
+  border-radius:
+    6px 6px 0 0;
 }
 
 
@@ -344,51 +363,70 @@ body {
 
   width: 100%;
 
-  max-width: 950px;
+  max-width:
+    950px;
 
-  margin: 0 auto 12px;
+  margin:
+    0 auto 12px;
 
-  padding: 0 20px;
+  padding:
+    0 20px;
 
   font-family:
     "Lora",
     Georgia,
     serif;
 
-  font-size: 50px;
+  font-size:
+    50px;
 
-  line-height: 1.12;
+  line-height:
+    1.12;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
-  letter-spacing: -0.6px;
+  letter-spacing:
+    -0.6px;
 
-  text-align: center;
+  text-align:
+    center;
 
-  color: #241f15;
+  color:
+    #241f15;
 }
 
 
 .hero p {
-  position: relative;
+  position:
+    relative;
 
-  z-index: 2;
+  z-index:
+    2;
 
-  width: 100%;
+  width:
+    100%;
 
-  max-width: 800px;
+  max-width:
+    800px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
-  padding: 0 20px;
+  padding:
+    0 20px;
 
-  color: #443820;
+  color:
+    #443820;
 
-  font-size: 16px;
+  font-size:
+    16px;
 
-  line-height: 1.7;
+  line-height:
+    1.7;
 
-  text-align: center;
+  text-align:
+    center;
 }
 
 
@@ -398,13 +436,17 @@ body {
 ========================================================= */
 
 main {
-  width: 100%;
+  width:
+    100%;
 
-  max-width: 1180px;
+  max-width:
+    1180px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
-  padding: 34px 18px 64px;
+  padding:
+    34px 18px 64px;
 }
 
 
@@ -414,15 +456,20 @@ main {
 ========================================================= */
 
 .chapter-block {
-  position: relative;
+  position:
+    relative;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
-  scroll-margin-top: 24px;
+  scroll-margin-top:
+    24px;
 
-  margin: 0 0 52px;
+  margin:
+    0 0 52px;
 
-  padding: 40px 42px 46px;
+  padding:
+    40px 42px 46px;
 
   background:
     rgba(255, 255, 255, 0.98);
@@ -430,7 +477,8 @@ main {
   border:
     1px solid var(--border);
 
-  border-radius: 20px;
+  border-radius:
+    20px;
 
   box-shadow:
     0 8px 28px rgba(77, 59, 20, 0.045);
@@ -449,7 +497,8 @@ main {
   left: 32px;
   right: 32px;
 
-  height: 5px;
+  height:
+    5px;
 
   background:
     linear-gradient(
@@ -473,18 +522,26 @@ main {
 
   position: absolute;
 
-  width: 220px;
-  height: 170px;
+  width:
+    220px;
 
-  right: -35px;
-  top: -30px;
+  height:
+    170px;
+
+  right:
+    -35px;
+
+  top:
+    -30px;
 
   background-image:
     url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 2 L52 16 L52 46 L27 60 L2 46 L2 16 Z' fill='none' stroke='%23c58d12' stroke-opacity='0.13' stroke-width='1.5'/%3E%3C/svg%3E");
 
-  background-size: 54px 62px;
+  background-size:
+    54px 62px;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 
@@ -494,22 +551,29 @@ main {
 ========================================================= */
 
 .chapter-header {
-  position: relative;
+  position:
+    relative;
 
-  z-index: 2;
+  z-index:
+    2;
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     62px 1fr;
 
-  gap: 18px;
+  gap:
+    18px;
 
-  align-items: start;
+  align-items:
+    start;
 
-  margin-bottom: 34px;
+  margin-bottom:
+    34px;
 
-  padding-bottom: 22px;
+  padding-bottom:
+    22px;
 
   border-bottom:
     2px solid #eee3c8;
@@ -517,13 +581,20 @@ main {
 
 
 .chapter-number {
-  width: 52px;
-  height: 58px;
+  width:
+    52px;
 
-  display: flex;
+  height:
+    58px;
 
-  align-items: center;
-  justify-content: center;
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   background:
     var(--honey);
@@ -531,9 +602,21 @@ main {
   color:
     #332812;
 
-  font-size: 16px;
+  font-size:
+    16px;
 
-  font-weight: 800;
+  font-weight:
+    800;
+
+  -webkit-clip-path:
+    polygon(
+      25% 6.7%,
+      75% 6.7%,
+      100% 50%,
+      75% 93.3%,
+      25% 93.3%,
+      0% 50%
+    );
 
   clip-path:
     polygon(
@@ -551,20 +634,25 @@ main {
   margin:
     0 0 8px;
 
-  max-width: 900px;
+  max-width:
+    900px;
 
   font-family:
     "Lora",
     Georgia,
     serif;
 
-  font-size: 31px;
+  font-size:
+    31px;
 
-  line-height: 1.25;
+  line-height:
+    1.25;
 
-  font-weight: 700;
+  font-weight:
+    700;
 
-  letter-spacing: -0.3px;
+  letter-spacing:
+    -0.3px;
 
   color:
     var(--bee-black);
@@ -572,16 +660,20 @@ main {
 
 
 .chapter-header p {
-  max-width: 850px;
+  max-width:
+    850px;
 
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--muted);
 
-  font-size: 15px;
+  font-size:
+    15px;
 
-  line-height: 1.7;
+  line-height:
+    1.7;
 }
 
 
@@ -591,9 +683,11 @@ main {
 ========================================================= */
 
 .vis-card {
-  position: relative;
+  position:
+    relative;
 
-  min-width: 0;
+  min-width:
+    0;
 
   margin:
     26px 0 36px;
@@ -607,35 +701,45 @@ main {
   border:
     1px solid #eee2c9;
 
-  border-radius: 15px;
+  border-radius:
+    15px;
 }
 
 
 .visualisation {
-  width: 100%;
+  width:
+    100%;
 
-  min-width: 0;
+  min-width:
+    0;
 
-  display: flex;
+  display:
+    flex;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  align-items: center;
+  align-items:
+    center;
 
-  overflow-x: auto;
+  overflow-x:
+    auto;
 
-  padding: 2px 0;
+  padding:
+    2px 0;
 }
 
 
 .visualisation .vega-embed {
-  max-width: 100%;
+  max-width:
+    100%;
 }
 
 
 .visualisation canvas,
 .visualisation svg {
-  max-width: 100%;
+  max-width:
+    100%;
 }
 
 
@@ -645,20 +749,24 @@ main {
 ========================================================= */
 
 .chart-grid {
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 1fr);
 
-  gap: 28px;
+  gap:
+    28px;
 
-  align-items: stretch;
+  align-items:
+    stretch;
 }
 
 
 .chart-grid .vis-card {
-  margin-top: 0;
+  margin-top:
+    0;
 }
 
 
@@ -679,11 +787,14 @@ main {
     Georgia,
     serif;
 
-  font-size: 18px;
+  font-size:
+    18px;
 
-  line-height: 1.35;
+  line-height:
+    1.35;
 
-  font-weight: 700;
+  font-weight:
+    700;
 }
 
 
@@ -694,9 +805,11 @@ main {
   color:
     var(--muted);
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  line-height: 1.55;
+  line-height:
+    1.55;
 }
 
 
@@ -706,19 +819,23 @@ main {
 ========================================================= */
 
 .note {
-  max-width: 900px;
+  max-width:
+    900px;
 
   margin:
     16px auto 18px;
 
-  text-align: center;
+  text-align:
+    center;
 
   color:
     #6a645c;
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  line-height: 1.65;
+  line-height:
+    1.65;
 }
 
 
@@ -728,7 +845,8 @@ main {
 ========================================================= */
 
 .insight-box {
-  position: relative;
+  position:
+    relative;
 
   margin:
     18px 0 26px;
@@ -757,16 +875,33 @@ main {
 .insight-box::before {
   content: "";
 
-  position: absolute;
+  position:
+    absolute;
 
-  left: -10px;
-  top: 17px;
+  left:
+    -10px;
 
-  width: 15px;
-  height: 17px;
+  top:
+    17px;
+
+  width:
+    15px;
+
+  height:
+    17px;
 
   background:
     var(--honey-dark);
+
+  -webkit-clip-path:
+    polygon(
+      25% 6.7%,
+      75% 6.7%,
+      100% 50%,
+      75% 93.3%,
+      25% 93.3%,
+      0% 50%
+    );
 
   clip-path:
     polygon(
@@ -781,25 +916,32 @@ main {
 
 
 .insight-box strong {
-  display: block;
+  display:
+    block;
 
-  margin-bottom: 5px;
+  margin-bottom:
+    5px;
 
   color:
     var(--bee-brown);
 
-  font-size: 14px;
+  font-size:
+    14px;
 
-  font-weight: 700;
+  font-weight:
+    700;
 }
 
 
 .insight-box p {
-  margin: 0;
+  margin:
+    0;
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  line-height: 1.7;
+  line-height:
+    1.7;
 }
 
 
@@ -809,11 +951,14 @@ main {
 ========================================================= */
 
 .conclusion {
-  position: relative;
+  position:
+    relative;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
-  margin-bottom: 30px;
+  margin-bottom:
+    30px;
 
   padding:
     32px 36px;
@@ -836,13 +981,20 @@ main {
 .conclusion::after {
   content: "";
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 160px;
-  height: 140px;
+  width:
+    160px;
 
-  right: -25px;
-  bottom: -40px;
+  height:
+    140px;
+
+  right:
+    -25px;
+
+  bottom:
+    -40px;
 
   background-image:
     url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 2 L52 16 L52 46 L27 60 L2 46 L2 16 Z' fill='none' stroke='%23c58d12' stroke-opacity='0.16' stroke-width='1.5'/%3E%3C/svg%3E");
@@ -850,14 +1002,17 @@ main {
   background-size:
     54px 62px;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 
 .conclusion h2 {
-  position: relative;
+  position:
+    relative;
 
-  z-index: 1;
+  z-index:
+    1;
 
   margin:
     0 0 12px;
@@ -867,9 +1022,11 @@ main {
     Georgia,
     serif;
 
-  font-size: 28px;
+  font-size:
+    28px;
 
-  line-height: 1.25;
+  line-height:
+    1.25;
 
   color:
     var(--bee-black);
@@ -877,20 +1034,26 @@ main {
 
 
 .conclusion p {
-  position: relative;
+  position:
+    relative;
 
-  z-index: 1;
+  z-index:
+    1;
 
-  margin: 0;
+  margin:
+    0;
 
-  max-width: 780px;
+  max-width:
+    780px;
 
   color:
     #3b362f;
 
-  font-size: 14px;
+  font-size:
+    14px;
 
-  line-height: 1.8;
+  line-height:
+    1.8;
 }
 
 
@@ -923,9 +1086,11 @@ main {
     Georgia,
     serif;
 
-  font-size: 25px;
+  font-size:
+    25px;
 
-  line-height: 1.3;
+  line-height:
+    1.3;
 
   color:
     var(--bee-black);
@@ -936,19 +1101,23 @@ main {
   margin:
     0 0 20px;
 
-  max-width: 950px;
+  max-width:
+    950px;
 
   color:
     #514b42;
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  line-height: 1.7;
+  line-height:
+    1.7;
 }
 
 
 .sources p:last-child {
-  margin-bottom: 0;
+  margin-bottom:
+    0;
 }
 
 
@@ -956,7 +1125,8 @@ main {
   color:
     var(--bee-black);
 
-  font-weight: 700;
+  font-weight:
+    700;
 }
 
 
@@ -964,15 +1134,20 @@ main {
   color:
     #73580b;
 
-  font-weight: 500;
+  font-weight:
+    500;
 
-  text-decoration: underline;
+  text-decoration:
+    underline;
 
-  text-decoration-thickness: 1px;
+  text-decoration-thickness:
+    1px;
 
-  text-underline-offset: 3px;
+  text-underline-offset:
+    3px;
 
-  overflow-wrap: anywhere;
+  overflow-wrap:
+    anywhere;
 }
 
 
@@ -988,17 +1163,20 @@ main {
 ========================================================= */
 
 .vega-embed {
-  max-width: 100%;
+  max-width:
+    100%;
 }
 
 
 .vega-embed summary {
-  display: none;
+  display:
+    none;
 }
 
 
 .vega-actions {
-  display: none !important;
+  display:
+    none !important;
 }
 
 
@@ -1099,40 +1277,53 @@ main {
 
 
   .chapter-nav {
-    right: 8px;
+    right:
+      8px;
 
-    gap: 10px;
+    gap:
+      8px;
   }
 
 
   .chapter-dot {
-    width: 44px;
-    height: 50px;
+    width:
+      54px;
+
+    height:
+      60px;
   }
 
 
   .chapter-dot span {
-    font-size: 10px;
+    font-size:
+      11px;
   }
 
 
   .chapter-nav::before {
-    top: 22px;
-    bottom: 22px;
+    top:
+      25px;
 
-    width: 2px;
+    bottom:
+      25px;
+
+    width:
+      2px;
   }
 
 
   .chart-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
-    gap: 18px;
+    gap:
+      18px;
   }
 
 
   .hero h1 {
-    font-size: 42px;
+    font-size:
+      42px;
   }
 
 
@@ -1143,7 +1334,8 @@ main {
 
 
   .chapter-header h2 {
-    font-size: 28px;
+    font-size:
+      28px;
   }
 
 }
@@ -1157,7 +1349,8 @@ main {
 @media (max-width: 700px) {
 
   .chapter-nav {
-    display: none;
+    display:
+      none;
   }
 
 
@@ -1168,7 +1361,8 @@ main {
 
 
   .hero {
-    min-height: 190px;
+    min-height:
+      190px;
 
     padding:
       44px 18px 40px;
@@ -1176,18 +1370,23 @@ main {
 
 
   .hero h1 {
-    padding: 0;
+    padding:
+      0;
 
-    font-size: 34px;
+    font-size:
+      34px;
 
-    line-height: 1.15;
+    line-height:
+      1.15;
   }
 
 
   .hero p {
-    padding: 0;
+    padding:
+      0;
 
-    font-size: 14px;
+    font-size:
+      14px;
   }
 
 
@@ -1195,17 +1394,23 @@ main {
     padding:
       28px 18px 32px;
 
-    margin-bottom: 30px;
+    margin-bottom:
+      30px;
 
-    border-radius: 14px;
+    border-radius:
+      14px;
 
-    scroll-margin-top: 12px;
+    scroll-margin-top:
+      12px;
   }
 
 
   .chapter-block::before {
-    left: 18px;
-    right: 18px;
+    left:
+      18px;
+
+    right:
+      18px;
   }
 
 
@@ -1213,27 +1418,35 @@ main {
     grid-template-columns:
       46px 1fr;
 
-    gap: 11px;
+    gap:
+      11px;
 
-    margin-bottom: 26px;
+    margin-bottom:
+      26px;
   }
 
 
   .chapter-number {
-    width: 41px;
-    height: 47px;
+    width:
+      41px;
 
-    font-size: 13px;
+    height:
+      47px;
+
+    font-size:
+      13px;
   }
 
 
   .chapter-header h2 {
-    font-size: 23px;
+    font-size:
+      23px;
   }
 
 
   .chapter-header p {
-    font-size: 13px;
+    font-size:
+      13px;
   }
 
 
@@ -1244,17 +1457,20 @@ main {
 
 
   .chart-title {
-    font-size: 17px;
+    font-size:
+      17px;
   }
 
 
   .chart-subtitle {
-    font-size: 11px;
+    font-size:
+      11px;
   }
 
 
   .note {
-    font-size: 11px;
+    font-size:
+      11px;
   }
 
 
@@ -1265,7 +1481,8 @@ main {
 
 
   .insight-box p {
-    font-size: 12px;
+    font-size:
+      12px;
   }
 
 
@@ -1276,12 +1493,14 @@ main {
 
 
   .conclusion h2 {
-    font-size: 23px;
+    font-size:
+      23px;
   }
 
 
   .conclusion p {
-    font-size: 13px;
+    font-size:
+      13px;
   }
 
 
@@ -1292,12 +1511,14 @@ main {
 
 
   .sources h2 {
-    font-size: 22px;
+    font-size:
+      22px;
   }
 
 
   .sources p {
-    font-size: 12px;
+    font-size:
+      12px;
   }
 
 }
