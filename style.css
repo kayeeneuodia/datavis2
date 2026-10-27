@@ -1,7 +1,3 @@
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -13,10 +9,8 @@ html {
 :root {
   --honey: #f2c94c;
   --honey-dark: #d8a91f;
-
   --bee-black: #29271f;
   --bee-brown: #5a4526;
-
   --cream: #f8f3e7;
   --muted: #686157;
   --border: #e8ddc4;
@@ -30,26 +24,17 @@ body {
     Arial,
     sans-serif;
 
-  color:
-    var(--bee-black);
+  color: var(--bee-black);
 
-  background-color:
-    var(--cream);
+  background-color: var(--cream);
 
   background-image:
     url("data:image/svg+xml,%3Csvg width='72' height='84' viewBox='0 0 72 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 2 L70 21 L70 63 L36 82 L2 63 L2 21 Z' fill='none' stroke='%23d4a72c' stroke-opacity='0.13' stroke-width='1.3'/%3E%3C/svg%3E");
 
-  background-size:
-    72px 84px;
+  background-size: 72px 84px;
 
-  line-height:
-    1.55;
+  line-height: 1.55;
 }
-
-
-/* =========================================================
-   PROGRESS
-========================================================= */
 
 .scroll-progress-track {
   position: fixed;
@@ -62,23 +47,15 @@ body {
 
   z-index: 3000;
 
-  background:
-    rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .scroll-progress {
+  width: 0;
   height: 100%;
 
-  width: 0;
-
-  background:
-    var(--honey-dark);
+  background: var(--honey-dark);
 }
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
 
 .chapter-nav {
   position: fixed;
@@ -86,13 +63,10 @@ body {
   right: 18px;
   top: 50%;
 
-  transform:
-    translateY(-50%);
+  transform: translateY(-50%);
 
   display: flex;
-
-  flex-direction:
-    column;
+  flex-direction: column;
 
   gap: 9px;
 
@@ -109,16 +83,13 @@ body {
 
   left: 50%;
 
-  transform:
-    translateX(-50%);
+  transform: translateX(-50%);
 
   width: 2px;
 
-  background:
-    #ddcd9e;
+  background: #ddcd9e;
 
-  z-index:
-    -1;
+  z-index: -1;
 }
 
 .chapter-dot {
@@ -132,8 +103,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  background:
-    #dbc98f;
+  background: #dbc98f;
 
   text-decoration: none;
 
@@ -155,11 +125,9 @@ body {
 
   inset: 3px;
 
-  background:
-    #fffaf0;
+  background: #fffaf0;
 
-  clip-path:
-    inherit;
+  clip-path: inherit;
 }
 
 .chapter-dot span {
@@ -167,115 +135,132 @@ body {
 
   z-index: 2;
 
-  color:
-    #756b5c;
+  color: #756b5c;
 
-  font-size:
-    11px;
-
-  font-weight:
-    700;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .chapter-dot.active {
-  background:
-    var(--bee-black);
+  background: var(--bee-black);
 }
 
 .chapter-dot.active::before {
-  background:
-    var(--honey);
+  background: var(--honey);
 }
 
 .chapter-dot.active span {
-  color:
-    var(--bee-black);
+  color: var(--bee-black);
 }
 
 .chapter-dot::after {
-  content:
-    attr(data-label);
+  content: attr(data-label);
 
   position: absolute;
 
   right: 60px;
   top: 50%;
 
-  transform:
-    translateY(-50%);
+  transform: translateY(-50%);
 
-  padding:
-    7px 10px;
+  padding: 7px 10px;
 
-  background:
-    var(--bee-black);
+  background: var(--bee-black);
 
-  color:
-    white;
+  color: white;
 
-  border-radius:
-    6px;
+  border-radius: 6px;
 
-  font-size:
-    10px;
+  font-size: 10px;
 
-  white-space:
-    nowrap;
+  white-space: nowrap;
 
-  opacity:
-    0;
+  opacity: 0;
 
-  pointer-events:
-    none;
+  pointer-events: none;
 
-  transition:
-    opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .chapter-dot:hover::after {
-  opacity:
-    1;
+  opacity: 1;
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
-
 .hero {
-  min-height:
-    190px;
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 190px;
 
   display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  align-items:
-    center;
+  align-items: center;
+  justify-content: center;
 
-  justify-content:
-    center;
+  padding: 46px 24px 42px;
 
-  padding:
-    46px 24px 42px;
+  text-align: center;
 
-  text-align:
-    center;
-
-  background:
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='90' height='104' viewBox='0 0 90 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 2 L88 27 L88 77 L45 102 L2 77 L2 27 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.32' stroke-width='2'/%3E%3C/svg%3E"),
     linear-gradient(
       135deg,
-      #f4cf58,
-      #efbd32
+      #f4cf58 0%,
+      #efbd32 100%
     );
 
+  background-size:
+    90px 104px,
+    100% 100%;
+
+  background-position:
+    center,
+    center;
+
+  background-repeat:
+    repeat,
+    no-repeat;
+
   border-bottom:
-    5px solid
-    var(--bee-black);
+    5px solid var(--bee-black);
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 210px;
+  height: 8px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #29271f 0 22px,
+      #f2c94c 22px 44px
+    );
+
+  border-radius:
+    6px 6px 0 0;
+
+  z-index: 3;
+
+  pointer-events: none;
 }
 
 .hero h1 {
+  position: relative;
+
+  z-index: 4;
+
   margin:
     0 0 9px;
 
@@ -284,38 +269,29 @@ body {
     Georgia,
     serif;
 
-  font-size:
-    48px;
+  font-size: 48px;
 
-  line-height:
-    1.15;
+  line-height: 1.15;
 
-  color:
-    #241f15;
+  color: #241f15;
 }
 
 .hero p {
-  margin:
-    0;
+  position: relative;
 
-  font-size:
-    14px;
+  z-index: 4;
 
-  color:
-    #443820;
+  margin: 0;
+
+  font-size: 14px;
+
+  color: #443820;
 }
 
-
-/* =========================================================
-   MAIN
-========================================================= */
-
 main {
-  width:
-    100%;
+  width: 100%;
 
-  max-width:
-    1320px;
+  max-width: 1320px;
 
   margin:
     0 auto;
@@ -324,17 +300,10 @@ main {
     24px 18px 48px;
 }
 
-
-/* =========================================================
-   INTRODUCTION
-========================================================= */
-
 .introduction {
-  position:
-    relative;
+  position: relative;
 
-  max-width:
-    1180px;
+  max-width: 1180px;
 
   margin:
     0 auto 30px;
@@ -346,15 +315,12 @@ main {
     rgba(255, 253, 248, 0.96);
 
   border:
-    1px solid
-    #eadfca;
+    1px solid #eadfca;
 
   border-left:
-    4px solid
-    var(--honey-dark);
+    4px solid var(--honey-dark);
 
-  border-radius:
-    12px;
+  border-radius: 12px;
 
   box-shadow:
     0 4px 14px
@@ -362,8 +328,7 @@ main {
 }
 
 .intro-label {
-  display:
-    block !important;
+  display: block !important;
 
   margin:
     0 0 5px !important;
@@ -404,14 +369,11 @@ main {
     Georgia,
     serif;
 
-  font-size:
-    23px;
+  font-size: 23px;
 
-  line-height:
-    1.3;
+  line-height: 1.3;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
   color:
     var(--bee-black);
@@ -436,18 +398,12 @@ main {
   color: #514b42;
 }
 
-
-/* =========================================================
-   CHAPTER
-========================================================= */
-
 .chapter-block {
   position: relative;
 
   overflow: hidden;
 
-  margin-bottom:
-    34px;
+  margin-bottom: 34px;
 
   padding:
     28px 32px 32px;
@@ -456,53 +412,121 @@ main {
     rgba(255, 255, 255, 0.98);
 
   border:
-    1px solid
-    var(--border);
+    1px solid var(--border);
 
-  border-radius:
-    17px;
+  border-radius: 17px;
+}
+
+.chapter-block::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 170px;
+
+  right: -35px;
+  top: -30px;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 2 L52 16 L52 46 L27 60 L2 46 L2 16 Z' fill='none' stroke='%23c58d12' stroke-opacity='0.13' stroke-width='1.5'/%3E%3C/svg%3E");
+
+  background-size:
+    54px 62px;
+
+  pointer-events: none;
+
+  z-index: 0;
 }
 
 .chapter-header {
+  position: relative;
+
+  z-index: 2;
+
   display: grid;
 
   grid-template-columns:
     56px 1fr;
 
-  gap:
-    15px;
+  gap: 15px;
 
-  margin-bottom:
-    20px;
+  margin-bottom: 20px;
 
-  padding-bottom:
-    14px;
+  padding-bottom: 14px;
 
   border-bottom:
-    1px solid
-    #eee3c8;
+    1px solid #eee3c8;
+}
+
+.chapter-header > * {
+  position: relative;
+
+  z-index: 2;
+}
+
+.chapter-header::before {
+  content: "";
+
+  position: absolute;
+
+  top: -4px;
+  right: 72px;
+
+  width: 34px;
+  height: 30px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cellipse cx='32' cy='30' rx='15' ry='11' fill='%23F2C94C' stroke='%235A4526' stroke-width='2.5'/%3E%3Cpath d='M24 21 C16 7 4 12 9 22 C13 29 20 28 24 25' fill='%23FFF8DF' stroke='%23C58D12' stroke-width='2'/%3E%3Cpath d='M40 21 C48 7 60 12 55 22 C51 29 44 28 40 25' fill='%23FFF8DF' stroke='%23C58D12' stroke-width='2'/%3E%3Cpath d='M25 23 L25 37 M32 20 L32 40 M39 23 L39 37' stroke='%235A4526' stroke-width='3'/%3E%3Ccircle cx='45' cy='29' r='2' fill='%2329271F'/%3E%3Cpath d='M47 23 Q54 18 57 21' fill='none' stroke='%235A4526' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  opacity: 0.65;
+
+  pointer-events: none;
+
+  transform:
+    rotate(-8deg);
+}
+
+.chapter-header::after {
+  content: "";
+
+  position: absolute;
+
+  top: -9px;
+  right: 15px;
+
+  width: 42px;
+  height: 46px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 68'%3E%3Cpath d='M16 18 Q30 7 44 18' fill='none' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M11 27 Q30 14 49 27' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M8 37 Q30 24 52 37' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M10 48 Q30 35 50 48' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M15 57 Q30 47 45 57' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cellipse cx='30' cy='53' rx='5' ry='4' fill='%235A4526'/%3E%3C/svg%3E");
+
+  opacity: 0.55;
+
+  pointer-events: none;
 }
 
 .chapter-number {
-  width:
-    48px;
-
-  height:
-    54px;
+  width: 48px;
+  height: 54px;
 
   display: flex;
 
-  align-items:
-    center;
-
-  justify-content:
-    center;
+  align-items: center;
+  justify-content: center;
 
   background:
     var(--honey);
 
-  font-weight:
-    800;
+  font-weight: 800;
 
   clip-path:
     polygon(
@@ -524,35 +548,28 @@ main {
     Georgia,
     serif;
 
-  font-size:
-    28px;
+  font-size: 28px;
 
-  line-height:
-    1.25;
+  line-height: 1.25;
 }
 
 .chapter-header p {
-  margin:
-    0;
+  margin: 0;
 
   color:
     var(--muted);
 
-  font-size:
-    13px;
+  font-size: 13px;
 
-  line-height:
-    1.55;
+  line-height: 1.55;
 }
 
-
-/* =========================================================
-   CARDS
-========================================================= */
-
 .vis-card {
-  min-width:
-    0;
+  position: relative;
+
+  z-index: 1;
+
+  min-width: 0;
 
   margin:
     14px 0 20px;
@@ -564,70 +581,51 @@ main {
     #fffdfa;
 
   border:
-    1px solid
-    #eee2c9;
+    1px solid #eee2c9;
 
-  border-radius:
-    12px;
+  border-radius: 12px;
 }
 
 .visualisation {
-  width:
-    100%;
+  width: 100%;
 
-  min-width:
-    0;
+  min-width: 0;
 
   display: flex;
 
-  justify-content:
-    center;
+  justify-content: center;
+  align-items: center;
 
-  align-items:
-    center;
-
-  overflow-x:
-    auto;
+  overflow-x: auto;
 }
 
-.visualisation .vega-embed {
-  max-width:
-    100%;
+.visualisation
+.vega-embed {
+  max-width: 100%;
 }
-
-
-/* =========================================================
-   VIS 1 + VIS 3
-========================================================= */
 
 .map-side-layout {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     minmax(0, 1fr)
     245px;
 
-  gap:
-    18px;
+  gap: 18px;
 
-  align-items:
-    stretch;
+  align-items: stretch;
 }
 
 .map-main {
-  min-width:
-    0;
+  min-width: 0;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 }
 
 .map-main
 .visualisation
 .vega-embed {
-  width:
-    100%;
+  width: 100%;
 }
 
 .map-main
@@ -648,28 +646,18 @@ main {
     auto !important;
 }
 
-
-/* =========================================================
-   SIDE INSIGHT
-========================================================= */
-
 .side-insight {
-  position:
-    relative;
+  position: relative;
 
   display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
-  justify-content:
-    center;
+  justify-content: center;
 
-  min-width:
-    0;
+  min-width: 0;
 
-  padding:
-    18px;
+  padding: 18px;
 
   background:
     linear-gradient(
@@ -679,11 +667,9 @@ main {
     );
 
   border-left:
-    4px solid
-    var(--honey-dark);
+    4px solid var(--honey-dark);
 
-  border-radius:
-    9px;
+  border-radius: 9px;
 }
 
 .side-insight::before {
@@ -691,17 +677,11 @@ main {
 
   position: absolute;
 
-  left:
-    -8px;
+  left: -8px;
+  top: 20px;
 
-  top:
-    20px;
-
-  width:
-    11px;
-
-  height:
-    13px;
+  width: 11px;
+  height: 13px;
 
   background:
     var(--honey-dark);
@@ -719,8 +699,7 @@ main {
 
 .insight-kicker,
 .takeaway-kicker {
-  display:
-    block;
+  display: block;
 
   margin:
     0 0 4px;
@@ -728,11 +707,9 @@ main {
   color:
     var(--bee-brown);
 
-  font-size:
-    9px;
+  font-size: 9px;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
   letter-spacing:
     0.08em;
@@ -750,61 +727,40 @@ main {
     Georgia,
     serif;
 
-  font-size:
-    16px;
+  font-size: 16px;
 
-  line-height:
-    1.3;
+  line-height: 1.3;
 }
 
 .side-insight p {
-  margin:
-    0;
+  margin: 0;
 
   color:
     #514735;
 
-  font-size:
-    11px;
+  font-size: 11px;
 
-  line-height:
-    1.6;
+  line-height: 1.6;
 }
 
-
-/* =========================================================
-   TREEMAP
-========================================================= */
-
 .treemap-layout {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     minmax(0, 1fr)
     245px;
 
-  gap:
-    18px;
+  gap: 18px;
 
-  align-items:
-    stretch;
+  align-items: stretch;
 }
 
-
-/* =========================================================
-   TAKEAWAY STRIPS
-========================================================= */
-
 .takeaway-strip {
-  position:
-    relative;
+  position: relative;
 
-  display:
-    block;
+  display: block;
 
-  margin-top:
-    10px;
+  margin-top: 10px;
 
   padding:
     11px 16px 12px 18px;
@@ -817,30 +773,21 @@ main {
     );
 
   border-left:
-    4px solid
-    var(--honey-dark);
+    4px solid var(--honey-dark);
 
-  border-radius:
-    8px;
+  border-radius: 8px;
 }
 
 .takeaway-strip::before {
   content: "";
 
-  position:
-    absolute;
+  position: absolute;
 
-  left:
-    -8px;
+  left: -8px;
+  top: 13px;
 
-  top:
-    13px;
-
-  width:
-    11px;
-
-  height:
-    13px;
+  width: 11px;
+  height: 13px;
 
   background:
     var(--honey-dark);
@@ -857,11 +804,9 @@ main {
 }
 
 .takeaway-strip > div {
-  display:
-    block;
+  display: block;
 
-  margin:
-    0;
+  margin: 0;
 }
 
 .takeaway-strip h3 {
@@ -873,43 +818,31 @@ main {
     Georgia,
     serif;
 
-  font-size:
-    15px;
+  font-size: 15px;
 
-  line-height:
-    1.3;
+  line-height: 1.3;
 }
 
 .takeaway-strip p {
-  max-width:
-    880px;
+  max-width: 880px;
 
-  margin:
-    0;
+  margin: 0;
 
   color:
     #514735;
 
-  font-size:
-    10.8px;
+  font-size: 10.8px;
 
-  line-height:
-    1.5;
+  line-height: 1.5;
 }
-
-
-/* =========================================================
-   SEASONAL INSIGHT
-========================================================= */
 
 .seasonal-insight {
-  display:
-    block;
+  display: block;
 }
 
-.seasonal-insight .takeaway-kicker {
-  margin-bottom:
-    3px;
+.seasonal-insight
+.takeaway-kicker {
+  margin-bottom: 3px;
 }
 
 .seasonal-insight h3 {
@@ -918,24 +851,16 @@ main {
 }
 
 .seasonal-insight p {
-  margin:
-    0;
+  margin: 0;
 }
 
-
-/* =========================================================
-   CHAPTER 2 GRID
-========================================================= */
-
 .chart-grid {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     1fr 1fr;
 
-  gap:
-    18px;
+  gap: 18px;
 }
 
 .chart-title {
@@ -947,8 +872,7 @@ main {
     Georgia,
     serif;
 
-  font-size:
-    17px;
+  font-size: 17px;
 }
 
 .chart-subtitle {
@@ -958,35 +882,25 @@ main {
   color:
     var(--muted);
 
-  font-size:
-    10.5px;
+  font-size: 10.5px;
 }
 
-
-/* =========================================================
-   CHAPTER 4
-========================================================= */
-
 .chapter4-grid {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     0.9fr 1.1fr;
 
-  gap:
-    18px;
+  gap: 18px;
 
   margin:
     14px 0 20px;
 }
 
 .small-comparison-card {
-  margin:
-    0;
+  margin: 0;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 }
 
 .scale-to-card svg,
@@ -998,29 +912,17 @@ main {
     auto !important;
 }
 
-
-/* =========================================================
-   NOTE
-========================================================= */
-
 .note {
   margin:
     7px auto 2px;
 
-  text-align:
-    center;
+  text-align: center;
 
   color:
     #6a645c;
 
-  font-size:
-    10px;
+  font-size: 10px;
 }
-
-
-/* =========================================================
-   INTERACTION
-========================================================= */
 
 .interaction-hint {
   width:
@@ -1036,8 +938,7 @@ main {
     #fff5cc;
 
   border:
-    1px solid
-    #e6d18c;
+    1px solid #e6d18c;
 
   border-radius:
     999px;
@@ -1046,17 +947,10 @@ main {
     9.5px;
 }
 
-
-/* =========================================================
-   CONCLUSION
-========================================================= */
-
 .conclusion {
-  position:
-    relative;
+  position: relative;
 
-  margin-bottom:
-    20px;
+  margin-bottom: 20px;
 
   padding:
     21px 27px 22px;
@@ -1069,15 +963,12 @@ main {
     );
 
   border:
-    1px solid
-    #ecd283;
+    1px solid #ecd283;
 
   border-left:
-    4px solid
-    var(--honey-dark);
+    4px solid var(--honey-dark);
 
-  border-radius:
-    14px;
+  border-radius: 14px;
 }
 
 .conclusion-label {
@@ -1123,48 +1014,34 @@ main {
     Georgia,
     serif;
 
-  font-size:
-    24px;
+  font-size: 24px;
 
-  line-height:
-    1.25;
+  line-height: 1.25;
 
-  font-weight:
-    700;
+  font-weight: 700;
 
   color:
     var(--bee-black);
 }
 
 .conclusion p {
-  max-width:
-    1100px;
+  max-width: 1100px;
 
-  margin:
-    0;
+  margin: 0;
 
   font-family:
     "Inter",
     Arial,
     sans-serif;
 
-  font-size:
-    11.5px;
+  font-size: 11.5px;
 
-  line-height:
-    1.65;
+  line-height: 1.65;
 
-  font-weight:
-    400;
+  font-weight: 400;
 
-  color:
-    #4c4538;
+  color: #4c4538;
 }
-
-
-/* =========================================================
-   SOURCES
-========================================================= */
 
 .sources {
   padding:
@@ -1174,8 +1051,7 @@ main {
     #efede6;
 
   border-top:
-    4px solid
-    var(--bee-black);
+    4px solid var(--bee-black);
 
   border-radius:
     14px;
@@ -1189,8 +1065,7 @@ main {
 }
 
 .sources-grid {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     repeat(2, 1fr);
@@ -1207,8 +1082,7 @@ main {
     rgba(255, 255, 255, 0.5);
 
   border:
-    1px solid
-    #d8d0bd;
+    1px solid #d8d0bd;
 
   border-radius:
     8px;
@@ -1223,30 +1097,20 @@ main {
 }
 
 .project-meta {
-  display:
-    flex;
+  display: flex;
 
-  gap:
-    24px;
+  gap: 24px;
 
-  margin-top:
-    16px;
+  margin-top: 16px;
 
-  padding-top:
-    13px;
+  padding-top: 13px;
 
   border-top:
-    1px solid
-    #cbc5b7;
+    1px solid #cbc5b7;
 
   font-size:
     10.5px;
 }
-
-
-/* =========================================================
-   TOOLTIP
-========================================================= */
 
 .vg-tooltip {
   font-family:
@@ -1257,21 +1121,14 @@ main {
     #fffaf0 !important;
 
   border:
-    1px solid
-    #dfc878 !important;
+    1px solid #dfc878 !important;
 
   border-left:
-    4px solid
-    var(--honey-dark) !important;
+    4px solid var(--honey-dark) !important;
 
   border-radius:
     8px !important;
 }
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
 
 @media (max-width: 900px) {
 
@@ -1295,14 +1152,17 @@ main {
       1fr;
   }
 
-}
+  .chapter-header::before,
+  .chapter-header::after {
+    display: none;
+  }
 
+}
 
 @media (max-width: 700px) {
 
   .chapter-nav {
-    display:
-      none;
+    display: none;
   }
 
   main {
@@ -1311,8 +1171,7 @@ main {
   }
 
   .hero h1 {
-    font-size:
-      32px;
+    font-size: 32px;
   }
 
   .chapter-block {
@@ -1326,28 +1185,25 @@ main {
   }
 
   .chapter-header h2 {
-    font-size:
-      21px;
+    font-size: 21px;
   }
 
   .introduction {
     padding:
-      18px 18px;
+      18px;
   }
 
   .introduction h2 {
-    font-size:
-      20px;
+    font-size: 20px;
   }
 
   .conclusion {
     padding:
-      18px 18px;
+      18px;
   }
 
   .conclusion h2 {
-    font-size:
-      21px;
+    font-size: 21px;
   }
 
   .sources-grid {
@@ -1360,196 +1216,4 @@ main {
       column;
   }
 
-}
-
-/* =========================================================
-   FINAL BEE / HIVE DECORATIONS
-========================================================= */
-
-/* Keep chapter content above decorations */
-.chapter-header {
-  position: relative;
-  z-index: 2;
-}
-
-.chapter-header > * {
-  position: relative;
-  z-index: 2;
-}
-
-
-/* ---------------------------------------------------------
-   Small decorative bee
---------------------------------------------------------- */
-
-.chapter-header::before {
-  content: "";
-
-  position: absolute;
-
-  top: -4px;
-  right: 72px;
-
-  width: 34px;
-  height: 30px;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 54'%3E%3Cellipse cx='32' cy='30' rx='15' ry='11' fill='%23F2C94C' stroke='%235A4526' stroke-width='2.5'/%3E%3Cpath d='M24 21 C16 7 4 12 9 22 C13 29 20 28 24 25' fill='%23FFF8DF' stroke='%23C58D12' stroke-width='2'/%3E%3Cpath d='M40 21 C48 7 60 12 55 22 C51 29 44 28 40 25' fill='%23FFF8DF' stroke='%23C58D12' stroke-width='2'/%3E%3Cpath d='M25 23 L25 37 M32 20 L32 40 M39 23 L39 37' stroke='%235A4526' stroke-width='3'/%3E%3Ccircle cx='45' cy='29' r='2' fill='%2329271F'/%3E%3Cpath d='M47 23 Q54 18 57 21' fill='none' stroke='%235A4526' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-
-  opacity: 0.65;
-
-  pointer-events: none;
-
-  transform: rotate(-8deg);
-}
-
-
-/* ---------------------------------------------------------
-   Small decorative beehive
---------------------------------------------------------- */
-
-.chapter-header::after {
-  content: "";
-
-  position: absolute;
-
-  top: -9px;
-  right: 15px;
-
-  width: 42px;
-  height: 46px;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 68'%3E%3Cpath d='M16 18 Q30 7 44 18' fill='none' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M11 27 Q30 14 49 27' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M8 37 Q30 24 52 37' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M10 48 Q30 35 50 48' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cpath d='M15 57 Q30 47 45 57' fill='%23F8D45D' stroke='%23C58D12' stroke-width='3'/%3E%3Cellipse cx='30' cy='53' rx='5' ry='4' fill='%235A4526'/%3E%3C/svg%3E");
-
-  opacity: 0.55;
-
-  pointer-events: none;
-}
-
-
-/* ---------------------------------------------------------
-   Restore subtle honeycomb corner inside each chapter
---------------------------------------------------------- */
-
-.chapter-block::after {
-  content: "";
-
-  position: absolute;
-
-  width: 220px;
-  height: 170px;
-
-  right: -35px;
-  top: -30px;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='54' height='62' viewBox='0 0 54 62' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27 2 L52 16 L52 46 L27 60 L2 46 L2 16 Z' fill='none' stroke='%23c58d12' stroke-opacity='0.13' stroke-width='1.5'/%3E%3C/svg%3E");
-
-  background-size: 54px 62px;
-
-  pointer-events: none;
-
-  z-index: 0;
-}
-
-
-/* ---------------------------------------------------------
-   Make sure chart cards/content stay above decoration
---------------------------------------------------------- */
-
-.vis-card {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* ---------------------------------------------------------
-   Hide decorative bee + hive if screen becomes too narrow
---------------------------------------------------------- */
-
-@media (max-width: 900px) {
-
-  .chapter-header::before,
-  .chapter-header::after {
-    display: none;
-  }
-
-}
-
-/* =========================================================
-   RESTORE ORIGINAL HERO PATTERN
-========================================================= */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-}
-
-
-/* White honeycomb pattern across yellow header */
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='90' height='104' viewBox='0 0 90 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 2 L88 27 L88 77 L45 102 L2 77 L2 27 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.27' stroke-width='2'/%3E%3C/svg%3E");
-
-  background-size: 90px 104px;
-  background-position: center;
-
-  pointer-events: none;
-
-  z-index: 0;
-}
-
-
-/* Black + yellow bee-stripe accent */
-
-.hero::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: 0;
-
-  transform: translateX(-50%);
-
-  width: 210px;
-  height: 8px;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      var(--bee-black) 0 22px,
-      var(--honey) 22px 44px
-    );
-
-  border-radius: 6px 6px 0 0;
-
-  pointer-events: none;
-
-  z-index: 1;
-}
-
-
-/* Keep title above the patterns */
-
-.hero h1,
-.hero p {
-  position: relative;
-  z-index: 2;
 }
