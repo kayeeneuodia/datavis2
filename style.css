@@ -1484,3 +1484,72 @@ main {
   }
 
 }
+
+/* =========================================================
+   RESTORE ORIGINAL HERO PATTERN
+========================================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* White honeycomb pattern across yellow header */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='90' height='104' viewBox='0 0 90 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 2 L88 27 L88 77 L45 102 L2 77 L2 27 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.27' stroke-width='2'/%3E%3C/svg%3E");
+
+  background-size: 90px 104px;
+  background-position: center;
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+
+/* Black + yellow bee-stripe accent */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 210px;
+  height: 8px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--bee-black) 0 22px,
+      var(--honey) 22px 44px
+    );
+
+  border-radius: 6px 6px 0 0;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* Keep title above the patterns */
+
+.hero h1,
+.hero p {
+  position: relative;
+  z-index: 2;
+}
