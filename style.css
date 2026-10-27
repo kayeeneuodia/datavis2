@@ -21,7 +21,6 @@ html {
   --bee-brown: #5a4526;
 
   --cream: #f8f3e7;
-
   --muted: #686157;
   --border: #e8ddc4;
 }
@@ -36,8 +35,7 @@ body {
     Helvetica,
     sans-serif;
 
-  color:
-    var(--bee-black);
+  color: var(--bee-black);
 
   background-color:
     var(--cream);
@@ -90,7 +88,7 @@ body {
 
 
 /* =========================================================
-   COMPACT HONEYCOMB NAV
+   CHAPTER NAV
 ========================================================= */
 
 .chapter-nav {
@@ -116,8 +114,6 @@ body {
     1200;
 }
 
-
-/* small connecting line only between buttons */
 
 .chapter-nav::before {
   content: "";
@@ -156,13 +152,7 @@ body {
   justify-content:
     center;
 
-  padding: 0;
-
-  border:
-    none;
-
-  border-radius:
-    0;
+  border: none;
 
   background:
     #dbc98f;
@@ -180,19 +170,11 @@ body {
       0 50%
     );
 
-  filter:
-    drop-shadow(
-      0 2px 3px
-      rgba(58, 45, 18, 0.08)
-    );
-
   transition:
     transform 0.2s ease,
     background 0.2s ease;
 }
 
-
-/* cream centre */
 
 .chapter-dot::before {
   content: "";
@@ -232,21 +214,15 @@ body {
 }
 
 
-
-/* chapter name tooltip */
-
 .chapter-dot::after {
   content:
     attr(data-label);
 
-  position:
-    absolute;
+  position: absolute;
 
-  right:
-    60px;
+  right: 60px;
 
-  top:
-    50%;
+  top: 50%;
 
   transform:
     translate(
@@ -256,9 +232,6 @@ body {
 
   width:
     max-content;
-
-  max-width:
-    230px;
 
   padding:
     7px 10px;
@@ -365,10 +338,10 @@ body {
   justify-content: center;
 
   min-height:
-    210px;
+    190px;
 
   padding:
-    52px 24px 48px;
+    46px 24px 42px;
 
   text-align:
     center;
@@ -410,7 +383,7 @@ body {
   z-index: 2;
 
   margin:
-    0 0 10px;
+    0 0 9px;
 
   font-family:
     "Lora",
@@ -418,7 +391,7 @@ body {
     serif;
 
   font-size:
-    50px;
+    48px;
 
   line-height:
     1.12;
@@ -433,16 +406,20 @@ body {
 
   z-index: 2;
 
-  margin: 0;
+  max-width:
+    720px;
+
+  margin:
+    0 auto;
 
   color:
     #443820;
 
   font-size:
-    15px;
+    14px;
 
   line-height:
-    1.65;
+    1.6;
 }
 
 
@@ -462,13 +439,13 @@ main {
     0 auto;
 
   padding:
-    28px 18px 56px;
+    24px 18px 48px;
 }
 
 
 
 /* =========================================================
-   CHAPTERS
+   CHAPTER
 ========================================================= */
 
 .chapter-block {
@@ -479,13 +456,13 @@ main {
     hidden;
 
   scroll-margin-top:
-    18px;
+    16px;
 
   margin-bottom:
-    42px;
+    34px;
 
   padding:
-    34px 38px 38px;
+    28px 34px 32px;
 
   background:
     rgba(255, 255, 255, 0.98);
@@ -495,11 +472,11 @@ main {
     var(--border);
 
   border-radius:
-    18px;
+    17px;
 
   box-shadow:
-    0 7px 24px
-    rgba(77, 59, 20, 0.04);
+    0 6px 20px
+    rgba(77, 59, 20, 0.035);
 }
 
 
@@ -510,8 +487,8 @@ main {
 
   top: 0;
 
-  left: 30px;
-  right: 30px;
+  left: 28px;
+  right: 28px;
 
   height:
     4px;
@@ -526,24 +503,28 @@ main {
 }
 
 
+
+/* =========================================================
+   CHAPTER HEADER
+========================================================= */
+
 .chapter-header {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
-    58px 1fr;
+    56px 1fr;
 
   gap:
-    16px;
+    15px;
 
   align-items:
     start;
 
   margin-bottom:
-    26px;
+    20px;
 
   padding-bottom:
-    18px;
+    14px;
 
   border-bottom:
     1px solid
@@ -553,13 +534,12 @@ main {
 
 .chapter-number {
   width:
-    50px;
+    48px;
 
   height:
-    56px;
+    54px;
 
-  display:
-    flex;
+  display: flex;
 
   align-items:
     center;
@@ -574,7 +554,7 @@ main {
     #332812;
 
   font-size:
-    15px;
+    14px;
 
   font-weight:
     800;
@@ -593,7 +573,7 @@ main {
 
 .chapter-header h2 {
   margin:
-    0 0 6px;
+    0 0 5px;
 
   font-family:
     "Lora",
@@ -601,30 +581,34 @@ main {
     serif;
 
   font-size:
-    29px;
+    28px;
 
   line-height:
-    1.25;
+    1.23;
 }
 
 
 .chapter-header p {
-  margin: 0;
+  max-width:
+    850px;
+
+  margin:
+    0;
 
   color:
     var(--muted);
 
   font-size:
-    14px;
+    13px;
 
   line-height:
-    1.6;
+    1.55;
 }
 
 
 
 /* =========================================================
-   VIS CARDS
+   VISUALISATION CARDS
 ========================================================= */
 
 .vis-card {
@@ -635,10 +619,10 @@ main {
     0;
 
   margin:
-    18px 0 26px;
+    14px 0 20px;
 
   padding:
-    16px 18px;
+    14px 16px;
 
   background:
     #fffdfa;
@@ -648,25 +632,25 @@ main {
     #eee2c9;
 
   border-radius:
-    13px;
+    12px;
 
   transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease,
-    border-color 0.22s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 
 .vis-card:hover {
   transform:
-    translateY(-2px);
+    translateY(-1px);
 
   border-color:
     #dfcc91;
 
   box-shadow:
-    0 7px 18px
-    rgba(77, 59, 20, 0.08);
+    0 5px 14px
+    rgba(77, 59, 20, 0.07);
 }
 
 
@@ -700,7 +684,7 @@ main {
 
 
 /* =========================================================
-   TWO COLUMN
+   TWO-COLUMN LAYOUT
 ========================================================= */
 
 .chart-grid {
@@ -712,7 +696,17 @@ main {
     minmax(0, 1fr);
 
   gap:
-    22px;
+    18px;
+
+  align-items:
+    stretch;
+}
+
+
+.chart-grid
+.vis-card {
+  margin-top:
+    0;
 }
 
 
@@ -723,7 +717,7 @@ main {
 
 .chart-title {
   margin:
-    0 0 5px;
+    0 0 4px;
 
   font-family:
     "Lora",
@@ -731,22 +725,25 @@ main {
     serif;
 
   font-size:
-    18px;
+    17px;
+
+  line-height:
+    1.35;
 }
 
 
 .chart-subtitle {
   margin:
-    0 0 10px;
+    0 0 8px;
 
   color:
     var(--muted);
 
   font-size:
-    11px;
+    10.5px;
 
   line-height:
-    1.45;
+    1.4;
 }
 
 
@@ -760,7 +757,7 @@ main {
     820px;
 
   margin:
-    10px auto 12px;
+    8px auto 9px;
 
   text-align:
     center;
@@ -769,10 +766,16 @@ main {
     #6a645c;
 
   font-size:
-    11px;
+    10.5px;
 
   line-height:
-    1.55;
+    1.5;
+}
+
+
+.note strong {
+  color:
+    var(--bee-brown);
 }
 
 
@@ -786,10 +789,10 @@ main {
     fit-content;
 
   margin:
-    10px auto 2px;
+    8px auto 0;
 
   padding:
-    6px 11px;
+    5px 10px;
 
   background:
     #fff5cc;
@@ -805,7 +808,7 @@ main {
     #655a42;
 
   font-size:
-    10px;
+    9.5px;
 }
 
 
@@ -817,7 +820,7 @@ main {
 
 
 /* =========================================================
-   INSIGHT
+   INSIGHT BOX
 ========================================================= */
 
 .insight-box {
@@ -825,10 +828,10 @@ main {
     relative;
 
   margin:
-    12px 0 20px;
+    9px 0 15px;
 
   padding:
-    13px 18px 13px 21px;
+    11px 16px 11px 19px;
 
   background:
     linear-gradient(
@@ -845,7 +848,7 @@ main {
     var(--honey-dark);
 
   border-radius:
-    8px;
+    7px;
 }
 
 
@@ -859,13 +862,13 @@ main {
     -8px;
 
   top:
-    15px;
+    13px;
 
   width:
-    12px;
+    11px;
 
   height:
-    14px;
+    13px;
 
   background:
     var(--honey-dark);
@@ -887,24 +890,28 @@ main {
     block;
 
   margin-bottom:
-    4px;
+    3px;
 
   color:
     var(--bee-brown);
 
   font-size:
-    13px;
+    12.5px;
+
+  line-height:
+    1.3;
 }
 
 
 .insight-box p {
-  margin: 0;
+  margin:
+    0;
 
   font-size:
-    12px;
+    11.5px;
 
   line-height:
-    1.6;
+    1.5;
 }
 
 
@@ -915,10 +922,10 @@ main {
 
 .conclusion {
   margin-bottom:
-    24px;
+    20px;
 
   padding:
-    26px 30px;
+    22px 28px;
 
   background:
     linear-gradient(
@@ -932,13 +939,13 @@ main {
     #ecd283;
 
   border-radius:
-    16px;
+    14px;
 }
 
 
 .conclusion h2 {
   margin:
-    0 0 8px;
+    0 0 6px;
 
   font-family:
     "Lora",
@@ -946,18 +953,22 @@ main {
     serif;
 
   font-size:
-    26px;
+    24px;
 }
 
 
 .conclusion p {
-  margin: 0;
+  max-width:
+    850px;
+
+  margin:
+    0;
 
   font-size:
-    13px;
+    12.5px;
 
   line-height:
-    1.7;
+    1.6;
 }
 
 
@@ -968,7 +979,7 @@ main {
 
 .sources {
   padding:
-    26px 30px;
+    24px 28px;
 
   background:
     #efede6;
@@ -984,7 +995,7 @@ main {
 
 .sources h2 {
   margin:
-    0 0 18px;
+    0 0 16px;
 
   font-family:
     "Lora",
@@ -996,24 +1007,98 @@ main {
 }
 
 
-.sources p {
+.sources-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    12px 22px;
+}
+
+
+.source-item {
+  padding:
+    12px 14px;
+
+  background:
+    rgba(255, 255, 255, 0.5);
+
+  border:
+    1px solid
+    rgba(210, 200, 177, 0.7);
+
+  border-radius:
+    8px;
+}
+
+
+.source-item strong {
+  display:
+    block;
+
+  margin-bottom:
+    4px;
+
+  font-size:
+    11.5px;
+}
+
+
+.source-item p {
   margin:
-    0 0 16px;
+    0 0 6px;
 
   color:
     #514b42;
 
   font-size:
-    12px;
+    10.5px;
 
   line-height:
-    1.6;
+    1.5;
 }
 
 
-.sources a {
+.source-item a {
   color:
     #73580b;
+
+  font-size:
+    10.5px;
+
+  font-weight:
+    600;
+}
+
+
+.project-meta {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    6px 24px;
+
+  margin-top:
+    16px;
+
+  padding-top:
+    13px;
+
+  border-top:
+    1px solid
+    #cbc5b7;
+
+  color:
+    #514b42;
+
+  font-size:
+    10.5px;
 }
 
 
@@ -1116,7 +1201,7 @@ main {
 
   .chapter-block {
     padding:
-      30px 25px 34px;
+      26px 24px 30px;
   }
 
 }
@@ -1137,73 +1222,79 @@ main {
 
   main {
     padding:
-      16px 10px 36px;
+      14px 9px 32px;
   }
 
 
   .hero {
     min-height:
-      180px;
+      170px;
 
     padding:
-      40px 16px;
+      36px 16px;
   }
 
 
   .hero h1 {
     font-size:
-      33px;
+      32px;
   }
 
 
   .hero p {
     font-size:
-      13px;
+      12px;
   }
 
 
   .chapter-block {
     margin-bottom:
-      26px;
+      24px;
 
     padding:
-      25px 16px 28px;
+      22px 15px 25px;
   }
 
 
   .chapter-header {
     grid-template-columns:
-      44px 1fr;
+      43px 1fr;
+
+    gap:
+      10px;
+
+    margin-bottom:
+      17px;
   }
 
 
   .chapter-number {
     width:
-      40px;
+      39px;
 
     height:
-      46px;
+      45px;
   }
 
 
   .chapter-header h2 {
     font-size:
-      22px;
+      21px;
   }
 
 
   .chapter-header p {
     font-size:
-      12px;
+      11.5px;
   }
 
 
   .vis-card {
-    padding:
-      12px 9px;
-
     margin:
-      14px 0 20px;
+      12px 0 17px;
+
+    padding:
+      10px 8px;
   }
 
 
@@ -1213,9 +1304,27 @@ main {
   }
 
 
+  .insight-box {
+    padding:
+      10px 13px 10px 17px;
+  }
+
+
   .insight-box p {
     font-size:
-      11px;
+      10.5px;
+  }
+
+
+  .sources-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .project-meta {
+    flex-direction:
+      column;
   }
 
 }
