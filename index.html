@@ -39,9 +39,7 @@
   ====================================================== -->
 
   <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
 
 
@@ -55,7 +53,6 @@
   >
 
 </head>
-
 
 
 <body>
@@ -75,7 +72,7 @@
       class="chapter-dot active"
       aria-label="Go to Chapter 1"
     >
-      01
+      <span>01</span>
     </a>
 
 
@@ -84,7 +81,7 @@
       class="chapter-dot"
       aria-label="Go to Chapter 2"
     >
-      02
+      <span>02</span>
     </a>
 
 
@@ -93,7 +90,7 @@
       class="chapter-dot"
       aria-label="Go to Chapter 3"
     >
-      03
+      <span>03</span>
     </a>
 
 
@@ -102,7 +99,7 @@
       class="chapter-dot"
       aria-label="Go to Chapter 4"
     >
-      04
+      <span>04</span>
     </a>
 
   </nav>
@@ -118,7 +115,6 @@
     <h1>
       Bees as Pollinators in Australia
     </h1>
-
 
     <p>
       Exploring where Australian bees are recorded and when.
@@ -148,7 +144,6 @@
           01
         </div>
 
-
         <div>
 
           <h2>
@@ -167,9 +162,7 @@
 
 
 
-      <!-- =================================================
-           VIS 1
-      ================================================== -->
+      <!-- VIS 1 -->
 
       <div class="vis-card">
 
@@ -181,25 +174,15 @@
 
 
         <p class="note">
-
           Values are standardised by recording volume.
-
           <br>
-
           They are not adjusted for population size.
-
           <br>
-
           Occurrence records also reflect recording effort.
-
           <br>
-
           Taxa means distinct bee classifications recorded in ALA.
-
           <br>
-
           Recording effort means observation and collection activity.
-
         </p>
 
 
@@ -210,17 +193,11 @@
           </strong>
 
           <p>
-
             The ACT shows the highest recorded diversity.
-
             <br>
-
             That result is relative to recording effort.
-
             <br>
-
             Western Australia and Tasmania also show high richness.
-
           </p>
 
         </div>
@@ -229,9 +206,7 @@
 
 
 
-      <!-- =================================================
-           VIS 2
-      ================================================== -->
+      <!-- VIS 2 -->
 
       <div class="vis-card">
 
@@ -245,9 +220,7 @@
 
 
 
-      <!-- =================================================
-           VIS 3
-      ================================================== -->
+      <!-- VIS 3 -->
 
       <div class="vis-card">
 
@@ -265,17 +238,11 @@
           </strong>
 
           <p>
-
             Bee records cluster along Australia's coastal regions.
-
             <br>
-
             The south-east shows particularly strong recording activity.
-
             <br>
-
             These patterns also reflect recording effort.
-
           </p>
 
         </div>
@@ -301,7 +268,6 @@
           02
         </div>
 
-
         <div>
 
           <h2>
@@ -320,9 +286,7 @@
 
 
 
-      <!-- =================================================
-           VIS 4 + VIS 7
-      ================================================== -->
+      <!-- VIS 4 + VIS 7 -->
 
       <div class="chart-grid">
 
@@ -335,17 +299,11 @@
             When are bee families most commonly recorded?
           </h3>
 
-
           <p class="chart-subtitle">
-
             Darker cells show more records.
-
             <br>
-
             Circles mark each family's peak.
-
           </p>
-
 
           <div
             id="vis4"
@@ -365,17 +323,11 @@
             How much does recording activity vary?
           </h3>
 
-
           <p class="chart-subtitle">
-
             Boxes show the middle 50% of months.
-
             <br>
-
             Dots show individual months.
-
           </p>
-
 
           <div
             id="vis7"
@@ -389,9 +341,7 @@
 
 
 
-      <!-- =================================================
-           VIS 9
-      ================================================== -->
+      <!-- VIS 9 -->
 
       <div class="vis-card">
 
@@ -401,15 +351,10 @@
         >
         </div>
 
-
         <p class="note">
-
           Each family uses its own vertical scale.
-
           <br>
-
           This highlights its seasonal pattern.
-
         </p>
 
       </div>
@@ -423,17 +368,11 @@
         </strong>
 
         <p>
-
           Apidae and Colletidae peak in November.
-
           <br>
-
           Halictidae reaches its peak in October.
-
           <br>
-
           Megachilidae differs, peaking in January.
-
         </p>
 
       </div>
@@ -457,7 +396,6 @@
           03
         </div>
 
-
         <div>
 
           <h2>
@@ -476,9 +414,7 @@
 
 
 
-      <!-- =================================================
-           VIS 5
-      ================================================== -->
+      <!-- VIS 5 -->
 
       <div class="vis-card">
 
@@ -496,17 +432,11 @@
           </strong>
 
           <p>
-
             Apidae contributes the largest share of records at 35.5%.
-
             <br>
-
             Colletidae, however, contains more unique recorded taxa.
-
             <br>
-
             Record volume and taxonomic richness are therefore different.
-
           </p>
 
         </div>
@@ -515,9 +445,7 @@
 
 
 
-      <!-- =================================================
-           VIS 10
-      ================================================== -->
+      <!-- VIS 10 -->
 
       <div class="vis-card">
 
@@ -527,19 +455,13 @@
         >
         </div>
 
-
         <p class="note">
-
           Hover over a flow to compare
-
           <br>
-
           state, family and records.
-
         </p>
 
       </div>
-
 
 
       <div class="insight-box">
@@ -549,13 +471,9 @@
         </strong>
 
         <p>
-
           The major bee families occur across multiple states.
-
           <br>
-
           Their relative contribution changes geographically.
-
         </p>
 
       </div>
@@ -579,28 +497,18 @@
           04
         </div>
 
-
         <div>
 
           <h2>
-
             How does recorded bee diversity compare
-
             <br>
-
             with managed beekeeping?
-
           </h2>
 
-
           <p>
-
             Recorded bee diversity and managed hive activity differ.
-
             <br>
-
             High diversity does not always mean more hives.
-
           </p>
 
         </div>
@@ -609,9 +517,7 @@
 
 
 
-      <!-- =================================================
-           VIS 11
-      ================================================== -->
+      <!-- VIS 11 -->
 
       <div class="vis-card">
 
@@ -625,9 +531,7 @@
 
 
 
-      <!-- =================================================
-           VIS 6
-      ================================================== -->
+      <!-- VIS 6 -->
 
       <div class="vis-card">
 
@@ -641,9 +545,7 @@
 
 
 
-      <!-- =================================================
-           VIS 8
-      ================================================== -->
+      <!-- VIS 8 -->
 
       <div class="vis-card">
 
@@ -664,17 +566,11 @@
         </strong>
 
         <p>
-
           New South Wales has the most managed hives.
-
           <br>
-
           Queensland records more unique bee taxa overall.
-
           <br>
-
           Higher recorded diversity does not imply more managed hives.
-
         </p>
 
       </div>
@@ -693,23 +589,14 @@
         The bigger picture
       </h2>
 
-
       <p>
-
         Bee records vary across geography and seasons.
-
         <br>
-
         Queensland records the most unique bee taxa overall.
-
         <br>
-
         New South Wales has the most managed hives.
-
         <br>
-
         Occurrence records differ from managed beekeeping activity.
-
       </p>
 
     </section>
@@ -725,7 +612,6 @@
       <h2>
         Data Sources & Project Information
       </h2>
-
 
 
       <p>
@@ -755,7 +641,6 @@
         </a>
 
       </p>
-
 
 
       <p>
@@ -788,7 +673,6 @@
       </p>
 
 
-
       <p>
 
         <strong>
@@ -818,7 +702,6 @@
       </p>
 
 
-
       <p>
 
         <strong>
@@ -836,7 +719,6 @@
       </p>
 
 
-
       <p>
 
         <strong>
@@ -847,7 +729,6 @@
 
         <br>
 
-
         <strong>
           Unit:
         </strong>
@@ -855,7 +736,6 @@
         FIT3179 Data Visualisation
 
         <br>
-
 
         <strong>
           Date:
