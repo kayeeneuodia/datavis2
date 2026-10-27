@@ -58,38 +58,26 @@ body {
 ========================================================= */
 
 .scroll-progress-track {
-  position:
-    fixed;
+  position: fixed;
 
-  top:
-    0;
+  top: 0;
+  left: 0;
 
-  left:
-    0;
+  width: 100%;
+  height: 4px;
 
-  width:
-    100%;
-
-  height:
-    4px;
-
-  z-index:
-    3000;
+  z-index: 3000;
 
   background:
     rgba(255, 255, 255, 0.75);
 
-  pointer-events:
-    none;
+  pointer-events: none;
 }
 
 
 .scroll-progress {
-  width:
-    0;
-
-  height:
-    100%;
+  width: 0;
+  height: 100%;
 
   background:
     var(--honey-dark);
@@ -105,20 +93,15 @@ body {
 ========================================================= */
 
 .chapter-nav {
-  position:
-    fixed;
+  position: fixed;
 
-  right:
-    18px;
-
-  top:
-    50%;
+  right: 18px;
+  top: 50%;
 
   transform:
     translateY(-50%);
 
-  display:
-    flex;
+  display: flex;
 
   flex-direction:
     column;
@@ -126,8 +109,7 @@ body {
   align-items:
     center;
 
-  gap:
-    9px;
+  gap: 9px;
 
   z-index:
     1200;
@@ -135,23 +117,16 @@ body {
 
 
 .chapter-nav::before {
-  content:
-    "";
+  content: "";
 
-  position:
-    absolute;
+  position: absolute;
 
-  top:
-    28px;
+  top: 28px;
+  bottom: 28px;
 
-  bottom:
-    28px;
+  left: 50%;
 
-  left:
-    50%;
-
-  width:
-    2px;
+  width: 2px;
 
   transform:
     translateX(-50%);
@@ -165,17 +140,12 @@ body {
 
 
 .chapter-dot {
-  position:
-    relative;
+  position: relative;
 
-  width:
-    50px;
+  width: 50px;
+  height: 56px;
 
-  height:
-    56px;
-
-  display:
-    flex;
+  display: flex;
 
   align-items:
     center;
@@ -212,14 +182,11 @@ body {
 
 
 .chapter-dot::before {
-  content:
-    "";
+  content: "";
 
-  position:
-    absolute;
+  position: absolute;
 
-  inset:
-    3px;
+  inset: 3px;
 
   background:
     #fffaf0;
@@ -237,11 +204,9 @@ body {
 
 
 .chapter-dot span {
-  position:
-    relative;
+  position: relative;
 
-  z-index:
-    2;
+  z-index: 2;
 
   color:
     #756b5c;
@@ -258,14 +223,10 @@ body {
   content:
     attr(data-label);
 
-  position:
-    absolute;
+  position: absolute;
 
-  right:
-    60px;
-
-  top:
-    50%;
+  right: 60px;
+  top: 50%;
 
   transform:
     translate(
@@ -371,14 +332,11 @@ body {
 ========================================================= */
 
 .hero {
-  position:
-    relative;
+  position: relative;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
-  display:
-    flex;
+  display: flex;
 
   flex-direction:
     column;
@@ -412,14 +370,11 @@ body {
 
 
 .hero::before {
-  content:
-    "";
+  content: "";
 
-  position:
-    absolute;
+  position: absolute;
 
-  inset:
-    0;
+  inset: 0;
 
   background-image:
     url("data:image/svg+xml,%3Csvg width='90' height='104' viewBox='0 0 90 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 2 L88 27 L88 77 L45 102 L2 77 L2 27 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.27' stroke-width='2'/%3E%3C/svg%3E");
@@ -433,11 +388,9 @@ body {
 
 
 .hero h1 {
-  position:
-    relative;
+  position: relative;
 
-  z-index:
-    2;
+  z-index: 2;
 
   margin:
     0 0 9px;
@@ -459,11 +412,9 @@ body {
 
 
 .hero p {
-  position:
-    relative;
+  position: relative;
 
-  z-index:
-    2;
+  z-index: 2;
 
   max-width:
     720px;
@@ -508,11 +459,9 @@ main {
 ========================================================= */
 
 .chapter-block {
-  position:
-    relative;
+  position: relative;
 
-  overflow:
-    hidden;
+  overflow: hidden;
 
   scroll-margin-top:
     16px;
@@ -540,20 +489,14 @@ main {
 
 
 .chapter-block::before {
-  content:
-    "";
+  content: "";
 
-  position:
-    absolute;
+  position: absolute;
 
-  top:
-    0;
+  top: 0;
 
-  left:
-    28px;
-
-  right:
-    28px;
+  left: 28px;
+  right: 28px;
 
   height:
     4px;
@@ -574,8 +517,7 @@ main {
 ========================================================= */
 
 .chapter-header {
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
     56px 1fr;
@@ -605,8 +547,7 @@ main {
   height:
     54px;
 
-  display:
-    flex;
+  display: flex;
 
   align-items:
     center;
@@ -679,8 +620,7 @@ main {
 ========================================================= */
 
 .vis-card {
-  position:
-    relative;
+  position: relative;
 
   min-width:
     0;
@@ -760,40 +700,34 @@ main {
 
 
 /* =========================================================
-   CHAPTER 4 SIDE-BY-SIDE COMPARISON
+   VIS 1 + VIS 3 MAP / INSIGHT LAYOUT
 ========================================================= */
 
-.chapter4-comparison-grid {
+.map-insight-layout {
   display:
     grid;
 
   grid-template-columns:
-    minmax(0, 0.9fr)
-    minmax(0, 1.1fr);
+    minmax(0, 1fr)
+    225px;
 
   gap:
-    18px;
+    16px;
 
   align-items:
     stretch;
-
-  margin:
-    14px 0 20px;
 }
 
 
-.chapter4-small-card {
-  margin:
-    0;
-
+.map-chart-panel {
   min-width:
     0;
 
   display:
     flex;
 
-  align-items:
-    center;
+  flex-direction:
+    column;
 
   justify-content:
     center;
@@ -801,55 +735,192 @@ main {
 
 
 /*
-  Vega specifications have fixed pixel widths.
-  For these two cards only, scale the rendered
-  chart down to fit its grid column.
+  Allow the map to use the entire available map column
+  without letting it overlap the insight.
 */
 
-.scalable-visualisation {
-  overflow:
-    hidden;
+.map-chart-panel
+.visualisation {
+  justify-content:
+    center;
+
+  overflow-x:
+    auto;
 }
 
 
-.scalable-visualisation
+.map-chart-panel
 .vega-embed {
-  width:
-    100%;
-
   max-width:
     100%;
-}
-
-
-.scalable-visualisation
-.vega-embed > div {
-  max-width:
-    100%;
-}
-
-
-.scalable-visualisation svg {
-  width:
-    100% !important;
-
-  height:
-    auto !important;
-}
-
-
-.scalable-visualisation canvas {
-  width:
-    100% !important;
-
-  height:
-    auto !important;
 }
 
 
 
 /* =========================================================
-   HORIZONTAL TAKEAWAY STRIP
+   SIDE INSIGHT
+========================================================= */
+
+.side-insight {
+  position:
+    relative;
+
+  min-width:
+    0;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    center;
+
+  padding:
+    17px 16px 17px 19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff2bd,
+      #fff9e5
+    );
+
+  border-left:
+    4px solid
+    var(--honey-dark);
+
+  border-radius:
+    9px;
+
+  color:
+    #403726;
+}
+
+
+.side-insight::before {
+  content: "";
+
+  position:
+    absolute;
+
+  left:
+    -9px;
+
+  top:
+    22px;
+
+  width:
+    13px;
+
+  height:
+    15px;
+
+  background:
+    var(--honey-dark);
+
+  clip-path:
+    polygon(
+      25% 0,
+      75% 0,
+      100% 50%,
+      75% 100%,
+      25% 100%,
+      0 50%
+    );
+}
+
+
+.insight-kicker {
+  display:
+    block;
+
+  margin-bottom:
+    7px;
+
+  color:
+    var(--bee-brown);
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.side-insight h3 {
+  margin:
+    0 0 8px;
+
+  font-family:
+    "Lora",
+    Georgia,
+    serif;
+
+  color:
+    var(--bee-black);
+
+  font-size:
+    16px;
+
+  line-height:
+    1.3;
+}
+
+
+.side-insight p {
+  margin:
+    0;
+
+  color:
+    #514735;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.58;
+}
+
+
+
+/* =========================================================
+   TREEMAP + SIDE INSIGHT
+========================================================= */
+
+.treemap-layout {
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    225px;
+
+  gap:
+    16px;
+
+  align-items:
+    stretch;
+}
+
+
+.treemap-chart {
+  min-width:
+    0;
+}
+
+
+
+/* =========================================================
+   HORIZONTAL TAKEAWAY
 ========================================================= */
 
 .takeaway-strip {
@@ -860,20 +931,20 @@ main {
     grid;
 
   grid-template-columns:
-    minmax(220px, 0.9fr)
+    minmax(210px, 0.9fr)
     minmax(0, 1.6fr);
 
   gap:
-    20px;
+    18px;
 
   align-items:
     center;
 
   margin-top:
-    12px;
+    11px;
 
   padding:
-    13px 17px 13px 20px;
+    12px 16px 12px 19px;
 
   background:
     linear-gradient(
@@ -895,8 +966,7 @@ main {
 
 
 .takeaway-strip::before {
-  content:
-    "";
+  content: "";
 
   position:
     absolute;
@@ -905,7 +975,7 @@ main {
     -8px;
 
   top:
-    14px;
+    13px;
 
   width:
     11px;
@@ -995,159 +1065,7 @@ main {
 
 
 /* =========================================================
-   TREEMAP + SIDE INSIGHT
-========================================================= */
-
-.treemap-layout {
-  display:
-    grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    245px;
-
-  gap:
-    18px;
-
-  align-items:
-    stretch;
-}
-
-
-.treemap-chart {
-  min-width:
-    0;
-}
-
-
-.side-insight {
-  position:
-    relative;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  justify-content:
-    center;
-
-  padding:
-    18px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #fff2bd,
-      #fff9e5
-    );
-
-  border-left:
-    4px solid
-    var(--honey-dark);
-
-  border-radius:
-    9px;
-
-  color:
-    #403726;
-}
-
-
-.side-insight::before {
-  content:
-    "";
-
-  position:
-    absolute;
-
-  left:
-    -9px;
-
-  top:
-    22px;
-
-  width:
-    13px;
-
-  height:
-    15px;
-
-  background:
-    var(--honey-dark);
-
-  clip-path:
-    polygon(
-      25% 0,
-      75% 0,
-      100% 50%,
-      75% 100%,
-      25% 100%,
-      0 50%
-    );
-}
-
-
-.insight-kicker {
-  margin-bottom:
-    7px;
-
-  color:
-    var(--bee-brown);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.08em;
-
-  text-transform:
-    uppercase;
-}
-
-
-.side-insight h3 {
-  margin:
-    0 0 8px;
-
-  font-family:
-    "Lora",
-    Georgia,
-    serif;
-
-  color:
-    var(--bee-black);
-
-  font-size:
-    16px;
-
-  line-height:
-    1.3;
-}
-
-
-.side-insight p {
-  margin:
-    0;
-
-  color:
-    #514735;
-
-  font-size:
-    11px;
-
-  line-height:
-    1.6;
-}
-
-
-
-/* =========================================================
-   CHAPTER 2 TWO-COLUMN CHARTS
+   CHAPTER 2 TWO COLUMN
 ========================================================= */
 
 .chart-grid {
@@ -1170,6 +1088,89 @@ main {
 .vis-card {
   margin-top:
     0;
+}
+
+
+
+/* =========================================================
+   CHAPTER 4 SIDE BY SIDE
+========================================================= */
+
+.chapter4-comparison-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+
+  gap:
+    18px;
+
+  align-items:
+    stretch;
+
+  margin:
+    14px 0 20px;
+}
+
+
+.chapter4-small-card {
+  margin:
+    0;
+
+  min-width:
+    0;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+
+.scalable-visualisation {
+  overflow:
+    hidden;
+}
+
+
+.scalable-visualisation
+.vega-embed {
+  width:
+    100%;
+
+  max-width:
+    100%;
+}
+
+
+.scalable-visualisation
+.vega-embed > div {
+  max-width:
+    100%;
+}
+
+
+.scalable-visualisation svg {
+  width:
+    100% !important;
+
+  height:
+    auto !important;
+}
+
+
+.scalable-visualisation canvas {
+  width:
+    100% !important;
+
+  height:
+    auto !important;
 }
 
 
@@ -1217,10 +1218,10 @@ main {
 
 .note {
   max-width:
-    850px;
+    820px;
 
   margin:
-    8px auto 4px;
+    7px auto 2px;
 
   text-align:
     center;
@@ -1521,6 +1522,38 @@ main {
 
 
 /* =========================================================
+   MEDIUM SCREEN
+========================================================= */
+
+@media (max-width: 1180px) {
+
+  /*
+    If there is no longer enough room for an 800px map
+    plus the insight, stack only at this point.
+  */
+
+  .map-insight-layout {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .treemap-layout {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .side-insight {
+    min-height:
+      auto;
+  }
+
+}
+
+
+
+/* =========================================================
    SMALL LAPTOP
 ========================================================= */
 
@@ -1578,12 +1611,6 @@ main {
 
 
   .chart-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-
-  .treemap-layout {
     grid-template-columns:
       1fr;
   }
@@ -1706,6 +1733,24 @@ main {
   .vis-card:hover {
     transform:
       none;
+  }
+
+
+  .side-insight {
+    padding:
+      14px 15px;
+  }
+
+
+  .side-insight h3 {
+    font-size:
+      15px;
+  }
+
+
+  .side-insight p {
+    font-size:
+      10.5px;
   }
 
 
