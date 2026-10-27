@@ -240,7 +240,7 @@ body {
     none;
 
   transition:
-    0.2s ease;
+    opacity 0.2s ease;
 }
 
 
@@ -256,8 +256,6 @@ body {
 ========================================================= */
 
 .hero {
-  position: relative;
-
   min-height:
     190px;
 
@@ -305,7 +303,8 @@ body {
 
 
 .hero p {
-  margin: 0;
+  margin:
+    0;
 
   font-size:
     14px;
@@ -428,7 +427,8 @@ main {
 
 
 .chapter-header p {
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--muted);
@@ -444,7 +444,8 @@ main {
 ========================================================= */
 
 .vis-card {
-  min-width: 0;
+  min-width:
+    0;
 
   margin:
     14px 0 20px;
@@ -471,7 +472,8 @@ main {
   min-width:
     0;
 
-  display: flex;
+  display:
+    flex;
 
   justify-content:
     center;
@@ -492,7 +494,7 @@ main {
 
 
 /* =========================================================
-   VIS 1 + VIS 3 — FORCE SIDE BY SIDE
+   VIS 1 + VIS 3
 ========================================================= */
 
 .map-side-layout {
@@ -519,11 +521,6 @@ main {
     hidden;
 }
 
-
-/*
-   Critical part:
-   force Vega SVG/canvas to scale to available map column.
-*/
 
 .map-main
 .visualisation
@@ -559,10 +556,8 @@ main {
 ========================================================= */
 
 .side-insight {
-  position:
-    relative;
-
-  display: flex;
+  display:
+    flex;
 
   flex-direction:
     column;
@@ -598,7 +593,7 @@ main {
     block;
 
   margin-bottom:
-    6px;
+    5px;
 
   color:
     var(--bee-brown);
@@ -634,7 +629,8 @@ main {
 
 
 .side-insight p {
-  margin: 0;
+  margin:
+    0;
 
   color:
     #514735;
@@ -670,7 +666,7 @@ main {
 
 
 /* =========================================================
-   TAKEAWAY STRIP
+   STANDARD TAKEAWAY STRIP
 ========================================================= */
 
 .takeaway-strip {
@@ -719,17 +715,77 @@ main {
 
   font-size:
     15px;
+
+  line-height:
+    1.3;
 }
 
 
 .takeaway-strip p {
-  margin: 0;
+  margin:
+    0;
 
   font-size:
     11px;
 
   line-height:
     1.55;
+}
+
+
+
+/* =========================================================
+   VIS 9 SEASONAL INSIGHT
+========================================================= */
+
+.seasonal-insight {
+  display:
+    block;
+
+  margin-top:
+    10px;
+
+  padding:
+    12px 16px 13px 18px;
+}
+
+
+.seasonal-insight .takeaway-kicker {
+  margin:
+    0 0 2px;
+
+  font-size:
+    9px;
+}
+
+
+.seasonal-insight h3 {
+  margin:
+    0 0 4px;
+
+  font-size:
+    15px;
+
+  line-height:
+    1.3;
+}
+
+
+.seasonal-insight p {
+  margin:
+    0;
+
+  max-width:
+    900px;
+
+  color:
+    #514735;
+
+  font-size:
+    11px;
+
+  line-height:
+    1.5;
 }
 
 
@@ -777,7 +833,7 @@ main {
 
 
 /* =========================================================
-   CHAPTER 4 GRID
+   CHAPTER 4
 ========================================================= */
 
 .chapter4-grid {
@@ -903,7 +959,8 @@ main {
 
 
 .conclusion p {
-  margin: 0;
+  margin:
+    0;
 
   font-size:
     12.5px;
@@ -976,7 +1033,8 @@ main {
 
 
 .project-meta {
-  display: flex;
+  display:
+    flex;
 
   gap:
     24px;
@@ -1026,12 +1084,6 @@ main {
 /* =========================================================
    RESPONSIVE
 ========================================================= */
-
-/*
-  IMPORTANT:
-  Vis 1 and Vis 3 remain beside the takeaway
-  until the screen is genuinely small.
-*/
 
 @media (max-width: 900px) {
 
