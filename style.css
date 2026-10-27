@@ -15,7 +15,6 @@ html {
 :root {
   --honey: #f2c94c;
   --honey-dark: #d8a91f;
-  --amber: #c58d12;
 
   --bee-black: #29271f;
   --bee-brown: #5a4526;
@@ -32,7 +31,6 @@ body {
   font-family:
     "Inter",
     Arial,
-    Helvetica,
     sans-serif;
 
   color:
@@ -46,15 +44,12 @@ body {
 
   background-size:
     72px 84px;
-
-  line-height:
-    1.55;
 }
 
 
 
 /* =========================================================
-   SCROLL PROGRESS
+   PROGRESS
 ========================================================= */
 
 .scroll-progress-track {
@@ -69,27 +64,23 @@ body {
   z-index: 3000;
 
   background:
-    rgba(255, 255, 255, 0.75);
-
-  pointer-events: none;
+    rgba(255,255,255,0.75);
 }
 
 
 .scroll-progress {
-  width: 0;
   height: 100%;
+
+  width: 0;
 
   background:
     var(--honey-dark);
-
-  transition:
-    width 0.08s linear;
 }
 
 
 
 /* =========================================================
-   CHAPTER NAVIGATION
+   NAVIGATION
 ========================================================= */
 
 .chapter-nav {
@@ -106,13 +97,9 @@ body {
   flex-direction:
     column;
 
-  align-items:
-    center;
-
   gap: 9px;
 
-  z-index:
-    1200;
+  z-index: 1200;
 }
 
 
@@ -126,10 +113,10 @@ body {
 
   left: 50%;
 
-  width: 2px;
-
   transform:
     translateX(-50%);
+
+  width: 2px;
 
   background:
     #ddcd9e;
@@ -147,23 +134,13 @@ body {
 
   display: flex;
 
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  border:
-    none;
-
-  border-radius:
-    0;
+  align-items: center;
+  justify-content: center;
 
   background:
     #dbc98f;
 
-  text-decoration:
-    none;
+  text-decoration: none;
 
   clip-path:
     polygon(
@@ -174,10 +151,6 @@ body {
       25% 100%,
       0 50%
     );
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
 }
 
 
@@ -192,14 +165,7 @@ body {
     #fffaf0;
 
   clip-path:
-    polygon(
-      25% 0,
-      75% 0,
-      100% 50%,
-      75% 100%,
-      25% 100%,
-      0 50%
-    );
+    inherit;
 }
 
 
@@ -219,98 +185,9 @@ body {
 }
 
 
-.chapter-dot::after {
-  content:
-    attr(data-label);
-
-  position: absolute;
-
-  right: 60px;
-  top: 50%;
-
-  transform:
-    translate(
-      8px,
-      -50%
-    );
-
-  width:
-    max-content;
-
-  padding:
-    7px 10px;
-
-  color:
-    #fff8df;
-
-  background:
-    #29271f;
-
-  border-radius:
-    6px;
-
-  font-family:
-    "Inter",
-    sans-serif;
-
-  font-size:
-    10px;
-
-  font-weight:
-    600;
-
-  white-space:
-    nowrap;
-
-  opacity:
-    0;
-
-  visibility:
-    hidden;
-
-  pointer-events:
-    none;
-
-  box-shadow:
-    0 4px 12px
-    rgba(0, 0, 0, 0.14);
-
-  transition:
-    opacity 0.18s ease,
-    transform 0.18s ease;
-}
-
-
-.chapter-dot:hover::after {
-  opacity:
-    1;
-
-  visibility:
-    visible;
-
-  transform:
-    translate(
-      0,
-      -50%
-    );
-}
-
-
-.chapter-dot:hover {
-  background:
-    var(--honey-dark);
-
-  transform:
-    scale(1.07);
-}
-
-
 .chapter-dot.active {
   background:
     var(--bee-black);
-
-  transform:
-    scale(1.08);
 }
 
 
@@ -326,6 +203,53 @@ body {
 }
 
 
+.chapter-dot::after {
+  content:
+    attr(data-label);
+
+  position: absolute;
+
+  right: 60px;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  padding:
+    7px 10px;
+
+  background:
+    var(--bee-black);
+
+  color:
+    white;
+
+  border-radius:
+    6px;
+
+  font-size:
+    10px;
+
+  white-space:
+    nowrap;
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+
+  transition:
+    0.2s ease;
+}
+
+
+.chapter-dot:hover::after {
+  opacity:
+    1;
+}
+
+
 
 /* =========================================================
    HERO
@@ -334,7 +258,8 @@ body {
 .hero {
   position: relative;
 
-  overflow: hidden;
+  min-height:
+    190px;
 
   display: flex;
 
@@ -346,9 +271,6 @@ body {
 
   justify-content:
     center;
-
-  min-height:
-    190px;
 
   padding:
     46px 24px 42px;
@@ -369,67 +291,24 @@ body {
 }
 
 
-.hero::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='90' height='104' viewBox='0 0 90 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M45 2 L88 27 L88 77 L45 102 L2 77 L2 27 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.27' stroke-width='2'/%3E%3C/svg%3E");
-
-  background-size:
-    90px 104px;
-
-  pointer-events:
-    none;
-}
-
-
 .hero h1 {
-  position: relative;
-
-  z-index: 2;
-
   margin:
     0 0 9px;
 
   font-family:
     "Lora",
-    Georgia,
     serif;
 
   font-size:
     48px;
-
-  line-height:
-    1.12;
-
-  color:
-    #241f15;
 }
 
 
 .hero p {
-  position: relative;
-
-  z-index: 2;
-
-  max-width:
-    720px;
-
-  margin:
-    0 auto;
-
-  color:
-    #443820;
+  margin: 0;
 
   font-size:
     14px;
-
-  line-height:
-    1.6;
 }
 
 
@@ -463,9 +342,6 @@ main {
 
   overflow: hidden;
 
-  scroll-margin-top:
-    16px;
-
   margin-bottom:
     34px;
 
@@ -473,7 +349,7 @@ main {
     28px 32px 32px;
 
   background:
-    rgba(255, 255, 255, 0.98);
+    rgba(255,255,255,0.98);
 
   border:
     1px solid
@@ -481,40 +357,8 @@ main {
 
   border-radius:
     17px;
-
-  box-shadow:
-    0 6px 20px
-    rgba(77, 59, 20, 0.035);
 }
 
-
-.chapter-block::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-
-  left: 28px;
-  right: 28px;
-
-  height:
-    4px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--honey),
-      transparent
-    );
-}
-
-
-
-/* =========================================================
-   CHAPTER HEADER
-========================================================= */
 
 .chapter-header {
   display: grid;
@@ -524,9 +368,6 @@ main {
 
   gap:
     15px;
-
-  align-items:
-    start;
 
   margin-bottom:
     20px;
@@ -558,12 +399,6 @@ main {
   background:
     var(--honey);
 
-  color:
-    #332812;
-
-  font-size:
-    14px;
-
   font-weight:
     800;
 
@@ -585,45 +420,31 @@ main {
 
   font-family:
     "Lora",
-    Georgia,
     serif;
 
   font-size:
     28px;
-
-  line-height:
-    1.23;
 }
 
 
 .chapter-header p {
-  max-width:
-    900px;
-
-  margin:
-    0;
+  margin: 0;
 
   color:
     var(--muted);
 
   font-size:
     13px;
-
-  line-height:
-    1.55;
 }
 
 
 
 /* =========================================================
-   VISUALISATION CARDS
+   CARDS
 ========================================================= */
 
 .vis-card {
-  position: relative;
-
-  min-width:
-    0;
+  min-width: 0;
 
   margin:
     14px 0 20px;
@@ -640,30 +461,6 @@ main {
 
   border-radius:
     12px;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-}
-
-
-.vis-card:hover {
-  transform:
-    translateY(-1px);
-
-  border-color:
-    #dfcc91;
-
-  box-shadow:
-    0 5px 14px
-    rgba(77, 59, 20, 0.07);
-}
-
-
-.full-chart-card {
-  width:
-    100%;
 }
 
 
@@ -674,8 +471,7 @@ main {
   min-width:
     0;
 
-  display:
-    flex;
+  display: flex;
 
   justify-content:
     center;
@@ -685,14 +481,10 @@ main {
 
   overflow-x:
     auto;
-
-  overflow-y:
-    visible;
 }
 
 
-.visualisation
-.vega-embed {
+.visualisation .vega-embed {
   max-width:
     100%;
 }
@@ -700,59 +492,64 @@ main {
 
 
 /* =========================================================
-   VIS 1 + VIS 3 MAP / INSIGHT LAYOUT
+   VIS 1 + VIS 3 — FORCE SIDE BY SIDE
 ========================================================= */
 
-.map-insight-layout {
+.map-side-layout {
   display:
     grid;
 
   grid-template-columns:
     minmax(0, 1fr)
-    225px;
+    245px;
 
   gap:
-    16px;
+    18px;
 
   align-items:
     stretch;
 }
 
 
-.map-chart-panel {
+.map-main {
   min-width:
     0;
 
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  justify-content:
-    center;
+  overflow:
+    hidden;
 }
 
 
 /*
-  Allow the map to use the entire available map column
-  without letting it overlap the insight.
+   Critical part:
+   force Vega SVG/canvas to scale to available map column.
 */
 
-.map-chart-panel
-.visualisation {
-  justify-content:
-    center;
-
-  overflow-x:
-    auto;
+.map-main
+.visualisation
+.vega-embed {
+  width:
+    100%;
 }
 
 
-.map-chart-panel
-.vega-embed {
+.map-main
+.visualisation svg {
   max-width:
-    100%;
+    100% !important;
+
+  height:
+    auto !important;
+}
+
+
+.map-main
+.visualisation canvas {
+  max-width:
+    100% !important;
+
+  height:
+    auto !important;
 }
 
 
@@ -765,11 +562,7 @@ main {
   position:
     relative;
 
-  min-width:
-    0;
-
-  display:
-    flex;
+  display: flex;
 
   flex-direction:
     column;
@@ -777,8 +570,11 @@ main {
   justify-content:
     center;
 
+  min-width:
+    0;
+
   padding:
-    17px 16px 17px 19px;
+    18px;
 
   background:
     linear-gradient(
@@ -793,51 +589,16 @@ main {
 
   border-radius:
     9px;
-
-  color:
-    #403726;
 }
 
 
-.side-insight::before {
-  content: "";
-
-  position:
-    absolute;
-
-  left:
-    -9px;
-
-  top:
-    22px;
-
-  width:
-    13px;
-
-  height:
-    15px;
-
-  background:
-    var(--honey-dark);
-
-  clip-path:
-    polygon(
-      25% 0,
-      75% 0,
-      100% 50%,
-      75% 100%,
-      25% 100%,
-      0 50%
-    );
-}
-
-
-.insight-kicker {
+.insight-kicker,
+.takeaway-kicker {
   display:
     block;
 
   margin-bottom:
-    7px;
+    6px;
 
   color:
     var(--bee-brown);
@@ -862,11 +623,7 @@ main {
 
   font-family:
     "Lora",
-    Georgia,
     serif;
-
-  color:
-    var(--bee-black);
 
   font-size:
     16px;
@@ -877,8 +634,7 @@ main {
 
 
 .side-insight p {
-  margin:
-    0;
+  margin: 0;
 
   color:
     #514735;
@@ -887,13 +643,13 @@ main {
     11px;
 
   line-height:
-    1.58;
+    1.6;
 }
 
 
 
 /* =========================================================
-   TREEMAP + SIDE INSIGHT
+   TREEMAP
 ========================================================= */
 
 .treemap-layout {
@@ -902,36 +658,27 @@ main {
 
   grid-template-columns:
     minmax(0, 1fr)
-    225px;
+    245px;
 
   gap:
-    16px;
+    18px;
 
   align-items:
     stretch;
 }
 
 
-.treemap-chart {
-  min-width:
-    0;
-}
-
-
 
 /* =========================================================
-   HORIZONTAL TAKEAWAY
+   TAKEAWAY STRIP
 ========================================================= */
 
 .takeaway-strip {
-  position:
-    relative;
-
   display:
     grid;
 
   grid-template-columns:
-    minmax(210px, 0.9fr)
+    minmax(220px, 0.9fr)
     minmax(0, 1.6fr);
 
   gap:
@@ -944,7 +691,7 @@ main {
     11px;
 
   padding:
-    12px 16px 12px 19px;
+    12px 16px;
 
   background:
     linear-gradient(
@@ -959,72 +706,6 @@ main {
 
   border-radius:
     8px;
-
-  color:
-    #403726;
-}
-
-
-.takeaway-strip::before {
-  content: "";
-
-  position:
-    absolute;
-
-  left:
-    -8px;
-
-  top:
-    13px;
-
-  width:
-    11px;
-
-  height:
-    13px;
-
-  background:
-    var(--honey-dark);
-
-  clip-path:
-    polygon(
-      25% 0,
-      75% 0,
-      100% 50%,
-      75% 100%,
-      25% 100%,
-      0 50%
-    );
-}
-
-
-.takeaway-heading {
-  min-width:
-    0;
-}
-
-
-.takeaway-kicker {
-  display:
-    block;
-
-  margin-bottom:
-    3px;
-
-  color:
-    var(--bee-brown);
-
-  font-size:
-    9px;
-
-  font-weight:
-    700;
-
-  letter-spacing:
-    0.08em;
-
-  text-transform:
-    uppercase;
 }
 
 
@@ -1034,26 +715,15 @@ main {
 
   font-family:
     "Lora",
-    Georgia,
     serif;
-
-  color:
-    var(--bee-black);
 
   font-size:
     15px;
-
-  line-height:
-    1.3;
 }
 
 
 .takeaway-strip p {
-  margin:
-    0;
-
-  color:
-    #514735;
+  margin: 0;
 
   font-size:
     11px;
@@ -1065,7 +735,7 @@ main {
 
 
 /* =========================================================
-   CHAPTER 2 TWO COLUMN
+   CHAPTER 2 GRID
 ========================================================= */
 
 .chart-grid {
@@ -1073,111 +743,12 @@ main {
     grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
+    1fr 1fr;
 
   gap:
     18px;
-
-  align-items:
-    stretch;
 }
 
-
-.chart-grid
-.vis-card {
-  margin-top:
-    0;
-}
-
-
-
-/* =========================================================
-   CHAPTER 4 SIDE BY SIDE
-========================================================= */
-
-.chapter4-comparison-grid {
-  display:
-    grid;
-
-  grid-template-columns:
-    minmax(0, 0.9fr)
-    minmax(0, 1.1fr);
-
-  gap:
-    18px;
-
-  align-items:
-    stretch;
-
-  margin:
-    14px 0 20px;
-}
-
-
-.chapter4-small-card {
-  margin:
-    0;
-
-  min-width:
-    0;
-
-  display:
-    flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-}
-
-
-.scalable-visualisation {
-  overflow:
-    hidden;
-}
-
-
-.scalable-visualisation
-.vega-embed {
-  width:
-    100%;
-
-  max-width:
-    100%;
-}
-
-
-.scalable-visualisation
-.vega-embed > div {
-  max-width:
-    100%;
-}
-
-
-.scalable-visualisation svg {
-  width:
-    100% !important;
-
-  height:
-    auto !important;
-}
-
-
-.scalable-visualisation canvas {
-  width:
-    100% !important;
-
-  height:
-    auto !important;
-}
-
-
-
-/* =========================================================
-   CHART TEXT
-========================================================= */
 
 .chart-title {
   margin:
@@ -1185,14 +756,10 @@ main {
 
   font-family:
     "Lora",
-    Georgia,
     serif;
 
   font-size:
     17px;
-
-  line-height:
-    1.35;
 }
 
 
@@ -1205,21 +772,54 @@ main {
 
   font-size:
     10.5px;
-
-  line-height:
-    1.4;
 }
 
 
 
 /* =========================================================
-   NOTES
+   CHAPTER 4 GRID
+========================================================= */
+
+.chapter4-grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    0.9fr 1.1fr;
+
+  gap:
+    18px;
+
+  margin:
+    14px 0 20px;
+}
+
+
+.small-comparison-card {
+  margin:
+    0;
+
+  overflow:
+    hidden;
+}
+
+
+.scale-to-card svg,
+.scale-to-card canvas {
+  width:
+    100% !important;
+
+  height:
+    auto !important;
+}
+
+
+
+/* =========================================================
+   NOTE
 ========================================================= */
 
 .note {
-  max-width:
-    820px;
-
   margin:
     7px auto 2px;
 
@@ -1231,21 +831,12 @@ main {
 
   font-size:
     10px;
-
-  line-height:
-    1.5;
-}
-
-
-.note strong {
-  color:
-    var(--bee-brown);
 }
 
 
 
 /* =========================================================
-   INTERACTION HINT
+   INTERACTION
 ========================================================= */
 
 .interaction-hint {
@@ -1268,17 +859,8 @@ main {
   border-radius:
     999px;
 
-  color:
-    #655a42;
-
   font-size:
     9.5px;
-}
-
-
-.interaction-hint strong {
-  color:
-    var(--bee-brown);
 }
 
 
@@ -1316,26 +898,15 @@ main {
 
   font-family:
     "Lora",
-    Georgia,
     serif;
-
-  font-size:
-    24px;
 }
 
 
 .conclusion p {
-  max-width:
-    850px;
-
-  margin:
-    0;
+  margin: 0;
 
   font-size:
     12.5px;
-
-  line-height:
-    1.6;
 }
 
 
@@ -1361,16 +932,9 @@ main {
 
 
 .sources h2 {
-  margin:
-    0 0 16px;
-
   font-family:
     "Lora",
-    Georgia,
     serif;
-
-  font-size:
-    23px;
 }
 
 
@@ -1379,7 +943,7 @@ main {
     grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(2, 1fr);
 
   gap:
     12px 22px;
@@ -1391,65 +955,31 @@ main {
     12px 14px;
 
   background:
-    rgba(255, 255, 255, 0.5);
+    rgba(255,255,255,0.5);
 
   border:
     1px solid
-    rgba(210, 200, 177, 0.7);
+    #d8d0bd;
 
   border-radius:
     8px;
-}
-
-
-.source-item strong {
-  display:
-    block;
-
-  margin-bottom:
-    4px;
 
   font-size:
-    11.5px;
+    10.5px;
 }
 
 
 .source-item p {
   margin:
-    0 0 6px;
-
-  color:
-    #514b42;
-
-  font-size:
-    10.5px;
-
-  line-height:
-    1.5;
-}
-
-
-.source-item a {
-  color:
-    #73580b;
-
-  font-size:
-    10.5px;
-
-  font-weight:
-    600;
+    5px 0;
 }
 
 
 .project-meta {
-  display:
-    flex;
-
-  flex-wrap:
-    wrap;
+  display: flex;
 
   gap:
-    6px 24px;
+    24px;
 
   margin-top:
     16px;
@@ -1461,9 +991,6 @@ main {
     1px solid
     #cbc5b7;
 
-  color:
-    #514b42;
-
   font-size:
     10.5px;
 }
@@ -1471,7 +998,7 @@ main {
 
 
 /* =========================================================
-   VEGA TOOLTIP
+   TOOLTIP
 ========================================================= */
 
 .vg-tooltip {
@@ -1481,9 +1008,6 @@ main {
 
   background:
     #fffaf0 !important;
-
-  color:
-    var(--bee-black) !important;
 
   border:
     1px solid
@@ -1495,44 +1019,23 @@ main {
 
   border-radius:
     8px !important;
-
-  padding:
-    9px 11px !important;
-
-  box-shadow:
-    0 8px 22px
-    rgba(60, 45, 15, 0.16) !important;
-
-  font-size:
-    11px !important;
-}
-
-
-.vg-tooltip td.key {
-  color:
-    #766b5a !important;
-}
-
-
-.vg-tooltip td.value {
-  font-weight:
-    700 !important;
 }
 
 
 
 /* =========================================================
-   MEDIUM SCREEN
+   RESPONSIVE
 ========================================================= */
 
-@media (max-width: 1180px) {
+/*
+  IMPORTANT:
+  Vis 1 and Vis 3 remain beside the takeaway
+  until the screen is genuinely small.
+*/
 
-  /*
-    If there is no longer enough room for an 800px map
-    plus the insight, stack only at this point.
-  */
+@media (max-width: 900px) {
 
-  .map-insight-layout {
+  .map-side-layout {
     grid-template-columns:
       1fr;
   }
@@ -1544,73 +1047,13 @@ main {
   }
 
 
-  .side-insight {
-    min-height:
-      auto;
-  }
-
-}
-
-
-
-/* =========================================================
-   SMALL LAPTOP
-========================================================= */
-
-@media (max-width: 1050px) {
-
-  .chapter4-comparison-grid {
+  .chart-grid {
     grid-template-columns:
       1fr;
   }
 
 
-  .scalable-visualisation svg,
-  .scalable-visualisation canvas {
-    width:
-      auto !important;
-
-    max-width:
-      100% !important;
-
-    height:
-      auto !important;
-  }
-
-}
-
-
-
-@media (max-width: 980px) {
-
-  .chapter-nav {
-    right:
-      7px;
-  }
-
-
-  .chapter-dot {
-    width:
-      44px;
-
-    height:
-      50px;
-  }
-
-
-  .chapter-dot span {
-    font-size:
-      10px;
-  }
-
-
-  .chapter-dot::after {
-    display:
-      none;
-  }
-
-
-  .chart-grid {
+  .chapter4-grid {
     grid-template-columns:
       1fr;
   }
@@ -1619,30 +1062,11 @@ main {
   .takeaway-strip {
     grid-template-columns:
       1fr;
-
-    gap:
-      7px;
-  }
-
-
-  .hero h1 {
-    font-size:
-      40px;
-  }
-
-
-  .chapter-block {
-    padding:
-      26px 24px 30px;
   }
 
 }
 
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 700px) {
 
@@ -1658,117 +1082,27 @@ main {
   }
 
 
-  .hero {
-    min-height:
-      170px;
-
-    padding:
-      36px 16px;
-  }
-
-
   .hero h1 {
     font-size:
       32px;
   }
 
 
-  .hero p {
-    font-size:
-      12px;
-  }
-
-
   .chapter-block {
-    margin-bottom:
-      24px;
-
     padding:
-      22px 15px 25px;
+      22px 15px;
   }
 
 
   .chapter-header {
     grid-template-columns:
       43px 1fr;
-
-    gap:
-      10px;
-
-    margin-bottom:
-      17px;
-  }
-
-
-  .chapter-number {
-    width:
-      39px;
-
-    height:
-      45px;
   }
 
 
   .chapter-header h2 {
     font-size:
       21px;
-  }
-
-
-  .chapter-header p {
-    font-size:
-      11.5px;
-  }
-
-
-  .vis-card {
-    margin:
-      12px 0 17px;
-
-    padding:
-      10px 8px;
-  }
-
-
-  .vis-card:hover {
-    transform:
-      none;
-  }
-
-
-  .side-insight {
-    padding:
-      14px 15px;
-  }
-
-
-  .side-insight h3 {
-    font-size:
-      15px;
-  }
-
-
-  .side-insight p {
-    font-size:
-      10.5px;
-  }
-
-
-  .takeaway-strip {
-    padding:
-      11px 13px 11px 17px;
-  }
-
-
-  .takeaway-strip h3 {
-    font-size:
-      14px;
-  }
-
-
-  .takeaway-strip p {
-    font-size:
-      10.5px;
   }
 
 
