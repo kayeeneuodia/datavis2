@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -11,26 +12,101 @@
 
   <title>Bees as Pollinators in Australia</title>
 
-  <!-- Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- =====================================================
+       TYPOGRAPHY
+  ====================================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap"
     rel="stylesheet"
   >
 
-  <!-- Vega -->
+
+  <!-- =====================================================
+       VEGA
+  ====================================================== -->
+
   <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+
+  <!-- =====================================================
+       CSS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
 
 
+
 <body>
+
+
+  <!-- =====================================================
+       FIXED CHAPTER NAVIGATION
+  ====================================================== -->
+
+  <nav
+    class="chapter-nav"
+    aria-label="Chapter navigation"
+  >
+
+    <a
+      href="#chapter-1"
+      class="chapter-dot active"
+      aria-label="Go to Chapter 1"
+    >
+      01
+    </a>
+
+
+    <a
+      href="#chapter-2"
+      class="chapter-dot"
+      aria-label="Go to Chapter 2"
+    >
+      02
+    </a>
+
+
+    <a
+      href="#chapter-3"
+      class="chapter-dot"
+      aria-label="Go to Chapter 3"
+    >
+      03
+    </a>
+
+
+    <a
+      href="#chapter-4"
+      class="chapter-dot"
+      aria-label="Go to Chapter 4"
+    >
+      04
+    </a>
+
+  </nav>
+
 
 
   <!-- =====================================================
@@ -42,6 +118,7 @@
     <h1>
       Bees as Pollinators in Australia
     </h1>
+
 
     <p>
       Exploring where Australian bees are recorded and when.
@@ -60,13 +137,17 @@
          CHAPTER 1
     ====================================================== -->
 
-    <section class="chapter-block">
+    <section
+      id="chapter-1"
+      class="chapter-block"
+    >
 
       <div class="chapter-header">
 
         <div class="chapter-number">
           01
         </div>
+
 
         <div>
 
@@ -85,25 +166,40 @@
       </div>
 
 
-      <!-- VIS 1 -->
+
+      <!-- =================================================
+           VIS 1
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis1"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
 
         <p class="note">
+
           Values are standardised by recording volume.
+
           <br>
+
           They are not adjusted for population size.
+
           <br>
+
           Occurrence records also reflect recording effort.
+
           <br>
+
           Taxa means distinct bee classifications recorded in ALA.
+
           <br>
+
           Recording effort means observation and collection activity.
+
         </p>
 
 
@@ -114,11 +210,17 @@
           </strong>
 
           <p>
+
             The ACT shows the highest recorded diversity.
+
             <br>
+
             That result is relative to recording effort.
+
             <br>
+
             Western Australia and Tasmania also show high richness.
+
           </p>
 
         </div>
@@ -126,23 +228,33 @@
       </div>
 
 
-      <!-- VIS 2 -->
+
+      <!-- =================================================
+           VIS 2
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis2"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
       </div>
 
 
-      <!-- VIS 3 -->
+
+      <!-- =================================================
+           VIS 3
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis3"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
 
@@ -153,11 +265,17 @@
           </strong>
 
           <p>
+
             Bee records cluster along Australia's coastal regions.
+
             <br>
+
             The south-east shows particularly strong recording activity.
+
             <br>
+
             These patterns also reflect recording effort.
+
           </p>
 
         </div>
@@ -172,13 +290,17 @@
          CHAPTER 2
     ====================================================== -->
 
-    <section class="chapter-block">
+    <section
+      id="chapter-2"
+      class="chapter-block"
+    >
 
       <div class="chapter-header">
 
         <div class="chapter-number">
           02
         </div>
+
 
         <div>
 
@@ -197,47 +319,68 @@
       </div>
 
 
-      <!-- VIS 4 + VIS 7 -->
+
+      <!-- =================================================
+           VIS 4 + VIS 7
+      ================================================== -->
+
       <div class="chart-grid">
 
 
         <!-- VIS 4 -->
+
         <div class="vis-card">
 
           <h3 class="chart-title">
             When are bee families most commonly recorded?
           </h3>
 
+
           <p class="chart-subtitle">
+
             Darker cells show more records.
+
             <br>
+
             Circles mark each family's peak.
+
           </p>
+
 
           <div
             id="vis4"
-            class="visualisation">
+            class="visualisation"
+          >
           </div>
 
         </div>
 
 
+
         <!-- VIS 7 -->
+
         <div class="vis-card">
 
           <h3 class="chart-title">
             How much does recording activity vary?
           </h3>
 
+
           <p class="chart-subtitle">
+
             Boxes show the middle 50% of months.
+
             <br>
+
             Dots show individual months.
+
           </p>
+
 
           <div
             id="vis7"
-            class="visualisation">
+            class="visualisation"
+          >
           </div>
 
         </div>
@@ -245,21 +388,32 @@
       </div>
 
 
-      <!-- VIS 9 -->
+
+      <!-- =================================================
+           VIS 9
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis9"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
+
         <p class="note">
+
           Each family uses its own vertical scale.
+
           <br>
+
           This highlights its seasonal pattern.
+
         </p>
 
       </div>
+
 
 
       <div class="insight-box">
@@ -269,11 +423,17 @@
         </strong>
 
         <p>
+
           Apidae and Colletidae peak in November.
+
           <br>
+
           Halictidae reaches its peak in October.
+
           <br>
+
           Megachilidae differs, peaking in January.
+
         </p>
 
       </div>
@@ -286,13 +446,17 @@
          CHAPTER 3
     ====================================================== -->
 
-    <section class="chapter-block">
+    <section
+      id="chapter-3"
+      class="chapter-block"
+    >
 
       <div class="chapter-header">
 
         <div class="chapter-number">
           03
         </div>
+
 
         <div>
 
@@ -311,12 +475,17 @@
       </div>
 
 
-      <!-- VIS 5 -->
+
+      <!-- =================================================
+           VIS 5
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis5"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
 
@@ -327,11 +496,17 @@
           </strong>
 
           <p>
+
             Apidae contributes the largest share of records at 35.5%.
+
             <br>
+
             Colletidae, however, contains more unique recorded taxa.
+
             <br>
+
             Record volume and taxonomic richness are therefore different.
+
           </p>
 
         </div>
@@ -339,31 +514,52 @@
       </div>
 
 
-      <!-- VIS 10 -->
+
+      <!-- =================================================
+           VIS 10
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis10"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
+
         <p class="note">
+
           Hover over a flow to compare
+
+          <br>
+
           state, family and records.
+
         </p>
 
       </div>
+
+
 
       <div class="insight-box">
-        <strong>What the flows reveal</strong>
+
+        <strong>
+          What the flows reveal
+        </strong>
 
         <p>
+
           The major bee families occur across multiple states.
+
           <br>
+
           Their relative contribution changes geographically.
+
         </p>
+
       </div>
-      
+
     </section>
 
 
@@ -372,7 +568,10 @@
          CHAPTER 4
     ====================================================== -->
 
-    <section class="chapter-block">
+    <section
+      id="chapter-4"
+      class="chapter-block"
+    >
 
       <div class="chapter-header">
 
@@ -380,17 +579,28 @@
           04
         </div>
 
+
         <div>
 
           <h2>
+
             How does recorded bee diversity compare
+
+            <br>
+
             with managed beekeeping?
+
           </h2>
 
+
           <p>
+
             Recorded bee diversity and managed hive activity differ.
+
             <br>
+
             High diversity does not always mean more hives.
+
           </p>
 
         </div>
@@ -398,37 +608,53 @@
       </div>
 
 
-      <!-- VIS 11 -->
+
+      <!-- =================================================
+           VIS 11
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis11"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
       </div>
 
 
-      <!-- VIS 6 -->
+
+      <!-- =================================================
+           VIS 6
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis6"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
       </div>
 
 
-      <!-- VIS 8 -->
+
+      <!-- =================================================
+           VIS 8
+      ================================================== -->
+
       <div class="vis-card">
 
         <div
           id="vis8"
-          class="visualisation">
+          class="visualisation"
+        >
         </div>
 
       </div>
+
 
 
       <div class="insight-box">
@@ -438,11 +664,17 @@
         </strong>
 
         <p>
+
           New South Wales has the most managed hives.
+
           <br>
+
           Queensland records more unique bee taxa overall.
+
           <br>
+
           Higher recorded diversity does not imply more managed hives.
+
         </p>
 
       </div>
@@ -461,14 +693,23 @@
         The bigger picture
       </h2>
 
+
       <p>
+
         Bee records vary across geography and seasons.
+
         <br>
+
         Queensland records the most unique bee taxa overall.
+
         <br>
+
         New South Wales has the most managed hives.
+
         <br>
+
         Occurrence records differ from managed beekeeping activity.
+
       </p>
 
     </section>
@@ -484,6 +725,7 @@
       <h2>
         Data Sources & Project Information
       </h2>
+
 
 
       <p>
@@ -507,11 +749,13 @@
         <a
           href="https://biocache.ala.org.au/search"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           Atlas of Living Australia occurrence records
         </a>
 
       </p>
+
 
 
       <p>
@@ -536,11 +780,13 @@
         <a
           href="https://www.agriculture.gov.au/abares/forestsaustralia/sofr/criterion-2/indicator-2.1d"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           Indicator 2.1d – Australia's State of the Forests Report
         </a>
 
       </p>
+
 
 
       <p>
@@ -564,11 +810,13 @@
         <a
           href="https://github.com/tonywr71/GeoJson-Data"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           Tonywr71 GeoJson-Data
         </a>
 
       </p>
+
 
 
       <p>
@@ -588,6 +836,7 @@
       </p>
 
 
+
       <p>
 
         <strong>
@@ -598,6 +847,7 @@
 
         <br>
 
+
         <strong>
           Unit:
         </strong>
@@ -605,6 +855,7 @@
         FIT3179 Data Visualisation
 
         <br>
+
 
         <strong>
           Date:
@@ -707,6 +958,67 @@
       "charts/vis11.json",
       options
     );
+
+
+
+    /* =====================================================
+       CHAPTER NAVIGATION
+    ====================================================== */
+
+    const chapterSections =
+      document.querySelectorAll(".chapter-block");
+
+
+    const chapterLinks =
+      document.querySelectorAll(".chapter-dot");
+
+
+    const chapterObserver =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              chapterLinks.forEach((link) => {
+                link.classList.remove("active");
+              });
+
+
+              const activeLink =
+                document.querySelector(
+                  `.chapter-dot[href="#${entry.target.id}"]`
+                );
+
+
+              if (activeLink) {
+                activeLink.classList.add("active");
+              }
+
+            }
+
+          });
+
+        },
+
+        {
+          root: null,
+
+          rootMargin:
+            "-30% 0px -55% 0px",
+
+          threshold: 0
+        }
+
+      );
+
+
+    chapterSections.forEach((section) => {
+      chapterObserver.observe(section);
+    });
+
 
   </script>
 
