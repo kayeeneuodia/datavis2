@@ -22,12 +22,32 @@
     "subtitleColor": "#666"
   },
 
+  "signals": [
+    {
+      "name": "hoverKey",
+      "value": null,
+      "on": [
+        {
+          "events": "@flowLinks:mouseover",
+          "update": "datum.stateProvince + '|' + datum.family"
+        },
+        {
+          "events": "@flowLinks:mouseout",
+          "update": "null"
+        }
+      ]
+    }
+  ],
+
   "data": [
     {
       "name": "raw",
+
       "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_family_summary.csv",
+
       "format": {
         "type": "csv",
+
         "parse": {
           "records": "number",
           "uniqueSpecies": "number"
@@ -37,19 +57,33 @@
 
     {
       "name": "states",
+
       "source": "raw",
 
       "transform": [
         {
           "type": "aggregate",
-          "groupby": ["stateProvince"],
-          "fields": ["records"],
-          "ops": ["sum"],
-          "as": ["total"]
+
+          "groupby": [
+            "stateProvince"
+          ],
+
+          "fields": [
+            "records"
+          ],
+
+          "ops": [
+            "sum"
+          ],
+
+          "as": [
+            "total"
+          ]
         },
 
         {
           "type": "collect",
+
           "sort": {
             "field": "total",
             "order": "descending"
@@ -58,8 +92,14 @@
 
         {
           "type": "window",
-          "ops": ["row_number"],
-          "as": ["index"]
+
+          "ops": [
+            "row_number"
+          ],
+
+          "as": [
+            "index"
+          ]
         },
 
         {
@@ -72,19 +112,33 @@
 
     {
       "name": "families",
+
       "source": "raw",
 
       "transform": [
         {
           "type": "aggregate",
-          "groupby": ["family"],
-          "fields": ["records"],
-          "ops": ["sum"],
-          "as": ["total"]
+
+          "groupby": [
+            "family"
+          ],
+
+          "fields": [
+            "records"
+          ],
+
+          "ops": [
+            "sum"
+          ],
+
+          "as": [
+            "total"
+          ]
         },
 
         {
           "type": "collect",
+
           "sort": {
             "field": "total",
             "order": "descending"
@@ -93,8 +147,14 @@
 
         {
           "type": "window",
-          "ops": ["row_number"],
-          "as": ["index"]
+
+          "ops": [
+            "row_number"
+          ],
+
+          "as": [
+            "index"
+          ]
         },
 
         {
@@ -107,25 +167,48 @@
 
     {
       "name": "links",
+
       "source": "raw",
 
       "transform": [
         {
           "type": "lookup",
+
           "from": "states",
+
           "key": "stateProvince",
-          "fields": ["stateProvince"],
-          "values": ["y"],
-          "as": ["sourceY"]
+
+          "fields": [
+            "stateProvince"
+          ],
+
+          "values": [
+            "y"
+          ],
+
+          "as": [
+            "sourceY"
+          ]
         },
 
         {
           "type": "lookup",
+
           "from": "families",
+
           "key": "family",
-          "fields": ["family"],
-          "values": ["y"],
-          "as": ["targetY"]
+
+          "fields": [
+            "family"
+          ],
+
+          "values": [
+            "y"
+          ],
+
+          "as": [
+            "targetY"
+          ]
         }
       ]
     }
@@ -134,6 +217,7 @@
   "scales": [
     {
       "name": "linkWidth",
+
       "type": "sqrt",
 
       "domain": {
@@ -141,11 +225,15 @@
         "field": "records"
       },
 
-      "range": [1.5, 21]
+      "range": [
+        1.3,
+        20
+      ]
     },
 
     {
       "name": "familyColor",
+
       "type": "ordinal",
 
       "domain": [
@@ -168,7 +256,9 @@
 
   "marks": [
     {
-      "type": "rule",
+      "name": "flowLinks",
+
+      "type": "path",
 
       "from": {
         "data": "links"
@@ -176,20 +266,12 @@
 
       "encode": {
         "enter": {
-          "x": {
-            "value": 195
+          "path": {
+            "signal": "'M195,' + datum.sourceY + ' C' + (195 + (width - 330) * 0.38) + ',' + datum.sourceY + ' ' + (195 + (width - 330) * 0.62) + ',' + datum.targetY + ' ' + (width - 135) + ',' + datum.targetY"
           },
 
-          "x2": {
-            "signal": "width - 135"
-          },
-
-          "y": {
-            "field": "sourceY"
-          },
-
-          "y2": {
-            "field": "targetY"
+          "fill": {
+            "value": null
           },
 
           "stroke": {
@@ -197,13 +279,8 @@
             "field": "family"
           },
 
-          "strokeWidth": {
-            "scale": "linkWidth",
-            "field": "records"
-          },
-
-          "strokeOpacity": {
-            "value": 0.42
+          "cursor": {
+            "value": "pointer"
           },
 
           "tooltip": {
@@ -211,9 +288,13 @@
           }
         },
 
-        "hover": {
+        "update": {
           "strokeOpacity": {
-            "value": 0.9
+            "signal": "hoverKey === null ? 0.24 : (hoverKey === datum.stateProvince + '|' + datum.family ? 0.92 : 0.045)"
+          },
+
+          "strokeWidth": {
+            "signal": "scale('linkWidth', datum.records) * (hoverKey === datum.stateProvince + '|' + datum.family ? 1.12 : 1)"
           }
         }
       }
@@ -241,7 +322,7 @@
           },
 
           "size": {
-            "value": 260
+            "value": 230
           },
 
           "fill": {
@@ -261,7 +342,7 @@
       "encode": {
         "enter": {
           "x": {
-            "value": 179
+            "value": 178
           },
 
           "y": {
@@ -321,7 +402,7 @@
           },
 
           "size": {
-            "value": 260
+            "value": 230
           },
 
           "fill": {
@@ -342,7 +423,7 @@
       "encode": {
         "enter": {
           "x": {
-            "signal": "width - 118"
+            "signal": "width - 117"
           },
 
           "y": {
@@ -406,7 +487,7 @@
           },
 
           "fontSize": {
-            "value": 12
+            "value": 13
           },
 
           "fontWeight": {
@@ -414,7 +495,7 @@
           },
 
           "fill": {
-            "value": "#444444"
+            "value": "#4A4338"
           }
         }
       }
@@ -446,7 +527,7 @@
           },
 
           "fontSize": {
-            "value": 12
+            "value": 13
           },
 
           "fontWeight": {
@@ -454,7 +535,7 @@
           },
 
           "fill": {
-            "value": "#444444"
+            "value": "#4A4338"
           }
         }
       }
