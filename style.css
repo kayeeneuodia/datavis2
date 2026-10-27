@@ -418,28 +418,22 @@ main {
 }
 
 .introduction p {
-  max-width:
-    1050px;
+  max-width: 900px;
 
-  margin:
-    0;
+  margin: 0;
 
   font-family:
     "Inter",
     Arial,
     sans-serif;
 
-  font-size:
-    12px;
+  font-size: 12px;
 
-  line-height:
-    1.7;
+  line-height: 1.7;
 
-  font-weight:
-    400;
+  font-weight: 400;
 
-  color:
-    #514b42;
+  color: #514b42;
 }
 
 
