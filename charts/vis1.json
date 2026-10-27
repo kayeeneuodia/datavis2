@@ -5,6 +5,8 @@
     "text": "Recorded Bee Diversity Relative to Recording Effort",
     "subtitle": "Unique recorded bee taxa per 1,000 ALA occurrence records",
     "anchor": "start",
+    "font": "Inter",
+    "subtitleFont": "Inter",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
@@ -90,7 +92,7 @@
   "mark": {
     "type": "geoshape",
     "stroke": "white",
-    "strokeWidth": 1
+    "strokeWidth": 1.2
   },
 
   "encoding": {
@@ -105,7 +107,12 @@
         "scheme": "yellowgreenblue"
       },
       "legend": {
-        "format": ".0f"
+        "format": ".0f",
+        "orient": "right",
+        "titleFont": "Inter",
+        "labelFont": "Inter",
+        "titleFontSize": 12,
+        "labelFontSize": 12
       }
     },
 
@@ -137,7 +144,7 @@
   },
 
   "projection": {
-    "type": "equalEarth"
+    "type": "mercator"
   },
 
   "config": {
@@ -145,9 +152,25 @@
       "stroke": null
     },
 
+    "title": {
+      "font": "Inter",
+      "subtitleFont": "Inter"
+    },
+
     "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
       "labelFontSize": 12,
       "titleFontSize": 12
+    },
+
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "text": {
+      "font": "Inter"
     }
   }
 }
