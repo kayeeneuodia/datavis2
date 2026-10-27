@@ -17,8 +17,10 @@
 
   "data": {
     "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_comparison_ALA_DAFF.csv",
+
     "format": {
       "type": "csv",
+
       "parse": {
         "alaUniqueTaxa": "number",
         "totalBeekeepers": "number",
@@ -29,25 +31,56 @@
   },
 
   "layer": [
+
     {
+      "params": [
+        {
+          "name": "stateSelect",
+
+          "select": {
+            "type": "point",
+            "fields": [
+              "state"
+            ]
+          },
+
+          "bind": "legend"
+        }
+      ],
+
       "mark": {
         "type": "circle",
-        "opacity": 0.82,
         "stroke": "white",
-        "strokeWidth": 1.5
+        "strokeWidth": 1.5,
+        "cursor": "pointer"
       },
 
       "encoding": {
+
         "x": {
           "field": "alaUniqueTaxa",
           "type": "quantitative",
           "title": "Unique recorded bee taxa (ALA)",
+
           "scale": {
             "zero": false,
-            "domain": [100, 700]
+            "domain": [
+              100,
+              700
+            ]
           },
+
           "axis": {
-            "values": [100, 200, 300, 400, 500, 600, 700],
+            "values": [
+              100,
+              200,
+              300,
+              400,
+              500,
+              600,
+              700
+            ],
+
             "grid": true,
             "labelFontSize": 12,
             "titleFontSize": 12
@@ -58,9 +91,14 @@
           "field": "hives",
           "type": "quantitative",
           "title": "Managed hives (DAFF)",
+
           "scale": {
-            "domain": [0, 325000]
+            "domain": [
+              0,
+              325000
+            ]
           },
+
           "axis": {
             "values": [
               0,
@@ -71,7 +109,9 @@
               250000,
               300000
             ],
+
             "labelExpr": "format(datum.value, ',')",
+
             "grid": true,
             "labelFontSize": 12,
             "titleFontSize": 12
@@ -82,12 +122,24 @@
           "field": "totalBeekeepers",
           "type": "quantitative",
           "title": "Total beekeepers",
+
           "scale": {
-            "range": [220, 1900]
+            "range": [
+              220,
+              1900
+            ]
           },
+
           "legend": {
             "orient": "right",
-            "values": [2000, 4000, 6000, 8000],
+
+            "values": [
+              2000,
+              4000,
+              6000,
+              8000
+            ],
+
             "labelFontSize": 11,
             "titleFontSize": 11,
             "symbolOpacity": 0.75
@@ -98,6 +150,7 @@
           "field": "state",
           "type": "nominal",
           "title": "State",
+
           "legend": {
             "orient": "right",
             "labelFontSize": 11,
@@ -106,39 +159,57 @@
           }
         },
 
+        "opacity": {
+          "condition": {
+            "param": "stateSelect",
+            "value": 0.9
+          },
+
+          "value": 0.12
+        },
+
         "tooltip": [
+
           {
             "field": "state",
             "type": "nominal",
             "title": "State"
           },
+
           {
             "field": "alaUniqueTaxa",
             "type": "quantitative",
             "title": "Unique recorded bee taxa",
             "format": ","
           },
+
           {
             "field": "hives",
             "type": "quantitative",
             "title": "Managed hives",
             "format": ","
           },
+
           {
             "field": "totalBeekeepers",
             "type": "quantitative",
-            "title": "Total beekeepers",
+            "title": "Registered beekeepers",
             "format": ","
           },
+
           {
             "field": "hivesPerBeekeeper",
             "type": "quantitative",
             "title": "Hives per beekeeper",
             "format": ".1f"
           }
+
         ]
+
       }
+
     },
+
 
     {
       "transform": [
@@ -156,23 +227,35 @@
       },
 
       "encoding": {
+
         "x": {
           "field": "alaUniqueTaxa",
           "type": "quantitative",
+
           "scale": {
-            "domain": [100, 700]
+            "domain": [
+              100,
+              700
+            ]
           }
         },
 
         "y": {
           "field": "hives",
           "type": "quantitative",
+
           "scale": {
-            "domain": [0, 325000]
+            "domain": [
+              0,
+              325000
+            ]
           }
         }
+
       }
+
     },
+
 
     {
       "transform": [
@@ -191,27 +274,39 @@
       },
 
       "encoding": {
+
         "x": {
           "field": "alaUniqueTaxa",
           "type": "quantitative",
+
           "scale": {
-            "domain": [100, 700]
+            "domain": [
+              100,
+              700
+            ]
           }
         },
 
         "y": {
           "field": "hives",
           "type": "quantitative",
+
           "scale": {
-            "domain": [0, 325000]
+            "domain": [
+              0,
+              325000
+            ]
           }
         },
 
         "text": {
           "value": "Most managed hives"
         }
+
       }
+
     },
+
 
     {
       "transform": [
@@ -229,30 +324,43 @@
       },
 
       "encoding": {
+
         "x": {
           "field": "alaUniqueTaxa",
           "type": "quantitative",
+
           "scale": {
-            "domain": [100, 700]
+            "domain": [
+              100,
+              700
+            ]
           }
         },
 
         "y": {
           "field": "hives",
           "type": "quantitative",
+
           "scale": {
-            "domain": [0, 325000]
+            "domain": [
+              0,
+              325000
+            ]
           }
         },
 
         "text": {
           "value": "297,362 hives"
         }
+
       }
+
     }
+
   ],
 
   "config": {
+
     "view": {
       "stroke": null
     },
@@ -277,5 +385,7 @@
     "text": {
       "font": "Inter"
     }
+
   }
+
 }
