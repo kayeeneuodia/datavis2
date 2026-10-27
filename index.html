@@ -173,28 +173,34 @@
 
 
 
-      <!-- VIS 1 -->
+      <!-- =================================================
+           VIS 1 + SIDE INSIGHT
+      ================================================== -->
 
-      <div class="vis-card full-chart-card">
+      <div class="vis-card">
 
-        <div
-          id="vis1"
-          class="visualisation">
-        </div>
+        <div class="map-insight-layout">
 
+          <div class="map-chart-panel">
 
-        <p class="note">
-          <strong>Data note:</strong>
-          Values are standardised by recording volume and reflect
-          observation effort, not bee population size.
-        </p>
+            <div
+              id="vis1"
+              class="visualisation">
+            </div>
 
 
-        <div class="takeaway-strip">
+            <p class="note">
+              <strong>Data note:</strong>
+              Values are standardised by recording volume and reflect
+              observation effort, not bee population size.
+            </p>
 
-          <div class="takeaway-heading">
+          </div>
 
-            <span class="takeaway-kicker">
+
+          <aside class="side-insight">
+
+            <span class="insight-kicker">
               Key takeaway
             </span>
 
@@ -202,13 +208,12 @@
               Diversity relative to recording effort
             </h3>
 
-          </div>
+            <p>
+              ACT has the highest recorded diversity relative to recording effort,
+              while Western Australia and Tasmania also show high relative richness.
+            </p>
 
-
-          <p>
-            ACT has the highest recorded diversity relative to recording effort,
-            while Western Australia and Tasmania also show high relative richness.
-          </p>
+          </aside>
 
         </div>
 
@@ -216,7 +221,9 @@
 
 
 
-      <!-- VIS 2 -->
+      <!-- =================================================
+           VIS 2
+      ================================================== -->
 
       <div class="vis-card interactive-card full-chart-card">
 
@@ -235,21 +242,27 @@
 
 
 
-      <!-- VIS 3 -->
+      <!-- =================================================
+           VIS 3 + SIDE INSIGHT
+      ================================================== -->
 
-      <div class="vis-card full-chart-card">
+      <div class="vis-card">
 
-        <div
-          id="vis3"
-          class="visualisation">
-        </div>
+        <div class="map-insight-layout">
+
+          <div class="map-chart-panel">
+
+            <div
+              id="vis3"
+              class="visualisation">
+            </div>
+
+          </div>
 
 
-        <div class="takeaway-strip">
+          <aside class="side-insight">
 
-          <div class="takeaway-heading">
-
-            <span class="takeaway-kicker">
+            <span class="insight-kicker">
               What the maps reveal
             </span>
 
@@ -257,13 +270,12 @@
               Recording is concentrated near the coast
             </h3>
 
-          </div>
+            <p>
+              Bee records cluster around Australia's coastal regions,
+              with particularly strong recording activity in the south-east.
+            </p>
 
-
-          <p>
-            Bee records cluster around Australia's coastal regions,
-            with particularly strong recording activity in the south-east.
-          </p>
+          </aside>
 
         </div>
 
@@ -305,7 +317,9 @@
 
 
 
-      <!-- VIS 4 + VIS 7 -->
+      <!-- =================================================
+           VIS 4 + VIS 7
+      ================================================== -->
 
       <div class="chart-grid">
 
@@ -350,7 +364,9 @@
 
 
 
-      <!-- VIS 9 -->
+      <!-- =================================================
+           VIS 9
+      ================================================== -->
 
       <div class="vis-card full-chart-card">
 
@@ -426,7 +442,9 @@
 
 
 
-      <!-- VIS 5 -->
+      <!-- =================================================
+           VIS 5 + SIDE INSIGHT
+      ================================================== -->
 
       <div class="vis-card">
 
@@ -465,7 +483,9 @@
 
 
 
-      <!-- VIS 10 -->
+      <!-- =================================================
+           VIS 10
+      ================================================== -->
 
       <div class="vis-card interactive-card full-chart-card">
 
@@ -543,13 +563,11 @@
 
 
       <!-- =================================================
-           VIS 11 + VIS 6 SIDE BY SIDE
+           VIS 11 + VIS 6
       ================================================== -->
 
       <div class="chapter4-comparison-grid">
 
-
-        <!-- VIS 11 -->
 
         <div class="vis-card chapter4-small-card">
 
@@ -561,8 +579,6 @@
         </div>
 
 
-
-        <!-- VIS 6 -->
 
         <div class="vis-card chapter4-small-card">
 
@@ -578,7 +594,9 @@
 
 
 
-      <!-- VIS 8 -->
+      <!-- =================================================
+           VIS 8
+      ================================================== -->
 
       <div class="vis-card interactive-card full-chart-card">
 
@@ -767,7 +785,7 @@
 
 
   <!-- =====================================================
-       VEGA
+       VEGA EMBEDS
   ====================================================== -->
 
   <script>
@@ -791,7 +809,9 @@
 
 
 
-    /* ACTIVE CHAPTER */
+    /* =====================================================
+       ACTIVE CHAPTER
+    ====================================================== */
 
     const chapterSections =
       document.querySelectorAll(".chapter-block");
@@ -848,7 +868,9 @@
 
 
 
-    /* SCROLL PROGRESS */
+    /* =====================================================
+       SCROLL PROGRESS
+    ====================================================== */
 
     const scrollProgress =
       document.getElementById("scroll-progress");
