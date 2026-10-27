@@ -16,15 +16,13 @@
   "height": 500,
 
   "projection": {
-    "type": "equalEarth"
+    "type": "mercator"
   },
 
   "layer": [
-
     {
       "data": {
         "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
-
         "format": {
           "type": "json",
           "property": "features"
@@ -39,14 +37,11 @@
       }
     },
 
-
     {
       "data": {
         "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_map_points_sample.csv",
-
         "format": {
           "type": "csv",
-
           "parse": {
             "decimalLatitude": "number",
             "decimalLongitude": "number",
@@ -65,14 +60,12 @@
       "params": [
         {
           "name": "familySelect",
-
           "select": {
             "type": "point",
             "fields": [
               "family"
             ]
           },
-
           "bind": "legend"
         }
       ],
@@ -86,7 +79,6 @@
       },
 
       "encoding": {
-
         "longitude": {
           "field": "decimalLongitude",
           "type": "quantitative"
@@ -140,53 +132,42 @@
             "param": "familySelect",
             "value": 0.9
           },
-
           "value": 0.1
         },
 
         "tooltip": [
-
           {
             "field": "scientificName",
             "type": "nominal",
             "title": "Scientific name"
           },
-
           {
             "field": "vernacularName",
             "type": "nominal",
             "title": "Common name"
           },
-
           {
             "field": "family",
             "type": "nominal",
             "title": "Bee family"
           },
-
           {
             "field": "stateProvince",
             "type": "nominal",
             "title": "Recorded in"
           },
-
           {
             "field": "year",
             "type": "quantitative",
             "title": "Year",
             "format": "d"
           }
-
         ]
-
       }
-
     }
-
   ],
 
   "config": {
-
     "view": {
       "stroke": null
     },
@@ -209,7 +190,5 @@
     "text": {
       "font": "Inter"
     }
-
   }
-
 }
