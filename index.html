@@ -13,9 +13,7 @@
   <title>Bees as Pollinators in Australia</title>
 
 
-  <!-- =====================================================
-       TYPOGRAPHY
-  ====================================================== -->
+  <!-- Typography -->
 
   <link
     rel="preconnect"
@@ -34,18 +32,14 @@
   >
 
 
-  <!-- =====================================================
-       VEGA
-  ====================================================== -->
+  <!-- Vega -->
 
   <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
 
 
-  <!-- =====================================================
-       CSS
-  ====================================================== -->
+  <!-- CSS -->
 
   <link
     rel="stylesheet"
@@ -59,7 +53,20 @@
 
 
   <!-- =====================================================
-       HONEYCOMB CHAPTER NAVIGATION
+       SCROLL PROGRESS
+  ====================================================== -->
+
+  <div class="scroll-progress-track">
+    <div
+      id="scroll-progress"
+      class="scroll-progress">
+    </div>
+  </div>
+
+
+
+  <!-- =====================================================
+       CHAPTER NAVIGATION
   ====================================================== -->
 
   <nav
@@ -67,40 +74,85 @@
     aria-label="Chapter navigation"
   >
 
-    <a
-      href="#chapter-1"
-      class="chapter-dot active"
-      aria-label="Go to Chapter 1"
-    >
-      <span>01</span>
-    </a>
+
+    <div class="chapter-nav-item">
+
+      <a
+        href="#chapter-1"
+        class="chapter-dot active"
+        aria-label="Go to Chapter 1"
+      >
+        <span class="chapter-index">
+          01
+        </span>
+      </a>
+
+      <span class="chapter-hover-label">
+        Where are Australia's bees?
+      </span>
+
+    </div>
 
 
-    <a
-      href="#chapter-2"
-      class="chapter-dot"
-      aria-label="Go to Chapter 2"
-    >
-      <span>02</span>
-    </a>
+
+    <div class="chapter-nav-item">
+
+      <a
+        href="#chapter-2"
+        class="chapter-dot"
+        aria-label="Go to Chapter 2"
+      >
+        <span class="chapter-index">
+          02
+        </span>
+      </a>
+
+      <span class="chapter-hover-label">
+        Seasonal bee activity
+      </span>
+
+    </div>
 
 
-    <a
-      href="#chapter-3"
-      class="chapter-dot"
-      aria-label="Go to Chapter 3"
-    >
-      <span>03</span>
-    </a>
+
+    <div class="chapter-nav-item">
+
+      <a
+        href="#chapter-3"
+        class="chapter-dot"
+        aria-label="Go to Chapter 3"
+      >
+        <span class="chapter-index">
+          03
+        </span>
+      </a>
+
+      <span class="chapter-hover-label">
+        Bee family composition
+      </span>
+
+    </div>
 
 
-    <a
-      href="#chapter-4"
-      class="chapter-dot"
-      aria-label="Go to Chapter 4"
-    >
-      <span>04</span>
-    </a>
+
+    <div class="chapter-nav-item">
+
+      <a
+        href="#chapter-4"
+        class="chapter-dot"
+        aria-label="Go to Chapter 4"
+      >
+        <span class="chapter-index">
+          04
+        </span>
+      </a>
+
+      <span class="chapter-hover-label">
+        Managed beekeeping
+      </span>
+
+    </div>
+
 
   </nav>
 
@@ -208,13 +260,24 @@
 
       <!-- VIS 2 -->
 
-      <div class="vis-card">
+      <div class="vis-card interactive-card">
 
         <div
           id="vis2"
           class="visualisation"
         >
         </div>
+
+
+        <p class="interaction-hint">
+
+          <strong>
+            Interactive:
+          </strong>
+
+          Click a bee family in the legend to focus the map.
+
+        </p>
 
       </div>
 
@@ -447,7 +510,7 @@
 
       <!-- VIS 10 -->
 
-      <div class="vis-card">
+      <div class="vis-card interactive-card">
 
         <div
           id="vis10"
@@ -455,10 +518,15 @@
         >
         </div>
 
-        <p class="note">
-          Hover over a flow to compare
-          <br>
-          state, family and records.
+
+        <p class="interaction-hint">
+
+          <strong>
+            Interactive:
+          </strong>
+
+          Hover over a flow to compare its state, family and record count.
+
         </p>
 
       </div>
@@ -547,13 +615,24 @@
 
       <!-- VIS 8 -->
 
-      <div class="vis-card">
+      <div class="vis-card interactive-card">
 
         <div
           id="vis8"
           class="visualisation"
         >
         </div>
+
+
+        <p class="interaction-hint">
+
+          <strong>
+            Interactive:
+          </strong>
+
+          Click a state in the legend to focus the comparison.
+
+        </p>
 
       </div>
 
@@ -895,6 +974,51 @@
     chapterSections.forEach((section) => {
       chapterObserver.observe(section);
     });
+
+
+
+    /* =====================================================
+       SCROLL PROGRESS
+    ====================================================== */
+
+    const scrollProgress =
+      document.getElementById("scroll-progress");
+
+
+    function updateScrollProgress() {
+
+      const scrollTop =
+        window.scrollY ||
+        document.documentElement.scrollTop;
+
+
+      const scrollableHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+
+      const progress =
+        scrollableHeight > 0
+          ? (scrollTop / scrollableHeight) * 100
+          : 0;
+
+
+      scrollProgress.style.width =
+        `${Math.min(progress, 100)}%`;
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateScrollProgress,
+      {
+        passive: true
+      }
+    );
+
+
+    updateScrollProgress();
 
 
   </script>
