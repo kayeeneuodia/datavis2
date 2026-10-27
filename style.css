@@ -6,9 +6,11 @@
   box-sizing: border-box;
 }
 
+
 html {
   scroll-behavior: smooth;
 }
+
 
 :root {
   --honey: #f2c94c;
@@ -49,10 +51,135 @@ body {
   background-size: 72px 84px;
   background-position: center top;
 
-  color: #29271f;
-
   line-height: 1.55;
 }
+
+
+
+/* =========================================================
+   CHAPTER NAVIGATION
+========================================================= */
+
+.chapter-nav {
+  position: fixed;
+
+  right: 24px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+
+  z-index: 1000;
+}
+
+
+/* vertical line connecting chapters */
+
+.chapter-nav::before {
+  content: "";
+
+  position: absolute;
+
+  top: 21px;
+  bottom: 21px;
+  left: 50%;
+
+  width: 2px;
+
+  transform: translateX(-50%);
+
+  background: #d9cfaf;
+
+  z-index: 0;
+}
+
+
+.chapter-dot {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  background:
+    rgba(255, 250, 240, 0.96);
+
+  border:
+    2px solid #d7c99d;
+
+  border-radius: 50%;
+
+  color:
+    #756b59;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 3px 10px rgba(62, 48, 20, 0.08);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.chapter-dot:hover {
+  background:
+    var(--honey);
+
+  border-color:
+    var(--bee-black);
+
+  color:
+    var(--bee-black);
+
+  transform:
+    scale(1.1);
+
+  box-shadow:
+    0 5px 14px rgba(62, 48, 20, 0.16);
+}
+
+
+.chapter-dot.active {
+  background:
+    var(--honey);
+
+  border-color:
+    var(--bee-black);
+
+  color:
+    var(--bee-black);
+
+  transform:
+    scale(1.08);
+
+  box-shadow:
+    0 5px 14px rgba(62, 48, 20, 0.17);
+}
+
 
 
 /* =========================================================
@@ -187,6 +314,7 @@ body {
 }
 
 
+
 /* =========================================================
    MAIN
 ========================================================= */
@@ -202,6 +330,7 @@ main {
 }
 
 
+
 /* =========================================================
    CHAPTER
 ========================================================= */
@@ -210,6 +339,8 @@ main {
   position: relative;
 
   overflow: hidden;
+
+  scroll-margin-top: 24px;
 
   margin: 0 0 52px;
 
@@ -277,6 +408,7 @@ main {
 
   pointer-events: none;
 }
+
 
 
 /* =========================================================
@@ -375,6 +507,7 @@ main {
 }
 
 
+
 /* =========================================================
    VISUALISATION CARDS
 ========================================================= */
@@ -428,6 +561,7 @@ main {
 }
 
 
+
 /* =========================================================
    TWO COLUMN LAYOUT
 ========================================================= */
@@ -448,6 +582,7 @@ main {
 .chart-grid .vis-card {
   margin-top: 0;
 }
+
 
 
 /* =========================================================
@@ -487,6 +622,7 @@ main {
 }
 
 
+
 /* =========================================================
    NOTES
 ========================================================= */
@@ -506,6 +642,7 @@ main {
 
   line-height: 1.65;
 }
+
 
 
 /* =========================================================
@@ -586,6 +723,7 @@ main {
 
   line-height: 1.7;
 }
+
 
 
 /* =========================================================
@@ -678,6 +816,7 @@ main {
 }
 
 
+
 /* =========================================================
    SOURCES
 ========================================================= */
@@ -765,6 +904,7 @@ main {
 }
 
 
+
 /* =========================================================
    VEGA
 ========================================================= */
@@ -784,6 +924,7 @@ main {
 }
 
 
+
 /* =========================================================
    RESPONSIVE - SMALL LAPTOP / TABLET
 ========================================================= */
@@ -793,6 +934,25 @@ main {
   main {
     padding:
       28px 14px 52px;
+  }
+
+
+  .chapter-nav {
+    right: 9px;
+  }
+
+
+  .chapter-dot {
+    width: 36px;
+    height: 36px;
+
+    font-size: 9px;
+  }
+
+
+  .chapter-nav::before {
+    top: 18px;
+    bottom: 18px;
   }
 
 
@@ -821,11 +981,17 @@ main {
 }
 
 
+
 /* =========================================================
    RESPONSIVE - MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
+
+  .chapter-nav {
+    display: none;
+  }
+
 
   main {
     padding:
@@ -864,6 +1030,8 @@ main {
     margin-bottom: 30px;
 
     border-radius: 14px;
+
+    scroll-margin-top: 12px;
   }
 
 
