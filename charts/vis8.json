@@ -17,10 +17,8 @@
 
   "data": {
     "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_state_comparison_ALA_DAFF.csv",
-
     "format": {
       "type": "csv",
-
       "parse": {
         "alaUniqueTaxa": "number",
         "totalBeekeepers": "number",
@@ -30,38 +28,34 @@
     }
   },
 
-  "layer": [
-
+  "params": [
     {
-      "params": [
-        {
-          "name": "stateSelect",
+      "name": "stateSelect",
+      "select": {
+        "type": "point",
+        "fields": [
+          "state"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
 
-          "select": {
-            "type": "point",
-            "fields": [
-              "state"
-            ]
-          },
-
-          "bind": "legend"
-        }
-      ],
-
+  "layer": [
+    {
       "mark": {
         "type": "circle",
-        "stroke": "white",
+        "opacity": 0.85,
+        "stroke": "#FFFFFF",
         "strokeWidth": 1.5,
         "cursor": "pointer"
       },
 
       "encoding": {
-
         "x": {
           "field": "alaUniqueTaxa",
           "type": "quantitative",
           "title": "Unique recorded bee taxa (ALA)",
-
           "scale": {
             "zero": false,
             "domain": [
@@ -69,7 +63,6 @@
               700
             ]
           },
-
           "axis": {
             "values": [
               100,
@@ -80,10 +73,8 @@
               600,
               700
             ],
-
-            "grid": true,
-            "labelFontSize": 12,
-            "titleFontSize": 12
+            "labelFont": "Inter",
+            "titleFont": "Inter"
           }
         },
 
@@ -91,14 +82,12 @@
           "field": "hives",
           "type": "quantitative",
           "title": "Managed hives (DAFF)",
-
           "scale": {
             "domain": [
               0,
               325000
             ]
           },
-
           "axis": {
             "values": [
               0,
@@ -109,12 +98,9 @@
               250000,
               300000
             ],
-
-            "labelExpr": "format(datum.value, ',')",
-
-            "grid": true,
-            "labelFontSize": 12,
-            "titleFontSize": 12
+            "format": ",",
+            "labelFont": "Inter",
+            "titleFont": "Inter"
           }
         },
 
@@ -122,27 +108,24 @@
           "field": "totalBeekeepers",
           "type": "quantitative",
           "title": "Total beekeepers",
-
           "scale": {
             "range": [
-              220,
-              1900
+              200,
+              1800
             ]
           },
-
           "legend": {
             "orient": "right",
-
+            "titleFont": "Inter",
+            "labelFont": "Inter",
+            "titleFontSize": 12,
+            "labelFontSize": 11,
             "values": [
               2000,
               4000,
               6000,
               8000
-            ],
-
-            "labelFontSize": 11,
-            "titleFontSize": 11,
-            "symbolOpacity": 0.75
+            ]
           }
         },
 
@@ -150,12 +133,30 @@
           "field": "state",
           "type": "nominal",
           "title": "State",
-
+          "scale": {
+            "domain": [
+              "New South Wales",
+              "Queensland",
+              "South Australia",
+              "Tasmania",
+              "Victoria",
+              "Western Australia"
+            ],
+            "range": [
+              "#4E79A7",
+              "#F28E2B",
+              "#E15759",
+              "#76B7B2",
+              "#59A14F",
+              "#EDC948"
+            ]
+          },
           "legend": {
             "orient": "right",
-            "labelFontSize": 11,
-            "titleFontSize": 11,
-            "symbolSize": 90
+            "titleFont": "Inter",
+            "labelFont": "Inter",
+            "titleFontSize": 12,
+            "labelFontSize": 11
           }
         },
 
@@ -164,52 +165,42 @@
             "param": "stateSelect",
             "value": 0.9
           },
-
           "value": 0.12
         },
 
         "tooltip": [
-
           {
             "field": "state",
             "type": "nominal",
             "title": "State"
           },
-
           {
             "field": "alaUniqueTaxa",
             "type": "quantitative",
             "title": "Unique recorded bee taxa",
             "format": ","
           },
-
           {
             "field": "hives",
             "type": "quantitative",
             "title": "Managed hives",
             "format": ","
           },
-
           {
             "field": "totalBeekeepers",
             "type": "quantitative",
             "title": "Registered beekeepers",
             "format": ","
           },
-
           {
             "field": "hivesPerBeekeeper",
             "type": "quantitative",
             "title": "Hives per beekeeper",
             "format": ".1f"
           }
-
         ]
-
       }
-
     },
-
 
     {
       "transform": [
@@ -221,41 +212,22 @@
       "mark": {
         "type": "point",
         "filled": false,
-        "size": 2400,
+        "size": 2300,
         "stroke": "#D6A51E",
         "strokeWidth": 3
       },
 
       "encoding": {
-
         "x": {
           "field": "alaUniqueTaxa",
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [
-              100,
-              700
-            ]
-          }
+          "type": "quantitative"
         },
-
         "y": {
           "field": "hives",
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [
-              0,
-              325000
-            ]
-          }
+          "type": "quantitative"
         }
-
       }
-
     },
-
 
     {
       "transform": [
@@ -266,7 +238,7 @@
 
       "mark": {
         "type": "text",
-        "dy": -31,
+        "dy": -32,
         "font": "Inter",
         "fontSize": 12,
         "fontWeight": "bold",
@@ -274,39 +246,19 @@
       },
 
       "encoding": {
-
         "x": {
           "field": "alaUniqueTaxa",
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [
-              100,
-              700
-            ]
-          }
+          "type": "quantitative"
         },
-
         "y": {
           "field": "hives",
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [
-              0,
-              325000
-            ]
-          }
+          "type": "quantitative"
         },
-
         "text": {
           "value": "Most managed hives"
         }
-
       }
-
     },
-
 
     {
       "transform": [
@@ -317,50 +269,121 @@
 
       "mark": {
         "type": "text",
-        "dy": -14,
+        "dy": -16,
         "font": "Inter",
         "fontSize": 11,
         "color": "#5A4526"
       },
 
       "encoding": {
-
         "x": {
           "field": "alaUniqueTaxa",
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [
-              100,
-              700
-            ]
-          }
+          "type": "quantitative"
         },
-
         "y": {
           "field": "hives",
-          "type": "quantitative",
-
-          "scale": {
-            "domain": [
-              0,
-              325000
-            ]
-          }
+          "type": "quantitative"
         },
-
         "text": {
           "value": "297,362 hives"
         }
-
       }
+    },
 
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'Queensland'"
+        }
+      ],
+
+      "mark": {
+        "type": "point",
+        "filled": false,
+        "size": 2300,
+        "stroke": "#D6A51E",
+        "strokeWidth": 3
+      },
+
+      "encoding": {
+        "x": {
+          "field": "alaUniqueTaxa",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hives",
+          "type": "quantitative"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'Queensland'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -15,
+        "dy": -12,
+        "font": "Inter",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#5A4526"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "alaUniqueTaxa",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hives",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Highest recorded diversity"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.state === 'Queensland'"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -15,
+        "dy": 4,
+        "font": "Inter",
+        "fontSize": 11,
+        "color": "#5A4526"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "alaUniqueTaxa",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "hives",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "651 taxa"
+        }
+      }
     }
-
   ],
 
   "config": {
-
     "view": {
       "stroke": null
     },
@@ -373,8 +396,7 @@
     "axis": {
       "labelFont": "Inter",
       "titleFont": "Inter",
-      "labelFontSize": 12,
-      "titleFontSize": 12
+      "gridColor": "#E5E5E5"
     },
 
     "legend": {
@@ -385,7 +407,5 @@
     "text": {
       "font": "Inter"
     }
-
   }
-
 }
