@@ -1133,3 +1133,91 @@ main {
   }
 
 }
+/* =========================================================
+   CUSTOM VEGA TOOLTIPS
+========================================================= */
+
+.vg-tooltip {
+  font-family: "Inter", sans-serif !important;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf6,
+      #fff7dc
+    ) !important;
+
+  color: #29271f !important;
+
+  border:
+    1px solid #e3ca77 !important;
+
+  border-left:
+    5px solid var(--honey-dark) !important;
+
+  border-radius:
+    10px !important;
+
+  padding:
+    10px 12px !important;
+
+  box-shadow:
+    0 10px 28px rgba(61, 45, 16, 0.18) !important;
+
+  font-size:
+    12px !important;
+
+  line-height:
+    1.45 !important;
+
+  max-width:
+    320px !important;
+}
+
+
+.vg-tooltip table {
+  border-spacing:
+    0 5px !important;
+}
+
+
+.vg-tooltip td {
+  padding:
+    2px 6px !important;
+
+  vertical-align:
+    top !important;
+}
+
+
+.vg-tooltip td.key {
+  color:
+    #766b5a !important;
+
+  font-weight:
+    500 !important;
+
+  padding-right:
+    16px !important;
+}
+
+
+.vg-tooltip td.value {
+  color:
+    #29271f !important;
+
+  font-weight:
+    700 !important;
+}
+
+
+.vg-tooltip tr:first-child td {
+  padding-top:
+    2px !important;
+}
+
+
+.vg-tooltip tr:last-child td {
+  padding-bottom:
+    2px !important;
+}
