@@ -39,8 +39,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
 
 
-  <!-- CSS -->
-
   <link
     rel="stylesheet"
     href="style.css"
@@ -52,9 +50,7 @@
 <body>
 
 
-  <!-- =====================================================
-       SCROLL PROGRESS
-  ====================================================== -->
+  <!-- SCROLL PROGRESS -->
 
   <div class="scroll-progress-track">
 
@@ -67,9 +63,7 @@
 
 
 
-  <!-- =====================================================
-       CHAPTER NAVIGATION
-  ====================================================== -->
+  <!-- CHAPTER NAV -->
 
   <nav
     class="chapter-nav"
@@ -80,7 +74,6 @@
       href="#chapter-1"
       class="chapter-dot active"
       data-label="Geographic patterns"
-      aria-label="Go to Chapter 1"
     >
       <span>01</span>
     </a>
@@ -90,7 +83,6 @@
       href="#chapter-2"
       class="chapter-dot"
       data-label="Seasonal patterns"
-      aria-label="Go to Chapter 2"
     >
       <span>02</span>
     </a>
@@ -100,7 +92,6 @@
       href="#chapter-3"
       class="chapter-dot"
       data-label="Bee family composition"
-      aria-label="Go to Chapter 3"
     >
       <span>03</span>
     </a>
@@ -110,7 +101,6 @@
       href="#chapter-4"
       class="chapter-dot"
       data-label="Managed beekeeping"
-      aria-label="Go to Chapter 4"
     >
       <span>04</span>
     </a>
@@ -119,9 +109,7 @@
 
 
 
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
+  <!-- HERO -->
 
   <header class="hero">
 
@@ -173,15 +161,13 @@
 
 
 
-      <!-- =================================================
-           VIS 1 + SIDE INSIGHT
-      ================================================== -->
+      <!-- VIS 1 + INSIGHT BESIDE -->
 
       <div class="vis-card">
 
-        <div class="map-insight-layout">
+        <div class="map-side-layout">
 
-          <div class="map-chart-panel">
+          <div class="map-main">
 
             <div
               id="vis1"
@@ -221,11 +207,9 @@
 
 
 
-      <!-- =================================================
-           VIS 2
-      ================================================== -->
+      <!-- VIS 2 -->
 
-      <div class="vis-card interactive-card full-chart-card">
+      <div class="vis-card">
 
         <div
           id="vis2"
@@ -242,15 +226,13 @@
 
 
 
-      <!-- =================================================
-           VIS 3 + SIDE INSIGHT
-      ================================================== -->
+      <!-- VIS 3 + INSIGHT BESIDE -->
 
       <div class="vis-card">
 
-        <div class="map-insight-layout">
+        <div class="map-side-layout">
 
-          <div class="map-chart-panel">
+          <div class="map-main">
 
             <div
               id="vis3"
@@ -317,10 +299,6 @@
 
 
 
-      <!-- =================================================
-           VIS 4 + VIS 7
-      ================================================== -->
-
       <div class="chart-grid">
 
 
@@ -360,15 +338,14 @@
 
         </div>
 
+
       </div>
 
 
 
-      <!-- =================================================
-           VIS 9
-      ================================================== -->
+      <!-- VIS 9 -->
 
-      <div class="vis-card full-chart-card">
+      <div class="vis-card">
 
         <div
           id="vis9"
@@ -383,7 +360,7 @@
 
         <div class="takeaway-strip">
 
-          <div class="takeaway-heading">
+          <div>
 
             <span class="takeaway-kicker">
               Seasonal pattern
@@ -442,15 +419,13 @@
 
 
 
-      <!-- =================================================
-           VIS 5 + SIDE INSIGHT
-      ================================================== -->
+      <!-- VIS 5 + SIDE INSIGHT -->
 
       <div class="vis-card">
 
         <div class="treemap-layout">
 
-          <div class="treemap-chart">
+          <div>
 
             <div
               id="vis5"
@@ -483,11 +458,9 @@
 
 
 
-      <!-- =================================================
-           VIS 10
-      ================================================== -->
+      <!-- VIS 10 -->
 
-      <div class="vis-card interactive-card full-chart-card">
+      <div class="vis-card">
 
         <div
           id="vis10"
@@ -503,7 +476,7 @@
 
         <div class="takeaway-strip">
 
-          <div class="takeaway-heading">
+          <div>
 
             <span class="takeaway-kicker">
               What the flows reveal
@@ -562,29 +535,27 @@
 
 
 
-      <!-- =================================================
-           VIS 11 + VIS 6
-      ================================================== -->
+      <!-- VIS 11 + VIS 6 -->
 
-      <div class="chapter4-comparison-grid">
+      <div class="chapter4-grid">
 
 
-        <div class="vis-card chapter4-small-card">
+        <div class="vis-card small-comparison-card">
 
           <div
             id="vis11"
-            class="visualisation scalable-visualisation">
+            class="visualisation scale-to-card">
           </div>
 
         </div>
 
 
 
-        <div class="vis-card chapter4-small-card">
+        <div class="vis-card small-comparison-card">
 
           <div
             id="vis6"
-            class="visualisation scalable-visualisation">
+            class="visualisation scale-to-card">
           </div>
 
         </div>
@@ -594,11 +565,9 @@
 
 
 
-      <!-- =================================================
-           VIS 8
-      ================================================== -->
+      <!-- VIS 8 -->
 
-      <div class="vis-card interactive-card full-chart-card">
+      <div class="vis-card">
 
         <div
           id="vis8"
@@ -614,7 +583,7 @@
 
         <div class="takeaway-strip">
 
-          <div class="takeaway-heading">
+          <div>
 
             <span class="takeaway-kicker">
               Why this matters
@@ -640,9 +609,7 @@
 
 
 
-    <!-- =====================================================
-         CONCLUSION
-    ====================================================== -->
+    <!-- CONCLUSION -->
 
     <section class="conclusion">
 
@@ -659,9 +626,7 @@
 
 
 
-    <!-- =====================================================
-         SOURCES
-    ====================================================== -->
+    <!-- SOURCES -->
 
     <section class="sources">
 
@@ -687,7 +652,6 @@
           <a
             href="https://biocache.ala.org.au/search"
             target="_blank"
-            rel="noopener noreferrer"
           >
             View ALA source
           </a>
@@ -710,7 +674,6 @@
           <a
             href="https://www.agriculture.gov.au/abares/forestsaustralia/sofr/criterion-2/indicator-2.1d"
             target="_blank"
-            rel="noopener noreferrer"
           >
             View DAFF source
           </a>
@@ -732,7 +695,6 @@
           <a
             href="https://github.com/tonywr71/GeoJson-Data"
             target="_blank"
-            rel="noopener noreferrer"
           >
             View boundary source
           </a>
@@ -784,10 +746,6 @@
 
 
 
-  <!-- =====================================================
-       VEGA EMBEDS
-  ====================================================== -->
-
   <script>
 
     const options = {
@@ -809,9 +767,7 @@
 
 
 
-    /* =====================================================
-       ACTIVE CHAPTER
-    ====================================================== */
+    /* ACTIVE CHAPTER */
 
     const chapterSections =
       document.querySelectorAll(".chapter-block");
@@ -821,7 +777,7 @@
       document.querySelectorAll(".chapter-dot");
 
 
-    const chapterObserver =
+    const observer =
       new IntersectionObserver(
 
         (entries) => {
@@ -835,14 +791,14 @@
               });
 
 
-              const activeLink =
+              const link =
                 document.querySelector(
                   `.chapter-dot[href="#${entry.target.id}"]`
                 );
 
 
-              if (activeLink) {
-                activeLink.classList.add("active");
+              if (link) {
+                link.classList.add("active");
               }
 
             }
@@ -863,53 +819,50 @@
 
 
     chapterSections.forEach((section) => {
-      chapterObserver.observe(section);
+      observer.observe(section);
     });
 
 
 
-    /* =====================================================
-       SCROLL PROGRESS
-    ====================================================== */
+    /* SCROLL PROGRESS */
 
-    const scrollProgress =
+    const progressBar =
       document.getElementById("scroll-progress");
 
 
-    function updateScrollProgress() {
+    function updateProgress() {
 
-      const top =
-        window.scrollY ||
-        document.documentElement.scrollTop;
+      const current =
+        window.scrollY;
 
 
-      const height =
+      const total =
         document.documentElement.scrollHeight -
         window.innerHeight;
 
 
-      const progress =
-        height > 0
-          ? (top / height) * 100
+      const percentage =
+        total > 0
+          ? (current / total) * 100
           : 0;
 
 
-      scrollProgress.style.width =
-        `${Math.min(progress, 100)}%`;
+      progressBar.style.width =
+        `${percentage}%`;
 
     }
 
 
     window.addEventListener(
       "scroll",
-      updateScrollProgress,
+      updateProgress,
       {
         passive: true
       }
     );
 
 
-    updateScrollProgress();
+    updateProgress();
 
   </script>
 
