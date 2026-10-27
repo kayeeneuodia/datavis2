@@ -28,82 +28,82 @@
     }
   },
 
-  "params": [
-    {
-      "name": "stateSelect",
-      "select": {
-        "type": "point",
-        "fields": [
-          "state"
+  "encoding": {
+    "x": {
+      "field": "alaUniqueTaxa",
+      "type": "quantitative",
+      "title": "Unique recorded bee taxa (ALA)",
+      "scale": {
+        "zero": false,
+        "domain": [
+          100,
+          700
         ]
       },
-      "bind": "legend"
+      "axis": {
+        "values": [
+          100,
+          200,
+          300,
+          400,
+          500,
+          600,
+          700
+        ],
+        "labelFont": "Inter",
+        "titleFont": "Inter"
+      }
+    },
+
+    "y": {
+      "field": "hives",
+      "type": "quantitative",
+      "title": "Managed hives (DAFF)",
+      "scale": {
+        "domain": [
+          0,
+          325000
+        ]
+      },
+      "axis": {
+        "values": [
+          0,
+          50000,
+          100000,
+          150000,
+          200000,
+          250000,
+          300000
+        ],
+        "format": ",",
+        "labelFont": "Inter",
+        "titleFont": "Inter"
+      }
     }
-  ],
+  },
 
   "layer": [
     {
+      "params": [
+        {
+          "name": "stateSelect",
+          "select": {
+            "type": "point",
+            "fields": [
+              "state"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
+
       "mark": {
         "type": "circle",
-        "opacity": 0.85,
         "stroke": "#FFFFFF",
-        "strokeWidth": 1.5,
-        "cursor": "pointer"
+        "strokeWidth": 1.5
       },
 
       "encoding": {
-        "x": {
-          "field": "alaUniqueTaxa",
-          "type": "quantitative",
-          "title": "Unique recorded bee taxa (ALA)",
-          "scale": {
-            "zero": false,
-            "domain": [
-              100,
-              700
-            ]
-          },
-          "axis": {
-            "values": [
-              100,
-              200,
-              300,
-              400,
-              500,
-              600,
-              700
-            ],
-            "labelFont": "Inter",
-            "titleFont": "Inter"
-          }
-        },
-
-        "y": {
-          "field": "hives",
-          "type": "quantitative",
-          "title": "Managed hives (DAFF)",
-          "scale": {
-            "domain": [
-              0,
-              325000
-            ]
-          },
-          "axis": {
-            "values": [
-              0,
-              50000,
-              100000,
-              150000,
-              200000,
-              250000,
-              300000
-            ],
-            "format": ",",
-            "labelFont": "Inter",
-            "titleFont": "Inter"
-          }
-        },
-
         "size": {
           "field": "totalBeekeepers",
           "type": "quantitative",
@@ -215,17 +215,6 @@
         "size": 2300,
         "stroke": "#D6A51E",
         "strokeWidth": 3
-      },
-
-      "encoding": {
-        "x": {
-          "field": "alaUniqueTaxa",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hives",
-          "type": "quantitative"
-        }
       }
     },
 
@@ -233,6 +222,10 @@
       "transform": [
         {
           "filter": "datum.state === 'New South Wales'"
+        },
+        {
+          "calculate": "'Most managed hives'",
+          "as": "annotation"
         }
       ],
 
@@ -246,16 +239,9 @@
       },
 
       "encoding": {
-        "x": {
-          "field": "alaUniqueTaxa",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hives",
-          "type": "quantitative"
-        },
         "text": {
-          "value": "Most managed hives"
+          "field": "annotation",
+          "type": "nominal"
         }
       }
     },
@@ -264,6 +250,10 @@
       "transform": [
         {
           "filter": "datum.state === 'New South Wales'"
+        },
+        {
+          "calculate": "'297,362 hives'",
+          "as": "annotation"
         }
       ],
 
@@ -276,16 +266,9 @@
       },
 
       "encoding": {
-        "x": {
-          "field": "alaUniqueTaxa",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hives",
-          "type": "quantitative"
-        },
         "text": {
-          "value": "297,362 hives"
+          "field": "annotation",
+          "type": "nominal"
         }
       }
     },
@@ -303,17 +286,6 @@
         "size": 2300,
         "stroke": "#D6A51E",
         "strokeWidth": 3
-      },
-
-      "encoding": {
-        "x": {
-          "field": "alaUniqueTaxa",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hives",
-          "type": "quantitative"
-        }
       }
     },
 
@@ -321,14 +293,18 @@
       "transform": [
         {
           "filter": "datum.state === 'Queensland'"
+        },
+        {
+          "calculate": "'Highest recorded diversity'",
+          "as": "annotation"
         }
       ],
 
       "mark": {
         "type": "text",
         "align": "right",
-        "dx": -15,
-        "dy": -12,
+        "dx": -16,
+        "dy": -13,
         "font": "Inter",
         "fontSize": 12,
         "fontWeight": "bold",
@@ -336,16 +312,9 @@
       },
 
       "encoding": {
-        "x": {
-          "field": "alaUniqueTaxa",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hives",
-          "type": "quantitative"
-        },
         "text": {
-          "value": "Highest recorded diversity"
+          "field": "annotation",
+          "type": "nominal"
         }
       }
     },
@@ -354,30 +323,27 @@
       "transform": [
         {
           "filter": "datum.state === 'Queensland'"
+        },
+        {
+          "calculate": "'651 taxa'",
+          "as": "annotation"
         }
       ],
 
       "mark": {
         "type": "text",
         "align": "right",
-        "dx": -15,
-        "dy": 4,
+        "dx": -16,
+        "dy": 3,
         "font": "Inter",
         "fontSize": 11,
         "color": "#5A4526"
       },
 
       "encoding": {
-        "x": {
-          "field": "alaUniqueTaxa",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "hives",
-          "type": "quantitative"
-        },
         "text": {
-          "value": "651 taxa"
+          "field": "annotation",
+          "type": "nominal"
         }
       }
     }
