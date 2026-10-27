@@ -5,6 +5,8 @@
     "text": "Where Have Bees Been Recorded in Australia?",
     "subtitle": "A sample of Atlas of Living Australia bee occurrence records",
     "anchor": "start",
+    "font": "Inter",
+    "subtitleFont": "Inter",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
@@ -18,9 +20,11 @@
   },
 
   "layer": [
+
     {
       "data": {
         "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
+
         "format": {
           "type": "json",
           "property": "features"
@@ -35,12 +39,14 @@
       }
     },
 
+
     {
       "data": {
         "url": "https://raw.githubusercontent.com/kayeeneuodia/datavis2/main/data/bee_map_points_sample.csv",
 
         "format": {
           "type": "csv",
+
           "parse": {
             "decimalLatitude": "number",
             "decimalLongitude": "number",
@@ -56,15 +62,31 @@
         }
       ],
 
+      "params": [
+        {
+          "name": "familySelect",
+
+          "select": {
+            "type": "point",
+            "fields": [
+              "family"
+            ]
+          },
+
+          "bind": "legend"
+        }
+      ],
+
       "mark": {
         "type": "circle",
-        "size": 48,
-        "opacity": 0.8,
+        "size": 52,
         "stroke": "#FFFFFF",
-        "strokeWidth": 0.4
+        "strokeWidth": 0.5,
+        "cursor": "pointer"
       },
 
       "encoding": {
+
         "longitude": {
           "field": "decimalLongitude",
           "type": "quantitative"
@@ -103,6 +125,8 @@
             "direction": "horizontal",
             "columns": 5,
             "title": "Bee family",
+            "titleFont": "Inter",
+            "labelFont": "Inter",
             "titleFontSize": 13,
             "labelFontSize": 12,
             "symbolSize": 120,
@@ -111,7 +135,17 @@
           }
         },
 
+        "opacity": {
+          "condition": {
+            "param": "familySelect",
+            "value": 0.9
+          },
+
+          "value": 0.1
+        },
+
         "tooltip": [
+
           {
             "field": "scientificName",
             "type": "nominal",
@@ -133,7 +167,7 @@
           {
             "field": "stateProvince",
             "type": "nominal",
-            "title": "State / Territory"
+            "title": "Recorded in"
           },
 
           {
@@ -142,14 +176,40 @@
             "title": "Year",
             "format": "d"
           }
+
         ]
+
       }
+
     }
+
   ],
 
   "config": {
+
     "view": {
       "stroke": null
+    },
+
+    "title": {
+      "font": "Inter",
+      "subtitleFont": "Inter"
+    },
+
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "text": {
+      "font": "Inter"
     }
+
   }
+
 }
