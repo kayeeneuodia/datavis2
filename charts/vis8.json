@@ -35,21 +35,10 @@
       "title": "Unique recorded bee taxa (ALA)",
       "scale": {
         "zero": false,
-        "domain": [
-          100,
-          700
-        ]
+        "domain": [100, 700]
       },
       "axis": {
-        "values": [
-          100,
-          200,
-          300,
-          400,
-          500,
-          600,
-          700
-        ],
+        "values": [100, 200, 300, 400, 500, 600, 700],
         "labelFont": "Inter",
         "titleFont": "Inter"
       }
@@ -60,21 +49,10 @@
       "type": "quantitative",
       "title": "Managed hives (DAFF)",
       "scale": {
-        "domain": [
-          0,
-          325000
-        ]
+        "domain": [0, 325000]
       },
       "axis": {
-        "values": [
-          0,
-          50000,
-          100000,
-          150000,
-          200000,
-          250000,
-          300000
-        ],
+        "values": [0, 50000, 100000, 150000, 200000, 250000, 300000],
         "labelExpr": "format(datum.value, ',')",
         "labelFont": "Inter",
         "titleFont": "Inter"
@@ -89,9 +67,7 @@
           "name": "stateSelect",
           "select": {
             "type": "point",
-            "fields": [
-              "state"
-            ]
+            "fields": ["state"]
           },
           "bind": "legend"
         }
@@ -100,7 +76,8 @@
       "mark": {
         "type": "circle",
         "stroke": "#FFFFFF",
-        "strokeWidth": 1.5
+        "strokeWidth": 1.5,
+        "cursor": "pointer"
       },
 
       "encoding": {
@@ -109,10 +86,7 @@
           "type": "quantitative",
           "title": "Total beekeepers",
           "scale": {
-            "range": [
-              200,
-              1800
-            ]
+            "range": [200, 1800]
           },
           "legend": {
             "orient": "right",
@@ -120,13 +94,8 @@
             "labelFont": "Inter",
             "titleFontSize": 12,
             "labelFontSize": 11,
-            "values": [
-              2000,
-              4000,
-              6000,
-              8000
-            ],
-            "format": ","
+            "values": [2000, 4000, 6000, 8000],
+            "labelExpr": "format(datum.value, ',')"
           }
         },
 
