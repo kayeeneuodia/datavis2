@@ -13,7 +13,7 @@
   <title>Bees as Pollinators in Australia</title>
 
 
-  <!-- Typography -->
+  <!-- TYPOGRAPHY -->
 
   <link
     rel="preconnect"
@@ -32,7 +32,7 @@
   >
 
 
-  <!-- Vega -->
+  <!-- VEGA -->
 
   <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
@@ -57,10 +57,12 @@
   ====================================================== -->
 
   <div class="scroll-progress-track">
+
     <div
       id="scroll-progress"
       class="scroll-progress">
     </div>
+
   </div>
 
 
@@ -74,85 +76,44 @@
     aria-label="Chapter navigation"
   >
 
-
-    <div class="chapter-nav-item">
-
-      <a
-        href="#chapter-1"
-        class="chapter-dot active"
-        aria-label="Go to Chapter 1"
-      >
-        <span class="chapter-index">
-          01
-        </span>
-      </a>
-
-      <span class="chapter-hover-label">
-        Where are Australia's bees?
-      </span>
-
-    </div>
+    <a
+      href="#chapter-1"
+      class="chapter-dot active"
+      data-label="Where are Australia's bees?"
+      aria-label="Go to Chapter 1"
+    >
+      <span>01</span>
+    </a>
 
 
-
-    <div class="chapter-nav-item">
-
-      <a
-        href="#chapter-2"
-        class="chapter-dot"
-        aria-label="Go to Chapter 2"
-      >
-        <span class="chapter-index">
-          02
-        </span>
-      </a>
-
-      <span class="chapter-hover-label">
-        Seasonal bee activity
-      </span>
-
-    </div>
+    <a
+      href="#chapter-2"
+      class="chapter-dot"
+      data-label="Seasonal bee activity"
+      aria-label="Go to Chapter 2"
+    >
+      <span>02</span>
+    </a>
 
 
-
-    <div class="chapter-nav-item">
-
-      <a
-        href="#chapter-3"
-        class="chapter-dot"
-        aria-label="Go to Chapter 3"
-      >
-        <span class="chapter-index">
-          03
-        </span>
-      </a>
-
-      <span class="chapter-hover-label">
-        Bee family composition
-      </span>
-
-    </div>
+    <a
+      href="#chapter-3"
+      class="chapter-dot"
+      data-label="Bee family composition"
+      aria-label="Go to Chapter 3"
+    >
+      <span>03</span>
+    </a>
 
 
-
-    <div class="chapter-nav-item">
-
-      <a
-        href="#chapter-4"
-        class="chapter-dot"
-        aria-label="Go to Chapter 4"
-      >
-        <span class="chapter-index">
-          04
-        </span>
-      </a>
-
-      <span class="chapter-hover-label">
-        Managed beekeeping
-      </span>
-
-    </div>
-
+    <a
+      href="#chapter-4"
+      class="chapter-dot"
+      data-label="Managed beekeeping"
+      aria-label="Go to Chapter 4"
+    >
+      <span>04</span>
+    </a>
 
   </nav>
 
@@ -196,6 +157,7 @@
           01
         </div>
 
+
         <div>
 
           <h2>
@@ -220,21 +182,14 @@
 
         <div
           id="vis1"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
 
         <p class="note">
-          Values are standardised by recording volume.
-          <br>
-          They are not adjusted for population size.
-          <br>
-          Occurrence records also reflect recording effort.
-          <br>
-          Taxa means distinct bee classifications recorded in ALA.
-          <br>
-          Recording effort means observation and collection activity.
+          <strong>Data note:</strong>
+          Values are standardised by recording volume and reflect
+          observation effort rather than bee population size.
         </p>
 
 
@@ -245,11 +200,8 @@
           </strong>
 
           <p>
-            The ACT shows the highest recorded diversity.
-            <br>
-            That result is relative to recording effort.
-            <br>
-            Western Australia and Tasmania also show high richness.
+            ACT has the highest recorded diversity relative to recording effort,
+            while Western Australia and Tasmania also show relatively high richness.
           </p>
 
         </div>
@@ -264,19 +216,13 @@
 
         <div
           id="vis2"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
 
         <p class="interaction-hint">
-
-          <strong>
-            Interactive:
-          </strong>
-
+          <strong>Interactive:</strong>
           Click a bee family in the legend to focus the map.
-
         </p>
 
       </div>
@@ -289,8 +235,7 @@
 
         <div
           id="vis3"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
 
@@ -301,11 +246,8 @@
           </strong>
 
           <p>
-            Bee records cluster along Australia's coastal regions.
-            <br>
-            The south-east shows particularly strong recording activity.
-            <br>
-            These patterns also reflect recording effort.
+            Bee records cluster around coastal Australia,
+            with particularly strong recording activity in the south-east.
           </p>
 
         </div>
@@ -331,6 +273,7 @@
           02
         </div>
 
+
         <div>
 
           <h2>
@@ -354,8 +297,6 @@
       <div class="chart-grid">
 
 
-        <!-- VIS 4 -->
-
         <div class="vis-card">
 
           <h3 class="chart-title">
@@ -364,21 +305,17 @@
 
           <p class="chart-subtitle">
             Darker cells show more records.
-            <br>
             Circles mark each family's peak.
           </p>
 
           <div
             id="vis4"
-            class="visualisation"
-          >
+            class="visualisation">
           </div>
 
         </div>
 
 
-
-        <!-- VIS 7 -->
 
         <div class="vis-card">
 
@@ -388,14 +325,12 @@
 
           <p class="chart-subtitle">
             Boxes show the middle 50% of months.
-            <br>
             Dots show individual months.
           </p>
 
           <div
             id="vis7"
-            class="visualisation"
-          >
+            class="visualisation">
           </div>
 
         </div>
@@ -410,14 +345,11 @@
 
         <div
           id="vis9"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
         <p class="note">
-          Each family uses its own vertical scale.
-          <br>
-          This highlights its seasonal pattern.
+          Each family uses its own vertical scale to emphasise its seasonal pattern.
         </p>
 
       </div>
@@ -431,11 +363,8 @@
         </strong>
 
         <p>
-          Apidae and Colletidae peak in November.
-          <br>
-          Halictidae reaches its peak in October.
-          <br>
-          Megachilidae differs, peaking in January.
+          Apidae and Colletidae peak in November,
+          Halictidae in October, and Megachilidae in January.
         </p>
 
       </div>
@@ -458,6 +387,7 @@
         <div class="chapter-number">
           03
         </div>
+
 
         <div>
 
@@ -483,8 +413,7 @@
 
         <div
           id="vis5"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
 
@@ -495,11 +424,8 @@
           </strong>
 
           <p>
-            Apidae contributes the largest share of records at 35.5%.
-            <br>
-            Colletidae, however, contains more unique recorded taxa.
-            <br>
-            Record volume and taxonomic richness are therefore different.
+            Apidae has the largest share of records at 35.5%,
+            while Colletidae contains more unique recorded taxa.
           </p>
 
         </div>
@@ -514,22 +440,17 @@
 
         <div
           id="vis10"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
 
         <p class="interaction-hint">
-
-          <strong>
-            Interactive:
-          </strong>
-
-          Hover over a flow to compare its state, family and record count.
-
+          <strong>Interactive:</strong>
+          Hover over a flow to compare state, family and record count.
         </p>
 
       </div>
+
 
 
       <div class="insight-box">
@@ -539,9 +460,8 @@
         </strong>
 
         <p>
-          The major bee families occur across multiple states.
-          <br>
-          Their relative contribution changes geographically.
+          Major bee families occur across multiple states,
+          but their relative contribution changes geographically.
         </p>
 
       </div>
@@ -565,17 +485,15 @@
           04
         </div>
 
+
         <div>
 
           <h2>
-            How does recorded bee diversity compare
-            <br>
-            with managed beekeeping?
+            How does recorded bee diversity compare with managed beekeeping?
           </h2>
 
           <p>
             Recorded bee diversity and managed hive activity differ.
-            <br>
             High diversity does not always mean more hives.
           </p>
 
@@ -591,8 +509,7 @@
 
         <div
           id="vis11"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
       </div>
@@ -605,8 +522,7 @@
 
         <div
           id="vis6"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
       </div>
@@ -619,19 +535,13 @@
 
         <div
           id="vis8"
-          class="visualisation"
-        >
+          class="visualisation">
         </div>
 
 
         <p class="interaction-hint">
-
-          <strong>
-            Interactive:
-          </strong>
-
+          <strong>Interactive:</strong>
           Click a state in the legend to focus the comparison.
-
         </p>
 
       </div>
@@ -645,11 +555,8 @@
         </strong>
 
         <p>
-          New South Wales has the most managed hives.
-          <br>
-          Queensland records more unique bee taxa overall.
-          <br>
-          Higher recorded diversity does not imply more managed hives.
+          New South Wales has the most managed hives,
+          while Queensland records more unique bee taxa overall.
         </p>
 
       </div>
@@ -670,12 +577,8 @@
 
       <p>
         Bee records vary across geography and seasons.
-        <br>
-        Queensland records the most unique bee taxa overall.
-        <br>
-        New South Wales has the most managed hives.
-        <br>
-        Occurrence records differ from managed beekeeping activity.
+        Queensland records the most unique bee taxa overall,
+        while New South Wales has the most managed hives.
       </p>
 
     </section>
@@ -764,10 +667,6 @@
 
         <br>
 
-        Accessed October 2026.
-
-        <br>
-
         Source:
 
         <a
@@ -782,46 +681,21 @@
 
 
       <p>
-
-        <strong>
-          Data note
-        </strong>
-
-        <br>
-
-        ALA records reflect observation and collection effort.
-
-        <br>
-
-        They are not bee population estimates.
-
+        <strong>Data note:</strong>
+        ALA records reflect observation and collection effort,
+        not bee population estimates.
       </p>
 
 
       <p>
-
-        <strong>
-          Author:
-        </strong>
-
+        <strong>Author:</strong>
         Kayeen Euodia Wijaya
-
         <br>
-
-        <strong>
-          Unit:
-        </strong>
-
+        <strong>Unit:</strong>
         FIT3179 Data Visualisation
-
         <br>
-
-        <strong>
-          Date:
-        </strong>
-
+        <strong>Date:</strong>
         October 2026
-
       </p>
 
     </section>
@@ -832,7 +706,7 @@
 
 
   <!-- =====================================================
-       VEGA EMBEDS
+       VEGA
   ====================================================== -->
 
   <script>
@@ -842,91 +716,26 @@
     };
 
 
-    vegaEmbed(
-      "#vis1",
-      "charts/vis1.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis2",
-      "charts/vis2.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis3",
-      "charts/vis3.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis4",
-      "charts/vis4.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis5",
-      "charts/vis5.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis6",
-      "charts/vis6.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis7",
-      "charts/vis7.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis8",
-      "charts/vis8.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis9",
-      "charts/vis9.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis10",
-      "charts/vis10.json",
-      options
-    );
-
-
-    vegaEmbed(
-      "#vis11",
-      "charts/vis11.json",
-      options
-    );
+    vegaEmbed("#vis1", "charts/vis1.json", options);
+    vegaEmbed("#vis2", "charts/vis2.json", options);
+    vegaEmbed("#vis3", "charts/vis3.json", options);
+    vegaEmbed("#vis4", "charts/vis4.json", options);
+    vegaEmbed("#vis5", "charts/vis5.json", options);
+    vegaEmbed("#vis6", "charts/vis6.json", options);
+    vegaEmbed("#vis7", "charts/vis7.json", options);
+    vegaEmbed("#vis8", "charts/vis8.json", options);
+    vegaEmbed("#vis9", "charts/vis9.json", options);
+    vegaEmbed("#vis10", "charts/vis10.json", options);
+    vegaEmbed("#vis11", "charts/vis11.json", options);
 
 
 
     /* =====================================================
-       CHAPTER NAVIGATION
+       CHAPTER ACTIVE STATE
     ====================================================== */
 
     const chapterSections =
       document.querySelectorAll(".chapter-block");
-
 
     const chapterLinks =
       document.querySelectorAll(".chapter-dot");
@@ -934,7 +743,6 @@
 
     const chapterObserver =
       new IntersectionObserver(
-
         (entries) => {
 
           entries.forEach((entry) => {
@@ -963,8 +771,7 @@
         },
 
         {
-          root: null,
-          rootMargin: "-30% 0px -55% 0px",
+          rootMargin: "-35% 0px -50% 0px",
           threshold: 0
         }
 
@@ -987,19 +794,19 @@
 
     function updateScrollProgress() {
 
-      const scrollTop =
+      const top =
         window.scrollY ||
         document.documentElement.scrollTop;
 
 
-      const scrollableHeight =
+      const height =
         document.documentElement.scrollHeight -
         window.innerHeight;
 
 
       const progress =
-        scrollableHeight > 0
-          ? (scrollTop / scrollableHeight) * 100
+        height > 0
+          ? (top / height) * 100
           : 0;
 
 
@@ -1019,7 +826,6 @@
 
 
     updateScrollProgress();
-
 
   </script>
 
