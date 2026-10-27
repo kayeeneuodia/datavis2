@@ -5,6 +5,8 @@
     "text": "Where Are Bee Records Concentrated?",
     "subtitle": "Larger and darker circles show areas with more recorded bee occurrences",
     "anchor": "start",
+    "font": "Inter",
+    "subtitleFont": "Inter",
     "fontSize": 20,
     "subtitleFontSize": 13,
     "subtitleColor": "#666"
@@ -14,13 +16,14 @@
   "height": 520,
 
   "projection": {
-    "type": "equalEarth"
+    "type": "mercator"
   },
 
   "layer": [
     {
       "data": {
         "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
+
         "format": {
           "type": "json",
           "property": "features"
@@ -29,7 +32,7 @@
 
       "mark": {
         "type": "geoshape",
-        "fill": "#ECE8DE",
+        "fill": "#F0EDE5",
         "stroke": "#FFFFFF",
         "strokeWidth": 1.2
       }
@@ -55,7 +58,6 @@
         {
           "filter": "isValid(datum.latitudeCenter) && isValid(datum.longitudeCenter) && datum.records > 0"
         },
-
         {
           "calculate": "datum.records",
           "as": "recordsForSize"
@@ -87,38 +89,39 @@
 
           "scale": {
             "type": "sqrt",
-            "range": [20, 1800]
+            "range": [
+              20,
+              1800
+            ]
           },
 
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
             "title": "Occurrence records",
-            "titleFontSize": 12,
-            "titleFontWeight": "bold",
-            "labelFontSize": 11,
-            "symbolStrokeColor": "#777",
-            "symbolFillColor": "#F2C94C",
-            "symbolOpacity": 0.75,
             "values": [
               100,
               1000,
               3000,
               6000
             ],
-            "offset": 16
+            "titleFont": "Inter",
+            "labelFont": "Inter",
+            "titleFontSize": 12,
+            "labelFontSize": 11,
+            "symbolFillColor": "#E67E22",
+            "symbolStrokeColor": "#FFFFFF"
           }
         },
 
         "color": {
           "field": "records",
           "type": "quantitative",
+          "legend": null,
 
           "scale": {
             "scheme": "yelloworangered"
-          },
-
-          "legend": null
+          }
         },
 
         "tooltip": [
@@ -128,7 +131,6 @@
             "title": "Occurrence records",
             "format": ","
           },
-
           {
             "field": "uniqueSpecies",
             "type": "quantitative",
@@ -145,9 +147,23 @@
       "stroke": null
     },
 
+    "title": {
+      "font": "Inter",
+      "subtitleFont": "Inter"
+    },
+
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
     "legend": {
-      "labelFontSize": 11,
-      "titleFontSize": 12
+      "labelFont": "Inter",
+      "titleFont": "Inter"
+    },
+
+    "text": {
+      "font": "Inter"
     }
   }
 }
